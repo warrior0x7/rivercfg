@@ -1,0 +1,78 @@
+#!/bin/bash
+
+# ----------------------------
+# PACKAGE MANAGER
+# ----------------------------
+alias q='pacman -Ss'
+alias u='sudo pacman -Syu'
+alias i='sudo pacman -Sy'
+alias r='sudo pacman -R'
+
+
+# ----------------------------
+# TOOLS / UTILITIES
+# ----------------------------
+alias mki='make && sudo make install'
+alias grep='grep --color=always -i'
+alias ll='eza -lah --icons=always --group-directories-first'
+alias v='nvim'
+alias dv='sudo nvim -u ~/.config/nvim/init.lua'
+alias ugrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias ytd='yt-dlp -f "bestvideo[ext=mp4][vcodec^=avc][height<=720]+bestaudio/best[height<=720]"'
+alias sbrc="source ~/.bashrc"
+alias rm="trash"
+alias tl="trash-list"
+alias tr="trash-restore"
+alias ginterrupts="grep . --color=never -r /sys/firmware/acpi/interrupts"
+
+# ----------------------------
+# GIT
+# ----------------------------
+
+function bare () { /usr/bin/git --git-dir=/home/user/git/rivercfg/ --work-tree=$HOME "$@";}
+
+function git_options () {
+    case $2 in
+        a) $1 add "${@:3}" ;;
+        u) $1 add -u "${@:3}" ;;
+        c) $1 commit "${@:3}" ;;
+        p) $1 push -u origin main "${@:3}" ;;
+        s) $1 status "${@:3}" ;;
+        l) $1 log "${@:3}" ;;
+        lu) $1 ls-files --others "${@:3}" ;;
+        pull) $1 pull origin main --allow-unrelated-histories "${@:3}" ;;
+        ds) $1 diff --staged "${@:3}" ;;
+        d) $1 diff "${@:3}" ;;
+        r) $1 rm "${@:3}" ;;
+        rc) $1 rm --cached "${@:3}" ;;
+        ra) $1 remote add origin "${@:3}" ;;
+        rs) $1 remote set-url origin "${@:3}" ;;
+        stop) $1 update-index --skip-worktree "${@:3}" ;;
+        *)
+            case $1 in
+                git)
+                    case $2 in
+                        i) git init "${@:3}" ;;
+                    esac
+                    ;;
+
+                bare)
+                    case $2 in
+                        setup) 
+                            git init --bare "$3"
+                            sed -i 's|^function bare ().*$|function bare () { /usr/bin/git --git-dir='$3' --work-tree=$HOME "$@";}|g' ~/bash/aliases
+                            source ~/.bashrc
+                            bare config --local status.showUntrackedFiles no
+                            ;;
+                    esac
+                    ;;
+            esac
+    esac
+}
+
+function b () { git_options bare "$@"; }
+function g () { git_options git "$@"; }
+
+export PATH="$PATH:$HOME/.scripts:$HOME/go/bin"
+export MANPAGER="nvim +Man!"
+export EDITOR="nvim"
