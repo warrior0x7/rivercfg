@@ -22,8 +22,8 @@ Dotfiles of river with my user-scripts + functions inside river `init` file to e
 * [Script manager](.scripts/sman) with configuration in [text format](.scripts/data/sman.list)
 * Launch firefox profiles with [browser](.scripts/browser)
 
-|Information|
--------------------
+||
+|-|-|
 | OS             | [Arch Linux](https://archlinux.org) |
 | Window Manager | [River](https://codeberg.org/river/river) |
 | Bar            | [EWW](https://github.com/elkowar/eww) |
