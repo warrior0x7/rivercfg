@@ -7,3 +7,13 @@
 	rebase = false
 [init]
 	defaultBranch = main
+[difftool]
+	prompt = false
+[diff]
+	tool = nvimdiff
+    trustExitCode = true
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$REMOTE\" \"$LOCAL\""
+[color "diff"]
+    old = black red
+    new = black green

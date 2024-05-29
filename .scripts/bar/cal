@@ -1,0 +1,129 @@
+#!/bin/bash
+
+[ ! -d ~/.cache/boatcfg/eww/ ] && mkdir -p ~/.cache/boatcfg/eww/
+[ ! -f ~/.cache/boatcfg/eww/cal_pos ] && printf "%01d" "0" > ~/.cache/boatcfg/eww/cal_pos
+
+case $1 in
+    next)
+        cal_pos=`cat ~/.cache/boatcfg/eww/cal_pos`
+        month=`date +"%m"`
+        if [ $cal_pos -ge 0 ]; then
+            month=$(( month + $cal_pos ))
+        else
+            month=$(( month $cal_pos ))
+        fi
+
+        if [ $month -le 11 ]; then
+            printf "%01d" $(( cal_pos + 1 )) > ~/.cache/boatcfg/eww/cal_pos
+        fi
+        
+        ~/.scripts/bar/cal check
+        json=`~/.scripts/bar/cal query`
+        eww update month="$json"
+        monthName=`~/.scripts/bar/cal month`
+        eww update month_name="$monthName"
+        ;;
+
+    prev)
+        cal_pos=`cat ~/.cache/boatcfg/eww/cal_pos`
+        month=`date +"%m"`
+        if [ $cal_pos -ge 0 ]; then
+            month=$(( month + $cal_pos ))
+        else
+            month=$(( month $cal_pos ))
+        fi
+
+        if [ $month -ge 2 ]; then
+            printf "%01d" $(( cal_pos - 1 )) > ~/.cache/boatcfg/eww/cal_pos
+        fi
+
+        ~/.scripts/bar/cal check
+        json=`~/.scripts/bar/cal query`
+        eww update month="$json"
+        monthName=`~/.scripts/bar/cal month`
+        eww update month_name="$monthName"
+        ;;
+
+    reset)
+        printf "%01d" "0" > ~/.cache/boatcfg/eww/cal_pos
+        
+        ~/.scripts/bar/cal check
+        json=`~/.scripts/bar/cal query`
+        eww update month="$json"
+        monthName=`~/.scripts/bar/cal month`
+        eww update month_name="$monthName"
+        ;;
+
+    month)
+        month=`date +"%m"`
+        year=`date +"%Y"`
+        cal_pos=`cat ~/.cache/boatcfg/eww/cal_pos`
+        if [ $cal_pos -ge 0 ]; then
+            month=$(( month + $cal_pos ))
+        else
+            month=$(( month $cal_pos ))
+        fi
+        monthName=`date -d "${year}-${month}-01" +"%B"`
+        printf "%s %04d\n" "$monthName" "$year"
+        ;;
+
+    check)
+        current_month=`date +"%B %Y"`
+        month=`~/.scripts/bar/cal month`
+        if [[ "$month" == "$current_month" ]]; then
+            eww update check_month="true"
+        else
+            eww update check_month="false"
+        fi
+        ;;
+
+    query)
+        weekdays=("Sat" "Sun" "Mon" "Tue" "Wed" "Thu" "Fri")
+        month=`date +"%m"`
+        cal_pos=`cat ~/.cache/boatcfg/eww/cal_pos`
+        if [ $cal_pos -ge 0 ]; then
+            month=$(( month + $cal_pos ))
+        else
+            month=$(( month ${cal_pos} ))
+        fi
+        year=`date +"%Y"`
+        days=`date -d "$month/1 + 1 month - 1 day" +"%d"`
+        day_list=`seq 1 $days`
+        monthName=`date -d "${year}-${month}-01" +"%B"`
+        json=`jq --null-input "."`
+
+        firstDay=`date -d "${year}-${month}-01" +"%a"`
+        first_day_order=`echo ${weekdays[@]} |\
+                    sed 's/\s/\n/g' |\
+                    grep --color=never -n "$firstDay" |\
+                    awk -F ':' '{print $1}'`
+        order="$first_day_order"
+        while [ $order -gt 1 ]; do
+            json=`echo $json | jq ".${weekdays[$order-2]}+=[\"\"]"`
+            order=$(( order - 1 ))
+        done
+
+        for day in ${day_list[@]}; do
+            dayName=`date -u -d "${year}-${month}-${day}" +"%a"`
+            json=`echo $json | jq ".$dayName+=[$day]"`
+            if [[ "$day" == "$days" ]]; then
+                lastDay="$dayName"
+            fi
+        done
+
+        last_day_order=`echo ${weekdays[@]} |\
+                    sed 's/\s/\n/g' |\
+                    grep --color=never -n "$lastDay" |\
+                    awk -F ':' '{print $1}'`
+
+        order="$(( last_day_order + 1))"
+        while [ $order -le 7 ]; do
+            json=`echo $json | jq ".${weekdays[$order-1]}+=[\"\"]"`
+            order=$(( order + 1 ))
+        done
+
+        echo $json
+        ;;
+    *)
+        ;;
+esac

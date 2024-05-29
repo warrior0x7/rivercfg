@@ -1,0 +1,62 @@
+#!/bin/bash
+
+source ~/.scripts/extra/cmdfns
+
+DATA=~/.cache/dotfiles/shotcopy
+
+[ ! -f $DATA ] && mkdir -p $DATA
+
+function move () {
+    case $1 in
+        shot)
+            mv $DATA/screenshot.png ~/Pictures/"$3".png
+            case $2 in
+                name) msg="Saved as" ;;
+                noname) msg="Used date because no name was provided" ;;
+            esac
+
+            notifier normal \
+                "folder-pictures" \
+                "Shotcopy: Screenshot ($4)" \
+                "$msg" \
+                "<b>~/Pictures/$3.png</b>"
+            ;;
+        video)
+            mv $DATA/recording.mp4 ~/Videos/"$3".mp4
+            case $2 in
+                name) msg="Saved as" ;;
+                noname) msg="Used date because no name was provided" ;;
+            esac
+            
+            notifier normal \
+                "folder-video" \
+                "Shotcopy: Recorder ($4)" \
+                "$msg" \
+                "<b>~/Videos/$3.mp4</b>"
+            ;;
+    esac
+}
+
+case $1 in
+    shot)
+        name=`fzfprompt "Name"`
+        if [ -n "$name" ]; then
+            move shot name "$name" "$2"
+        else
+            name=`date +'%Y%m%d-%H%M%S%p-screenshot-'$2''`
+            move shot noname "$name" "$2"
+        fi
+        ;;
+    video)
+        name=`fzfprompt "Name"`
+        if [ -n "$name" ]; then
+            recType=`cat $DATA/recorder.lock`
+            move video name "$name" "$recType"
+        else
+            recType=`cat $DATA/recorder.lock`
+            name=`date +'%Y%m%d-%H%M%S%p-video-'$recType''`
+            move video noname "$name" "$recType"
+        fi
+        rm $DATA/recorder.lock
+        ;;
+esac

@@ -1,0 +1,1245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?playlist_id=UUxQKHvKbmSzGMvUrVtJYnUA"/>
+ <id>yt:playlist:UUxQKHvKbmSzGMvUrVtJYnUA</id>
+ <yt:playlistId>UUxQKHvKbmSzGMvUrVtJYnUA</yt:playlistId>
+ <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+ <title>Uploads from Learn Linux TV</title>
+ <author>
+  <name>Learn Linux TV</name>
+  <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+ </author>
+ <published>2020-02-23T08:00:00+00:00</published>
+ <entry>
+  <id>yt:video:pln-tglFxwg</id>
+  <yt:videoId>pln-tglFxwg</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>How to Deploy Ubuntu Server 24.04 LTS: Step-by-Step Installation Overview</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=pln-tglFxwg"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-05-27T20:11:02+00:00</published>
+  <updated>2024-05-29T07:47:47+00:00</updated>
+  <media:group>
+   <media:title>How to Deploy Ubuntu Server 24.04 LTS: Step-by-Step Installation Overview</media:title>
+   <media:content url="https://www.youtube.com/v/pln-tglFxwg?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/pln-tglFxwg/hqdefault.jpg" width="480" height="360"/>
+   <media:description>With Ubuntu Server 24.04 LTS, Canonical brings the latest generation of Ubuntu to the masses, with a brand-new Linux kernel and an updated software stack. In this video, Jay will give you an overview of the installation process.
+
+*Brand LPI Linux Essentials Course Available*
+Check out the new course on Udemy! ➜ https://learnlinux.link/lpi-course
+ ➜ https://learnlinux.link/lpi-course
+
+*5% discount on LPI exam vouchers*
+After you finish Jay's new course, get 5% off an LPI exam voucher here:
+ ➜ https://learnlinux.link/lpi-voucher
+
+*Check out the Linux Shop*
+In the official shop, you'll find Shirts, hats, stickers, bags and more!
+ ➜ https://merch.learnlinux.tv
+
+*Become a Patron*
+Show your support for Learn Linux TV on Patreon and get access to exclusive perks!
+ ➜ https://learnlinux.link/patron
+
+*Become a Channel Member*
+Show your support for Learn Linux TV here on YouTube and get access to exclusive perks!
+ ➜ https://learnlinux.link/member
+
+*Mastering Ubuntu Server: 4th Edition*
+Jay's latest book covers everything you need to know in order to master Ubuntu Server. It's available here:
+ ➜ https://ubuntuserverbook.com
+
+*Linux Gear and Kits*
+Check out Jay's choice of hardware products, audio/video equipment, and more.
+ ➜ https://learnlinux.link/amazon
+
+*Grab an awesome Pi-powered KVM*
+Support Learn Linux TV and grab yourself a TinyPilot KVM here:
+ ➜ https://learnlinux.link/tinypilot
+
+_Note: Royalties and/or commission is earned from each of the above links_
+
+*Time Codes*
+00:00 - Intro
+00:48 - Shirt ad
+01:20 - Downloading Ubuntu Server
+03:11 - Starting the Installation
+07:09 - Ubuntu Server 24.04 Installer
+
+*Full Courses from Learn Linux TV*
+ • Linux Essentials Certification Workshop ➜ https://learnlinux.link/lpi-course
+ • Linux Crash Course series ➜ https://linux.video/cc
+ • Learn how to use tmux ➜ https://linux.video/tmux
+ • Learn how to use vim ➜ https://linux.video/vim
+ • Bash Scripting Series ➜ https://linux.video/bash
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve
+ • Learn Ansible ➜ https://linux.video/ansible
+
+*Learn Linux TV on the Web*
+ • Main site ➜ https://www.learnlinux.tv
+ • Community ➜ https://community.learnlinux.tv
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show
+ • The Homelab Show Podcast ➜ https://thehomelab.show
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance
+
+*Disclaimer*
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.
+
+#CloudComputing #DevOps #Linux</media:description>
+   <media:community>
+    <media:starRating count="477" average="5.00" min="1" max="5"/>
+    <media:statistics views="7283"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:G7KvD1JJsEY</id>
+  <yt:videoId>G7KvD1JJsEY</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>Enterprise Linux Security Episode 90 - Dude, Where's My Cloud? (Live Version)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=G7KvD1JJsEY"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-05-23T05:35:35+00:00</published>
+  <updated>2024-05-23T06:03:58+00:00</updated>
+  <media:group>
+   <media:title>Enterprise Linux Security Episode 90 - Dude, Where's My Cloud? (Live Version)</media:title>
+   <media:content url="https://www.youtube.com/v/G7KvD1JJsEY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/G7KvD1JJsEY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this episode, Jay and Joao talk about a story that's every cloud administrator's worst nightmare - your entire environment, backups, everything - gone. That's exactly what happened to UniSuper, a customer of Google Cloud. In this cautionary tale, we'll explore the case of the missing cloud.
+
+Thanks to TuxCare for sponsoring the Enterprise Linux Security podcast. Check out their awesome services to see how they can simplify Linux administration! ➜ https://learnlinux.link/tuxcare
+
+*Relevant Links*
+ • Unprecedented Google Cloud event wipes out customer account and its backups ➜ https://learnlinux.link/unisuper-article-1
+ •A joint statement from UniSuper CEO Peter Chun, and Google Cloud CEO, Thomas Kurian ➜ https://learnlinux.link/unisuper-article-2
+
+*Brand LPI Linux Essentials Course Available*
+Check out the new course on Udemy, and learn Linux while studying for your Linux Essentials certification! ➜ https://learnlinux.link/lpi-course
+
+*Check out the LLTV Shop!*
+Shirts, bags, cups and much more! ➜ https://merch.learnlinux.tv
+
+*Support the Channel*
+Show your support for Learn Linux TV and get access to exclusive perks!
+ • Become a Channel Member ➜ https://learnlinux.link/member
+ • Become a Patron ➜ https://learnlinux.link/patron
+
+*Official Stores and Merchandise*
+ • Linux Merch ➜ https://merch.learnlinux.tv
+ • Latest book: Mastering Ubuntu Server ➜ https://ubuntuserverbook.com
+ • Linux stuff from Amazon ➜ https://learnlinux.link/amazon
+ • Awesome Pi-powered KVM ➜ https://learnlinux.link/tinypilot
+ • 5% discount on LPI exam vouchers ➜ https://learnlinux.link/lpi-voucher
+_Note: Royalties and/or commission is earned from some of the above links_
+
+*Relevant Articles*
+ • Why software 'security debt' is becoming a serious problem for developers ➜ https://learnlinux.link/security-debt-article
+
+*Full Courses from Learn Linux TV*
+ • Linux Essentials Certification Workshop ➜ https://learnlinux.link/lpi-course
+ • Linux Crash Course series ➜ https://linux.video/cc
+ • Learn how to use tmux ➜ https://linux.video/tmux
+ • Learn how to use vim ➜ https://linux.video/vim
+ • Bash Scripting Series ➜ https://linux.video/bash
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve
+ • Learn Ansible ➜ https://linux.video/ansible
+
+*Learn Linux TV on the Web*
+ • Main site ➜ https://www.learnlinux.tv
+ • Community ➜ https://community.learnlinux.tv
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show
+ • The Homelab Show Podcast ➜ https://thehomelab.show
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance
+
+*Disclaimer*
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.
+
+#datacenter #cybersecurity #Linux</media:description>
+   <media:community>
+    <media:starRating count="95" average="5.00" min="1" max="5"/>
+    <media:statistics views="2401"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:ii1Q03yV5tc</id>
+  <yt:videoId>ii1Q03yV5tc</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>Enterprise Linux Security Episode 90 - Dude, Where's My Cloud? (Re-Upload)</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=ii1Q03yV5tc"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-05-22T21:40:51+00:00</published>
+  <updated>2024-05-26T06:18:27+00:00</updated>
+  <media:group>
+   <media:title>Enterprise Linux Security Episode 90 - Dude, Where's My Cloud? (Re-Upload)</media:title>
+   <media:content url="https://www.youtube.com/v/ii1Q03yV5tc?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/ii1Q03yV5tc/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this episode, Jay and Joao talk about a story that's every cloud administrator's worst nightmare - your entire environment, backups, everything - gone. That's exactly what happened to UniSuper, a customer of Google Cloud. In this cautionary tale, we'll explore the case of the missing cloud.
+
+Thanks to TuxCare for sponsoring the Enterprise Linux Security podcast. Check out their awesome services to see how they can simplify Linux administration! ➜ https://learnlinux.link/tuxcare
+
+*Relevant Links*
+ • Unprecedented Google Cloud event wipes out customer account and its backups ➜ https://learnlinux.link/unisuper-article-1
+ •A joint statement from UniSuper CEO Peter Chun, and Google Cloud CEO, Thomas Kurian ➜ https://learnlinux.link/unisuper-article-2
+
+*Brand LPI Linux Essentials Course Available*
+Check out the new course on Udemy, and learn Linux while studying for your Linux Essentials certification! ➜ https://learnlinux.link/lpi-course
+
+*Check out the LLTV Shop!*
+Shirts, bags, cups and much more! ➜ https://merch.learnlinux.tv
+
+*Support the Channel*
+Show your support for Learn Linux TV and get access to exclusive perks!
+ • Become a Channel Member ➜ https://learnlinux.link/member
+ • Become a Patron ➜ https://learnlinux.link/patron
+
+*Official Stores and Merchandise*
+ • Linux Merch ➜ https://merch.learnlinux.tv
+ • Latest book: Mastering Ubuntu Server ➜ https://ubuntuserverbook.com
+ • Linux stuff from Amazon ➜ https://learnlinux.link/amazon
+ • Awesome Pi-powered KVM ➜ https://learnlinux.link/tinypilot
+ • 5% discount on LPI exam vouchers ➜ https://learnlinux.link/lpi-voucher
+_Note: Royalties and/or commission is earned from some of the above links_
+
+*Relevant Articles*
+ • Why software 'security debt' is becoming a serious problem for developers ➜ https://learnlinux.link/security-debt-article
+
+*Full Courses from Learn Linux TV*
+ • Linux Essentials Certification Workshop ➜ https://learnlinux.link/lpi-course
+ • Linux Crash Course series ➜ https://linux.video/cc
+ • Learn how to use tmux ➜ https://linux.video/tmux
+ • Learn how to use vim ➜ https://linux.video/vim
+ • Bash Scripting Series ➜ https://linux.video/bash
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve
+ • Learn Ansible ➜ https://linux.video/ansible
+
+*Learn Linux TV on the Web*
+ • Main site ➜ https://www.learnlinux.tv
+ • Community ➜ https://community.learnlinux.tv
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show
+ • The Homelab Show Podcast ➜ https://thehomelab.show
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance
+
+*Note*
+This episode was originally recorded live, but re-uploaded in order to fix an audio issue that made it hard to hear Jay.
+
+*Disclaimer*
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.
+
+#datacenter #cybersecurity #Linux</media:description>
+   <media:community>
+    <media:starRating count="91" average="5.00" min="1" max="5"/>
+    <media:statistics views="1687"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:icViq88Wx_Q</id>
+  <yt:videoId>icViq88Wx_Q</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>Enterprise Linux Security Episode 89 - Debunking Security Myths</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=icViq88Wx_Q"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-05-16T05:29:59+00:00</published>
+  <updated>2024-05-17T16:10:57+00:00</updated>
+  <media:group>
+   <media:title>Enterprise Linux Security Episode 89 - Debunking Security Myths</media:title>
+   <media:content url="https://www.youtube.com/v/icViq88Wx_Q?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/icViq88Wx_Q/hqdefault.jpg" width="480" height="360"/>
+   <media:description>There's a lot for sysadmins to keep track of when it comes to security, so naturally there's going to be some misconceptions every now and then. In this episode, Jay and Joao discuss some common misconceptions when it comes to security.
+
+Thanks to TuxCare for sponsoring the Enterprise Linux Security podcast. Check out their awesome services to see how they can simplify Linux administration! ➜ https://learnlinux.link/tuxcare
+
+*Relevant Links*
+ • Debunking The Top 5 Cybersecurity Myths ➜ https://learnlinux.link/cs-myths
+
+*Brand LPI Linux Essentials Course Available*
+Check out the new course on Udemy, and learn Linux while studying for your Linux Essentials certification! ➜ https://learnlinux.link/lpi-course
+
+*Check out the LLTV Shop!*
+Shirts, bags, cups and much more! ➜ https://merch.learnlinux.tv
+
+*Support the Channel*
+Show your support for Learn Linux TV and get access to exclusive perks!
+ • Become a Channel Member ➜ https://learnlinux.link/member
+ • Become a Patron ➜ https://learnlinux.link/patron
+
+*Official Stores and Merchandise*
+ • Linux Merch ➜ https://merch.learnlinux.tv
+ • Latest book: Mastering Ubuntu Server ➜ https://ubuntuserverbook.com
+ • Linux stuff from Amazon ➜ https://learnlinux.link/amazon
+ • Awesome Pi-powered KVM ➜ https://learnlinux.link/tinypilot
+ • 5% discount on LPI exam vouchers ➜ https://learnlinux.link/lpi-voucher
+_Note: Royalties and/or commission is earned from some of the above links_
+
+*Relevant Articles*
+ • Why software 'security debt' is becoming a serious problem for developers ➜ https://learnlinux.link/security-debt-article
+
+*Full Courses from Learn Linux TV*
+ • Linux Essentials Certification Workshop ➜ https://learnlinux.link/lpi-course
+ • Linux Crash Course series ➜ https://linux.video/cc
+ • Learn how to use tmux ➜ https://linux.video/tmux
+ • Learn how to use vim ➜ https://linux.video/vim
+ • Bash Scripting Series ➜ https://linux.video/bash
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve
+ • Learn Ansible ➜ https://linux.video/ansible
+
+*Learn Linux TV on the Web*
+ • Main site ➜ https://www.learnlinux.tv
+ • Community ➜ https://community.learnlinux.tv
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show
+ • The Homelab Show Podcast ➜ https://thehomelab.show
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance
+
+*Disclaimer*
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.
+
+#datacenter #cybersecurity #Linux</media:description>
+   <media:community>
+    <media:starRating count="136" average="5.00" min="1" max="5"/>
+    <media:statistics views="3425"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:necFBdfls_8</id>
+  <yt:videoId>necFBdfls_8</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>How to Create a Debian 12 VM in VirtualBox on Windows 11</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=necFBdfls_8"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-05-16T00:30:19+00:00</published>
+  <updated>2024-05-21T13:18:02+00:00</updated>
+  <media:group>
+   <media:title>How to Create a Debian 12 VM in VirtualBox on Windows 11</media:title>
+   <media:content url="https://www.youtube.com/v/necFBdfls_8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/necFBdfls_8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this video, Jay will walk you through the process of installing Debian 12 as a virtual machine within VirtualBox on Windows 11.
+
+*Brand LPI Linux Essentials Course Available*
+Check out the new course on Udemy! ➜ https://learnlinux.link/lpi-course
+
+*Check out the Linux Shop!*
+The official shop has just been updated with new Linux-related products ➜ https://merch.learnlinux.tv
+
+*Support the Channel*
+Show your support for Learn Linux TV and get access to exclusive perks!
+ • Become a Channel Member ➜ https://learnlinux.link/member
+ • Become a Patron ➜ https://learnlinux.link/patron
+
+*Official Stores and Merchandise*
+ • Linux Merch ➜ https://merch.learnlinux.tv
+ • Latest book: Mastering Ubuntu Server ➜ https://ubuntuserverbook.com
+ • Linux stuff from Amazon ➜ https://learnlinux.link/amazon
+ • Awesome Pi-powered KVM ➜ https://learnlinux.link/tinypilot
+ • 5% discount on LPI exam vouchers ➜ https://learnlinux.link/lpi-voucher
+_Note: Royalties and/or commission is earned from each of the above links_
+
+*Time Codes*
+00:00 - Intro
+00:36 - Check out the brand new Linux Essentials course! (not sponsored)
+01:57 - Downloading VirtualBox and Installing Debian
+
+*Full Courses from Learn Linux TV*
+ • Linux Essentials Certification Workshop ➜ https://learnlinux.link/lpi-course
+ • Linux Crash Course series ➜ https://linux.video/cc
+ • Learn how to use tmux ➜ https://linux.video/tmux
+ • Learn how to use vim ➜ https://linux.video/vim
+ • Bash Scripting Series ➜ https://linux.video/bash
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve
+ • Learn Ansible ➜ https://linux.video/ansible
+
+*Learn Linux TV on the Web*
+ • Main site ➜ https://www.learnlinux.tv
+ • Community ➜ https://community.learnlinux.tv
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show
+ • The Homelab Show Podcast ➜ https://thehomelab.show
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance
+
+*Disclaimer*
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.
+
+#CloudComputing #DevOps #Linux</media:description>
+   <media:community>
+    <media:starRating count="3860" average="5.00" min="1" max="5"/>
+    <media:statistics views="93793"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:dtQx11-ebpA</id>
+  <yt:videoId>dtQx11-ebpA</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>Enterprise Linux Security Episode 88 - The 2024 Verizon DBIR</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=dtQx11-ebpA"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-05-09T05:29:11+00:00</published>
+  <updated>2024-05-10T07:15:37+00:00</updated>
+  <media:group>
+   <media:title>Enterprise Linux Security Episode 88 - The 2024 Verizon DBIR</media:title>
+   <media:content url="https://www.youtube.com/v/dtQx11-ebpA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/dtQx11-ebpA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this episode, Jay and Joao discuss the 2024 Verizon Data Breach Investigations Report (DBIR), which includes some interesting finds regarding threat actor motives, how user error impacts business, and more!&#13;
+&#13;
+Thanks to TuxCare for sponsoring the Enterprise Linux Security podcast. Check out their awesome services to see how they can simplify Linux administration! ➜ https://learnlinux.link/tuxcare&#13;
+&#13;
+*Relevant Links*&#13;
+ • Shortridge Makes Sense of the 2024 Verizon DBIR ➜ https://learnlinux.link/kelly-dbir-2024&#13;
+ • Original DBIR report from Verizon (warning: pay gate) ➜ https://learnlinux.link/vzw-dbir-2024&#13;
+&#13;
+*Check out the LLTV Shop!*&#13;
+Shirts, bags, cups and much more! ➜ https://merch.learnlinux.tv&#13;
+&#13;
+*Support the Channel*&#13;
+Show your support for Learn Linux TV and get access to exclusive perks!&#13;
+ • Become a Channel Member ➜ https://learnlinux.link/member&#13;
+ • Become a Patron ➜ https://learnlinux.link/patron&#13;
+&#13;
+*Official Stores and Merchandise*&#13;
+ • Linux Merch ➜ https://merch.learnlinux.tv&#13;
+ • Latest book: Mastering Ubuntu Server ➜ https://ubuntuserverbook.com&#13;
+ • Linux stuff from Amazon ➜ https://learnlinux.link/amazon&#13;
+ • Awesome Pi-powered KVM ➜ https://learnlinux.link/tinypilot&#13;
+ • 5% discount on LPI exam vouchers ➜ https://learnlinux.link/lpi-voucher&#13;
+_Note: Royalties and/or commission is earned from some of the above links_&#13;
+&#13;
+*Relevant Articles*&#13;
+ • Why software 'security debt' is becoming a serious problem for developers ➜ https://learnlinux.link/security-debt-article&#13;
+&#13;
+*Full Courses from Learn Linux TV*&#13;
+ • Linux Crash Course series ➜ https://linux.video/cc&#13;
+ • Learn how to use tmux ➜ https://linux.video/tmux&#13;
+ • Learn how to use vim ➜ https://linux.video/vim&#13;
+ • Bash Scripting Series ➜ https://linux.video/bash&#13;
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve&#13;
+ • Learn Ansible ➜ https://linux.video/ansible&#13;
+&#13;
+*Boost your Linux skills with these stand-alone tutorials*&#13;
+ • Essential tweaks for ALL Linux Servers ➜ https://linux.video/all-servers&#13;
+ • Install Arch Linux ➜ https://linux.video/arch-guide&#13;
+ • Use Ventoy to create a multi-distro flash drive ➜ https://linux.video/ventoy&#13;
+ • Browse the web from within your Linux terminal ➜ https://linux.video/term-web&#13;
+ • From Zero to Proxmox ➜ https://linux.video/zero-to-pve&#13;
+ • Check out Neovim ➜ https://linux.video/neovim&#13;
+ • Systemd Deep Dive ➜ https://linux.video/systemd&#13;
+ • Systemd Timers ➜ https://youtu.be/n6BuUgkZ5T0&#13;
+ • Installing an operating system for Raspberry Pi ➜ https://linux.video/pi-imager&#13;
+ • Connecting to a Linux server via ssh ➜ https://linux.video/ssh&#13;
+ • Linux permissions ➜ https://linux.video/perms&#13;
+ • OpenSSH Guide ➜ https://linux.video/ssh-guide&#13;
+ • 10 Linux Terminal Tips and Tricks ➜ https://linux.video/cli-tricks-1&#13;
+ • Over 15 Terminal Tricks ➜ https://linux.video/cli-tricks-2&#13;
+&#13;
+*Learn Linux TV on the Web*&#13;
+ • Main site ➜ https://www.learnlinux.tv&#13;
+ • Community ➜ https://community.learnlinux.tv&#13;
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show&#13;
+ • The Homelab Show Podcast ➜ https://thehomelab.show&#13;
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics&#13;
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance&#13;
+&#13;
+*Disclaimer*&#13;
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.&#13;
+&#13;
+#datacenter #cybersecurity #Linux</media:description>
+   <media:community>
+    <media:starRating count="112" average="5.00" min="1" max="5"/>
+    <media:statistics views="3138"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:T1KXeTd30KI</id>
+  <yt:videoId>T1KXeTd30KI</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>Ubuntu 24.04 Review: Why It's Time to Change Ubuntu's Release Cycle</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=T1KXeTd30KI"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-04-26T23:53:28+00:00</published>
+  <updated>2024-05-18T13:43:58+00:00</updated>
+  <media:group>
+   <media:title>Ubuntu 24.04 Review: Why It's Time to Change Ubuntu's Release Cycle</media:title>
+   <media:content url="https://www.youtube.com/v/T1KXeTd30KI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/T1KXeTd30KI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Ubuntu 24.04 was released recently, and with it comes a brand new LTS release powered by the GNOME 46 desktop. In this video, Jay will give you his thoughts on this release.
+
+*LPI Linux Essentials Course Available*
+Check out the new course on Udemy! ➜ https://learnlinux.link/lpi-course
+ ➜ https://learnlinux.link/lpi-course
+
+*Check out the Linux Shop*
+In the official shop, you'll find Shirts, hats, stickers, bags and more!
+ ➜ https://merch.learnlinux.tv
+
+*5% discount on LPI exam vouchers*
+After you finish Jay's new course, get 5% off an LPI exam voucher here:
+ ➜ https://learnlinux.link/lpi-voucher
+
+*Become a Patron*
+Show your support for Learn Linux TV on Patreon and get access to exclusive perks!
+ ➜ https://learnlinux.link/patron
+
+*Become a Channel Member*
+Show your support for Learn Linux TV here on YouTube and get access to exclusive perks!
+ ➜ https://learnlinux.link/member
+
+*Mastering Ubuntu Server: 4th Edition*
+Jay's latest book covers everything you need to know in order to master Ubuntu Server. It's available here:
+ ➜ https://ubuntuserverbook.com
+
+*Linux Gear and Kits*
+Check out Jay's choice of hardware products, audio/video equipment, and more.
+ ➜ https://learnlinux.link/amazon
+
+*Grab an awesome Pi-powered KVM*
+Support Learn Linux TV and grab yourself a TinyPilot KVM here:
+ ➜ https://learnlinux.link/tinypilot
+
+_Note: Royalties and/or commission is earned from each of the above links_
+
+*Time Codes*
+00:00 - Intro
+01:56 - First look at Ubuntu 24.04
+02:43 - First look at the new Ubuntu 24.04 installer
+04:10 - Ubuntu 24.04 is based on GNOME 46
+05:28 - Ubuntu 24.04 has not been pleasant for me
+
+*Full Courses from Learn Linux TV*
+ • Linux Essentials Certification Workshop ➜ https://learnlinux.link/lpi-course
+ • Linux Crash Course series ➜ https://linux.video/cc
+ • Learn how to use tmux ➜ https://linux.video/tmux
+ • Learn how to use vim ➜ https://linux.video/vim
+ • Bash Scripting Series ➜ https://linux.video/bash
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve
+ • Learn Ansible ➜ https://linux.video/ansible
+
+*Learn Linux TV on the Web*
+ • Main site ➜ https://www.learnlinux.tv
+ • Community ➜ https://community.learnlinux.tv
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show
+ • The Homelab Show Podcast ➜ https://thehomelab.show
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance
+
+*Disclaimer*
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.
+
+#Ubuntu #Ubuntu24 #Linux</media:description>
+   <media:community>
+    <media:starRating count="2589" average="5.00" min="1" max="5"/>
+    <media:statistics views="64189"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:uPFsPeMHP9w</id>
+  <yt:videoId>uPFsPeMHP9w</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>How to Install Fedora 40 Using the Fedora Media Writer</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=uPFsPeMHP9w"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-04-26T23:45:23+00:00</published>
+  <updated>2024-05-18T13:43:59+00:00</updated>
+  <media:group>
+   <media:title>How to Install Fedora 40 Using the Fedora Media Writer</media:title>
+   <media:content url="https://www.youtube.com/v/uPFsPeMHP9w?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/uPFsPeMHP9w/hqdefault.jpg" width="480" height="360"/>
+   <media:description>In this video, Jay will show you how to install the recently-released Fedora 40. This time, you'll see the process using Fedora's Media Writer, which simplifies the process of converting your flash drive into Fedora installation media. Check out this full guide for all the steps!
+
+*LPI Linux Essentials Course Available*
+Check out the new course on Udemy! ➜ https://learnlinux.link/lpi-course
+ ➜ https://learnlinux.link/lpi-course
+
+*Check out the Linux Shop*
+In the official shop, you'll find Shirts, hats, stickers, bags and more!
+ ➜ https://merch.learnlinux.tv
+
+*5% discount on LPI exam vouchers*
+After you finish Jay's new course, get 5% off an LPI exam voucher here:
+ ➜ https://learnlinux.link/lpi-voucher
+
+*Become a Patron*
+Show your support for Learn Linux TV on Patreon and get access to exclusive perks!
+ ➜ https://learnlinux.link/patron
+
+*Become a Channel Member*
+Show your support for Learn Linux TV here on YouTube and get access to exclusive perks!
+ ➜ https://learnlinux.link/member
+
+*Mastering Ubuntu Server: 4th Edition*
+Jay's latest book covers everything you need to know in order to master Ubuntu Server. It's available here:
+ ➜ https://ubuntuserverbook.com
+
+*Linux Gear and Kits*
+Check out Jay's choice of hardware products, audio/video equipment, and more.
+ ➜ https://learnlinux.link/amazon
+
+*Grab an awesome Pi-powered KVM*
+Support Learn Linux TV and grab yourself a TinyPilot KVM here:
+ ➜ https://learnlinux.link/tinypilot
+
+_Note: Royalties and/or commission is earned from each of the above links_
+
+*Time Codes*
+00:00 - Intro
+01:12 - Store
+01:49 - Using the Fedora Media Writer
+05:53 - Course ad
+07:19 - Testing Fedora 40 in Live mode
+08:46 - Installing Fedora
+
+*Full Courses from Learn Linux TV*
+ • Linux Essentials Certification Workshop ➜ https://learnlinux.link/lpi-course
+ • Linux Crash Course series ➜ https://linux.video/cc
+ • Learn how to use tmux ➜ https://linux.video/tmux
+ • Learn how to use vim ➜ https://linux.video/vim
+ • Bash Scripting Series ➜ https://linux.video/bash
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve
+ • Learn Ansible ➜ https://linux.video/ansible
+
+*Learn Linux TV on the Web*
+ • Main site ➜ https://www.learnlinux.tv
+ • Community ➜ https://community.learnlinux.tv
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show
+ • The Homelab Show Podcast ➜ https://thehomelab.show
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance
+
+*Disclaimer*
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.
+
+#Fedora #DevOps #Linux</media:description>
+   <media:community>
+    <media:starRating count="357" average="5.00" min="1" max="5"/>
+    <media:statistics views="22604"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:zE7OYNkuQ1w</id>
+  <yt:videoId>zE7OYNkuQ1w</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>How to Install Ubuntu 24.04 Desktop: Complete Beginner's Guide</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=zE7OYNkuQ1w"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-04-26T23:40:08+00:00</published>
+  <updated>2024-05-18T13:43:59+00:00</updated>
+  <media:group>
+   <media:title>How to Install Ubuntu 24.04 Desktop: Complete Beginner's Guide</media:title>
+   <media:content url="https://www.youtube.com/v/zE7OYNkuQ1w?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/zE7OYNkuQ1w/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Ubuntu 24.04 brings GNOME 46 to the popular distro, and it's a long-term support release as well - so it's definitely an important release! In this video, Jay will walk you through the installation process.
+
+*LPI Linux Essentials Course Available*
+Check out the new course on Udemy! ➜ https://learnlinux.link/lpi-course
+ ➜ https://learnlinux.link/lpi-course
+
+*Check out the Linux Shop*
+In the official shop, you'll find Shirts, hats, stickers, bags and more!
+ ➜ https://merch.learnlinux.tv
+
+*5% discount on LPI exam vouchers*
+After you finish Jay's new course, get 5% off an LPI exam voucher here:
+ ➜ https://learnlinux.link/lpi-voucher
+
+*Become a Patron*
+Show your support for Learn Linux TV on Patreon and get access to exclusive perks!
+ ➜ https://learnlinux.link/patron
+
+*Become a Channel Member*
+Show your support for Learn Linux TV here on YouTube and get access to exclusive perks!
+ ➜ https://learnlinux.link/member
+
+*Mastering Ubuntu Server: 4th Edition*
+Jay's latest book covers everything you need to know in order to master Ubuntu Server. It's available here:
+ ➜ https://ubuntuserverbook.com
+
+*Linux Gear and Kits*
+Check out Jay's choice of hardware products, audio/video equipment, and more.
+ ➜ https://learnlinux.link/amazon
+
+*Grab an awesome Pi-powered KVM*
+Support Learn Linux TV and grab yourself a TinyPilot KVM here:
+ ➜ https://learnlinux.link/tinypilot
+
+_Note: Royalties and/or commission is earned from each of the above links_
+
+*Time Codes*
+00:00 - Intro
+00:35 - Shirt Ad
+01:19 - First look at the new Ubuntu 24.04 Installer
+06:21 - Jay announced his brand new Linux Essentials course
+07:49 - Ubuntu 24.04 Desktop Installation Procedure (Continued)
+
+*Full Courses from Learn Linux TV*
+ • Linux Essentials Certification Workshop ➜ https://learnlinux.link/lpi-course
+ • Linux Crash Course series ➜ https://linux.video/cc
+ • Learn how to use tmux ➜ https://linux.video/tmux
+ • Learn how to use vim ➜ https://linux.video/vim
+ • Bash Scripting Series ➜ https://linux.video/bash
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve
+ • Learn Ansible ➜ https://linux.video/ansible
+
+*Learn Linux TV on the Web*
+ • Main site ➜ https://www.learnlinux.tv
+ • Community ➜ https://community.learnlinux.tv
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show
+ • The Homelab Show Podcast ➜ https://thehomelab.show
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance
+
+*Disclaimer*
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.
+
+#Ubuntu #DevOps #UbuntuTutorial</media:description>
+   <media:community>
+    <media:starRating count="440" average="5.00" min="1" max="5"/>
+    <media:statistics views="19154"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:iuBzZPvCE-M</id>
+  <yt:videoId>iuBzZPvCE-M</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>Fedora's 40th Release: A Quick Look and Overview</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=iuBzZPvCE-M"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-04-25T02:30:17+00:00</published>
+  <updated>2024-05-18T13:44:00+00:00</updated>
+  <media:group>
+   <media:title>Fedora's 40th Release: A Quick Look and Overview</media:title>
+   <media:content url="https://www.youtube.com/v/iuBzZPvCE-M?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/iuBzZPvCE-M/hqdefault.jpg" width="480" height="360"/>
+   <media:description>It's hard to believe, but Fedora has just published the project's 40th release, which comes with GNOME 46 and Linux kernel 6.8. In this video, Jay gives you his thoughts on the latest version of the popular Linux desktop.
+
+*Brand-new Linux Essentials Course!*
+On or around May 1st, Learn Linux TV's brand-new certification course covering LPI's Linux Essentials exam will launch on Udemy. Check it out here ➜ https://learnlinux.link/lpi-course
+
+*LPI Linux Essentials Course Available*
+Check out the new course on Udemy! ➜ https://learnlinux.link/lpi-course
+ ➜ https://learnlinux.link/lpi-course
+
+*Check out the Linux Shop*
+In the official shop, you'll find Shirts, hats, stickers, bags and more!
+ ➜ https://merch.learnlinux.tv
+
+*5% discount on LPI exam vouchers*
+After you finish Jay's new course, get 5% off an LPI exam voucher here:
+ ➜ https://learnlinux.link/lpi-voucher
+
+*Become a Patron*
+Show your support for Learn Linux TV on Patreon and get access to exclusive perks!
+ ➜ https://learnlinux.link/patron
+
+*Become a Channel Member*
+Show your support for Learn Linux TV here on YouTube and get access to exclusive perks!
+ ➜ https://learnlinux.link/member
+
+*Mastering Ubuntu Server: 4th Edition*
+Jay's latest book covers everything you need to know in order to master Ubuntu Server. It's available here:
+ ➜ https://ubuntuserverbook.com
+
+*Linux Gear and Kits*
+Check out Jay's choice of hardware products, audio/video equipment, and more.
+ ➜ https://learnlinux.link/amazon
+
+*Grab an awesome Pi-powered KVM*
+Support Learn Linux TV and grab yourself a TinyPilot KVM here:
+ ➜ https://learnlinux.link/tinypilot
+
+_Note: Royalties and/or commission is earned from each of the above links_
+
+*Time Codes*
+00:00 - Intro
+01:36 - Store
+02:11 - First look at Fedora 40 (GNOME)
+04:02 - Fedora 40 is boring, but Good
+05:46 - Overall thoughts on Fedora 40
+
+*Full Courses from Learn Linux TV*
+ • Linux Essentials Certification Workshop ➜ https://learnlinux.link/lpi-course
+ • Linux Crash Course series ➜ https://linux.video/cc
+ • Learn how to use tmux ➜ https://linux.video/tmux
+ • Learn how to use vim ➜ https://linux.video/vim
+ • Bash Scripting Series ➜ https://linux.video/bash
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve
+ • Learn Ansible ➜ https://linux.video/ansible
+
+*Learn Linux TV on the Web*
+ • Main site ➜ https://www.learnlinux.tv
+ • Community ➜ https://community.learnlinux.tv
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show
+ • The Homelab Show Podcast ➜ https://thehomelab.show
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance
+
+*Disclaimer*
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.
+
+#fedora #linux #linuxdistro</media:description>
+   <media:community>
+    <media:starRating count="1769" average="5.00" min="1" max="5"/>
+    <media:statistics views="42665"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:HGHQQStDB8k</id>
+  <yt:videoId>HGHQQStDB8k</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>Enterprise Linux Security Episode 87 - Ransomware is Unhealthy</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=HGHQQStDB8k"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-04-18T05:37:45+00:00</published>
+  <updated>2024-05-08T19:11:28+00:00</updated>
+  <media:group>
+   <media:title>Enterprise Linux Security Episode 87 - Ransomware is Unhealthy</media:title>
+   <media:content url="https://www.youtube.com/v/HGHQQStDB8k?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/HGHQQStDB8k/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Ransomware is bad enough, but when it impacts healthcare it's even worse! In this episode, Jay and Joao will discuss recent developments at Change Healthcare and their ransomware fiasco, news updates, and more!&#13;
+&#13;
+Thanks to TuxCare for sponsoring the Enterprise Linux Security podcast. Check out their awesome services to see how they can simplify Linux administration! ➜ https://learnlinux.link/tuxcare&#13;
+&#13;
+*Relevant Links*&#13;
+ • A Deep Dive on the xz Compromise (Joao's Article) ➜ https://tuxcare.com/blog/a-deep-dive-on-the-xz-compromise/&#13;
+ • XZ Utils Supply Chain Attack: A Threat Actor Spent Two Years to Implement a Linux Backdoor ➜ https://www.techrepublic.com/article/xz-backdoor-linux/&#13;
+&#13;
+*Check out the LLTV Shop!*&#13;
+Shirts, bags, cups and much more! ➜ https://merch.learnlinux.tv&#13;
+&#13;
+*Support the Channel*&#13;
+Show your support for Learn Linux TV and get access to exclusive perks!&#13;
+ • Become a Channel Member ➜ https://learnlinux.link/member&#13;
+ • Become a Patron ➜ https://learnlinux.link/patron&#13;
+&#13;
+*Official Stores and Merchandise*&#13;
+ • Linux Merch ➜ https://merch.learnlinux.tv&#13;
+ • Latest book: Mastering Ubuntu Server ➜ https://ubuntuserverbook.com&#13;
+ • Linux stuff from Amazon ➜ https://learnlinux.link/amazon&#13;
+ • Awesome Pi-powered KVM ➜ https://learnlinux.link/tinypilot&#13;
+ • 5% discount on LPI exam vouchers ➜ https://learnlinux.link/lpi-voucher&#13;
+_Note: Royalties and/or commission is earned from some of the above links_&#13;
+&#13;
+*Relevant Articles*&#13;
+ • Why software 'security debt' is becoming a serious problem for developers ➜ https://learnlinux.link/security-debt-article&#13;
+&#13;
+*Full Courses from Learn Linux TV*&#13;
+ • Linux Crash Course series ➜ https://linux.video/cc&#13;
+ • Learn how to use tmux ➜ https://linux.video/tmux&#13;
+ • Learn how to use vim ➜ https://linux.video/vim&#13;
+ • Bash Scripting Series ➜ https://linux.video/bash&#13;
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve&#13;
+ • Learn Ansible ➜ https://linux.video/ansible&#13;
+&#13;
+*Boost your Linux skills with these stand-alone tutorials*&#13;
+ • Essential tweaks for ALL Linux Servers ➜ https://linux.video/all-servers&#13;
+ • Install Arch Linux ➜ https://linux.video/arch-guide&#13;
+ • Use Ventoy to create a multi-distro flash drive ➜ https://linux.video/ventoy&#13;
+ • Browse the web from within your Linux terminal ➜ https://linux.video/term-web&#13;
+ • From Zero to Proxmox ➜ https://linux.video/zero-to-pve&#13;
+ • Check out Neovim ➜ https://linux.video/neovim&#13;
+ • Systemd Deep Dive ➜ https://linux.video/systemd&#13;
+ • Systemd Timers ➜ https://youtu.be/n6BuUgkZ5T0&#13;
+ • Installing an operating system for Raspberry Pi ➜ https://linux.video/pi-imager&#13;
+ • Connecting to a Linux server via ssh ➜ https://linux.video/ssh&#13;
+ • Linux permissions ➜ https://linux.video/perms&#13;
+ • OpenSSH Guide ➜ https://linux.video/ssh-guide&#13;
+ • 10 Linux Terminal Tips and Tricks ➜ https://linux.video/cli-tricks-1&#13;
+ • Over 15 Terminal Tricks ➜ https://linux.video/cli-tricks-2&#13;
+&#13;
+*Learn Linux TV on the Web*&#13;
+ • Main site ➜ https://www.learnlinux.tv&#13;
+ • Community ➜ https://community.learnlinux.tv&#13;
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show&#13;
+ • The Homelab Show Podcast ➜ https://thehomelab.show&#13;
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics&#13;
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance&#13;
+&#13;
+*Disclaimer*&#13;
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.&#13;
+&#13;
+#datacenter #cybersecurity #Linux</media:description>
+   <media:community>
+    <media:starRating count="104" average="5.00" min="1" max="5"/>
+    <media:statistics views="3212"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:O_QZD8jBKZM</id>
+  <yt:videoId>O_QZD8jBKZM</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>Enterprise Linux Security Episode 86 - The 'xz' Fiasco</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=O_QZD8jBKZM"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-04-11T05:49:24+00:00</published>
+  <updated>2024-05-17T16:11:02+00:00</updated>
+  <media:group>
+   <media:title>Enterprise Linux Security Episode 86 - The 'xz' Fiasco</media:title>
+   <media:content url="https://www.youtube.com/v/O_QZD8jBKZM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/O_QZD8jBKZM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>On this podcast, Jay and Joao have discussed multiple times a situation where a threat actor submits a pull request that's more than the project bargained for. And now, we have a situation where OpenSSH was (almost) backdoored by a commit by a maintainer of the xz project. Don't miss this episode for all the details!
+
+Thanks to TuxCare for sponsoring the Enterprise Linux Security podcast. Check out their awesome services to see how they can simplify Linux administration! ➜ https://learnlinux.link/tuxcare
+
+*Relevant Links*
+ • A Deep Dive on the xz Compromise (Joao's Article) ➜ https://tuxcare.com/blog/a-deep-dive-on-the-xz-compromise/
+ • XZ Utils Supply Chain Attack: A Threat Actor Spent Two Years to Implement a Linux Backdoor ➜ https://www.techrepublic.com/article/xz-backdoor-linux/
+
+*Brand LPI Linux Essentials Course Available*
+Check out the new course on Udemy, and learn Linux while studying for your Linux Essentials certification! ➜ https://learnlinux.link/lpi-course
+
+*Check out the LLTV Shop!*
+Shirts, bags, cups and much more! ➜ https://merch.learnlinux.tv
+
+*Support the Channel*
+Show your support for Learn Linux TV and get access to exclusive perks!
+ • Become a Channel Member ➜ https://learnlinux.link/member
+ • Become a Patron ➜ https://learnlinux.link/patron
+
+*Official Stores and Merchandise*
+ • Linux Merch ➜ https://merch.learnlinux.tv
+ • Latest book: Mastering Ubuntu Server ➜ https://ubuntuserverbook.com
+ • Linux stuff from Amazon ➜ https://learnlinux.link/amazon
+ • Awesome Pi-powered KVM ➜ https://learnlinux.link/tinypilot
+ • 5% discount on LPI exam vouchers ➜ https://learnlinux.link/lpi-voucher
+_Note: Royalties and/or commission is earned from some of the above links_
+
+*Relevant Articles*
+ • Why software 'security debt' is becoming a serious problem for developers ➜ https://learnlinux.link/security-debt-article
+
+*Full Courses from Learn Linux TV*
+ • Linux Essentials Certification Workshop ➜ https://learnlinux.link/lpi-course
+ • Linux Crash Course series ➜ https://linux.video/cc
+ • Learn how to use tmux ➜ https://linux.video/tmux
+ • Learn how to use vim ➜ https://linux.video/vim
+ • Bash Scripting Series ➜ https://linux.video/bash
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve
+ • Learn Ansible ➜ https://linux.video/ansible
+
+*Learn Linux TV on the Web*
+ • Main site ➜ https://www.learnlinux.tv
+ • Community ➜ https://community.learnlinux.tv
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show
+ • The Homelab Show Podcast ➜ https://thehomelab.show
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance
+
+*Disclaimer*
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.
+
+#linuxsecurity #xz #Linux</media:description>
+   <media:community>
+    <media:starRating count="242" average="5.00" min="1" max="5"/>
+    <media:statistics views="5760"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:uHldddPqYZk</id>
+  <yt:videoId>uHldddPqYZk</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>New Job As A System Administrator? Here Are 5 Things To Do First!</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=uHldddPqYZk"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-04-11T04:00:34+00:00</published>
+  <updated>2024-05-17T16:11:03+00:00</updated>
+  <media:group>
+   <media:title>New Job As A System Administrator? Here Are 5 Things To Do First!</media:title>
+   <media:content url="https://www.youtube.com/v/uHldddPqYZk?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/uHldddPqYZk/hqdefault.jpg" width="480" height="360"/>
+   <media:description>When you're starting a brand new position as a System Administrator, what should you focus on? In this video, Jay gives you his thoughts on the first five things every new SysAdmin should take a look at.
+
+*Brand LPI Linux Essentials Course Available*
+Check out the new course on Udemy, and learn Linux while studying for your Linux Essentials certification! ➜ https://learnlinux.link/lpi-course
+
+*Check out the Linux Shop*
+Shirts, hats, stickers, bags and more ➜ https://merch.learnlinux.tv
+
+*Support the Channel*
+Show your support for Learn Linux TV and get access to exclusive perks!
+ • Become a Channel Member ➜ https://learnlinux.link/member
+ • Become a Patron ➜ https://learnlinux.link/patron
+
+*Time Codes*
+00:00 - Intro
+01:01 - Keep track of your Accomplishments
+02:26 - Documentation is Key
+03:40 - Get familiar with Rules and Policies
+05:05 - Understand your Organization's Risks
+06:07 - Audit your Organization's Backups
+
+*Official Stores and Merchandise*
+ • Linux Merch ➜ https://merch.learnlinux.tv
+ • Latest book: Mastering Ubuntu Server ➜ https://ubuntuserverbook.com
+ • Linux stuff from Amazon ➜ https://learnlinux.link/amazon
+ • Awesome Pi-powered KVM ➜ https://learnlinux.link/tinypilot
+ • 5% discount on LPI exam vouchers ➜ https://learnlinux.link/lpi-voucher
+_Note: Royalties and/or commission is earned from each of the above links_
+
+*Full Courses from Learn Linux TV*
+ • Linux Essentials Certification Workshop ➜ https://learnlinux.link/lpi-course
+ • Linux Crash Course series ➜ https://linux.video/cc
+ • Learn how to use tmux ➜ https://linux.video/tmux
+ • Learn how to use vim ➜ https://linux.video/vim
+ • Bash Scripting Series ➜ https://linux.video/bash
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve
+ • Learn Ansible ➜ https://linux.video/ansible
+
+*Learn Linux TV on the Web*
+ • Main site ➜ https://www.learnlinux.tv
+ • Community ➜ https://community.learnlinux.tv
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show
+ • The Homelab Show Podcast ➜ https://thehomelab.show
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance
+
+*Disclaimer*
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.
+
+#SysAdmin #DevOps #Linux</media:description>
+   <media:community>
+    <media:starRating count="1064" average="5.00" min="1" max="5"/>
+    <media:statistics views="14869"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:CltoVfeRdoM</id>
+  <yt:videoId>CltoVfeRdoM</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>Complete Ansible Semaphore Tutorial: From Installation to Automation</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=CltoVfeRdoM"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-03-29T05:58:35+00:00</published>
+  <updated>2024-05-17T16:11:04+00:00</updated>
+  <media:group>
+   <media:title>Complete Ansible Semaphore Tutorial: From Installation to Automation</media:title>
+   <media:content url="https://www.youtube.com/v/CltoVfeRdoM?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/CltoVfeRdoM/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Do you want to make server deployment easier? Consider Ansible Semaphore: An awesome project that provides a full GUI experience around Ansible, enabling you to take your automation game to the next level. In this video, Jay will show you how to install Ansible Semaphore, set it up, and more!
+
+*Brand LPI Linux Essentials Course Available*
+Check out the new course on Udemy, and learn Linux while studying for your Linux Essentials certification! ➜ https://learnlinux.link/lpi-course
+
+*Check out the Linux Shop*
+Shirts, hats, stickers, bags and more ➜ https://merch.learnlinux.tv
+
+*Support the Channel*
+Show your support for Learn Linux TV and get access to exclusive perks!
+ • Become a Channel Member ➜ https://learnlinux.link/member
+ • Become a Patron ➜ https://learnlinux.link/patron
+
+*Official Stores and Merchandise*
+ • Linux Merch ➜ https://merch.learnlinux.tv
+ • Latest book: Mastering Ubuntu Server ➜ https://ubuntuserverbook.com
+ • Linux stuff from Amazon ➜ https://learnlinux.link/amazon
+ • Awesome Pi-powered KVM ➜ https://learnlinux.link/tinypilot
+ • 5% discount on LPI exam vouchers ➜ https://learnlinux.link/lpi-voucher
+_Note: Royalties and/or commission is earned from each of the above links_
+
+*Time Codes*
+00:00 - Intro
+00:45 - Updated Shop (commission earned)
+01:44 - Some basic information about our project
+04:31 - Installing MariaDB
+06:22 - Using mysql_secure_installation to secure mariadb
+08:57 - Setting up a MySQL database for Ansible Semaphore
+09:47 - Creating a database user for Semaphore
+12:02 - Installing Ansible Semaphore
+14:11 - Creating a config file for Semaphore
+18:54 - Installing Ansible on Debian 12
+19:20 - Running Semaphore from the shell
+21:21 - Creating a Systemd unit for Semaphore
+24:47 - Setting up a project in Semaphore
+27:13 - Support message
+27:46 - Creating a Production environment in Semaphore
+28:37 - Creating an SSH key
+31:10 - Setting up an Inventory, and a Task Template
+32:29 - Configuring &quot;sudoers&quot; on the Ansible target
+35:00 - Testing SSH connectivity between the server and target
+36:52 - Adding a Playbook to our Git repository
+38:50 - Installing NGINX
+40:50 - Setting up NGINX as a proxy for Semaphore
+44:51 - Setting up a TLS certificate for Semaphore with Let's Encrypt
+
+*Relevant Links*
+ • Check out Ansible Semaphore ➜ https://www.semui.co
+ • Semaphore Releases Page ➜ https://github.com/ansible-semaphore/semaphore/releases
+ • Official blog post for this video ➜ https://learnlinux.link/semaphore
+
+*Full Courses from Learn Linux TV*
+ • Linux Essentials Certification Workshop ➜ https://learnlinux.link/lpi-course
+ • Linux Crash Course series ➜ https://linux.video/cc
+ • Learn how to use tmux ➜ https://linux.video/tmux
+ • Learn how to use vim ➜ https://linux.video/vim
+ • Bash Scripting Series ➜ https://linux.video/bash
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve
+ • Learn Ansible ➜ https://linux.video/ansible
+
+*Learn Linux TV on the Web*
+ • Main site ➜ https://www.learnlinux.tv
+ • Community ➜ https://community.learnlinux.tv
+ • Enterprise Linux Security Podcast ➜ https://enterpriselinuxsecurity.show
+ • The Homelab Show Podcast ➜ https://thehomelab.show
+ • Content Ethics ➜ https://www.learnlinux.tv/content-ethics
+ • Request Assistance ➜ https://www.learnlinux.tv/request-assistance
+
+*Disclaimer*
+Learn Linux TV provides technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). Learn Linux TV is not responsible for any damages that may arise from any use of this content. The person viewing Learn Linux TV's content is expected to follow their best judgement and to make their best decisions while working with any related technology. Always make sure you have written permission before working with any infrastructure. Also, be sure that you're compliant with all company rules, change control procedures, and local laws.
+
+#CloudComputing #DevOps #Ansible</media:description>
+   <media:community>
+    <media:starRating count="974" average="5.00" min="1" max="5"/>
+    <media:statistics views="72546"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:zID5TGbi4Pg</id>
+  <yt:videoId>zID5TGbi4Pg</yt:videoId>
+  <yt:channelId>UCxQKHvKbmSzGMvUrVtJYnUA</yt:channelId>
+  <title>Learn tmux (Part 4) - Discover how to manage Sessions within tmux</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=zID5TGbi4Pg"/>
+  <author>
+   <name>Learn Linux TV</name>
+   <uri>https://www.youtube.com/channel/UCxQKHvKbmSzGMvUrVtJYnUA</uri>
+  </author>
+  <published>2024-03-15T20:24:51+00:00</published>
+  <updated>2024-05-18T13:44:01+00:00</updated>
+  <media:group>
+   <media:title>Learn tmux (Part 4) - Discover how to manage Sessions within tmux</media:title>
+   <media:content url="https://www.youtube.com/v/zID5TGbi4Pg?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/zID5TGbi4Pg/hqdefault.jpg" width="480" height="360"/>
+   <media:description>If you want to increase your productivity with the Linux command line, tmux is definitely a great way to do just that! With tmux, you can manage your workflow with sessions, multitask with panes, and it also allows you to easily regain access to existing sessions when your SSH connection drops. In this five part series, you'll learn everything you need to know in order to use tmux daily! In this episode, we'll further explore session management.
+
+*tmux Cheatsheet Mouse Pad Available!*
+Check out this mouse pad that doubles as a cheat sheet for tmux! There's other Linux-themed products in the shop too, so you can get yourself something nice and support Linux Learning at the same time! ➜ https://learnlinux.link/mpad
+
+*Other tmux Episodes*
+Here's a list of all the episodes in the series:
+ • Episode 1: https://linux.video/tmux-1
+ • Episode 2: https://linux.video/tmux-2
+ • Episode 3: https://linux.video/tmux-3
+ • Episode 4: This video
+ • Episode 5: https://linux.video/tmux-5
+
+*LPI Linux Essentials Course Available*
+Check out the new course on Udemy! ➜ https://learnlinux.link/lpi-course
+ ➜ https://learnlinux.link/lpi-course
+
+*Check out the Linux Shop*
+In the official shop, you'll find Shirts, hats, stickers, bags and more!
+ ➜ https://merch.learnlinux.tv
+
+*5% discount on LPI exam vouchers*
+After you finish Jay's new course, get 5% off an LPI exam voucher here:
+ ➜ https://learnlinux.link/lpi-voucher
+
+*Become a Patron*
+Show your support for Learn Linux TV on Patreon and get access to exclusive perks!
+ ➜ https://learnlinux.link/patron
+
+*Become a Channel Member*
+Show your support for Learn Linux TV here on YouTube and get access to exclusive perks!
+ ➜ https://learnlinux.link/member
+
+*Mastering Ubuntu Server: 4th Edition*
+Jay's latest book covers everything you need to know in order to master Ubuntu Server. It's available here:
+ ➜ https://ubuntuserverbook.com
+
+*Linux Gear and Kits*
+Check out Jay's choice of hardware products, audio/video equipment, and more.
+ ➜ https://learnlinux.link/amazon
+
+*Grab an awesome Pi-powered KVM*
+Support Learn Linux TV and grab yourself a TinyPilot KVM here:
+ ➜ https://learnlinux.link/tinypilot
+
+_Note: Royalties and/or commission is earned from each of the above links_
+
+*Time Codes*
+00:00 - Intro
+00:47 - Taking a look at &quot;sessions&quot; within tmux
+04:19 - Abbreviating some tmux commands to save time
+07:34 - Renaming tmux sessions
+10:27 - How to easily switch between tmux sessions
+
+*Full Courses from Learn Linux TV*
+ • Linux Crash Course series ➜ https://linux.video/cc
+ • Learn how to exit use tmux ➜ https://linux.video/tmux
+ • Learn how to use vim ➜ https://linux.video/vim
+ • Bash Scripting Series ➜ https://linux.video/bash
+ • Proxmox VE Cluster Full Course ➜ https://linux.video/pve
+ • Learn Ansible ➜ https://linux.video/ansible
+
+*Linux-related Podcasts*
+ • Enterprise Linux Security ➜ https://enterpriselinuxsecurity.show
+ • The Homelab Show ➜ https://thehomelab.show
+
+*Official *Learn Linux TV on the Web**
+ • Main site ➜ https://www.learnlinux.tv
+ • Community ➜ https://community.learnlinux.tv
+
+*Content Ethics*
+ • The following article covers the rules and guidelines Learn Linux TV abides by ➜ https://www.learnlinux.tv/content-ethics
+
+*Disclaimer*
+LearnLinuxTV produces technical content that will hopefully be helpful to you and teach you something new. However, this content is provided without any warranty (expressed or implied). LearnLinuxTV is not responsible for any damages that may arise from any use of the content and information that's being provided. The viewer is expected to follow best judgement and to make his/her/their best decisions while working with production or non-production software, systems and hardware.
+
+#server #cloudcomputing #devops</media:description>
+   <media:community>
+    <media:starRating count="196" average="5.00" min="1" max="5"/>
+    <media:statistics views="5602"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

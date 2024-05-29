@@ -1,0 +1,42 @@
+#!/bin/bash
+
+step=5
+muted=`pamixer --get-mute`
+
+case $1 in
+    "down")
+        if [ $muted == "false" ]; then 
+		    pamixer -d $step
+            volume=`pamixer --get-volume`
+            eww update volume="$volume"
+	    fi
+        ;;
+    "up")
+        if [ $muted == "false" ]; then
+		    pamixer -i $step
+            volume=`pamixer --get-volume`
+            eww update volume="$volume"
+	    fi
+        ;;
+    "toggle")
+	    pamixer -t
+        muted=`pamixer --get-mute`
+        volume=`pamixer --get-volume`
+        eww update volume_mute="$muted"
+        ;;
+esac
+
+
+if [ $muted == "true" ]; then
+    notify-send -r 101\
+        "Muted" \
+        -t 1000 \
+        -i audio-volume-muted
+else
+    notify-send \
+        -r 101 \
+        "Volume  $volume%" \
+        -t 1000 \
+        -i audio-volume-high \
+        -h int:value:$volume
+fi

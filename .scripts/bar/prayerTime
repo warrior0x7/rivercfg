@@ -1,0 +1,162 @@
+#!/bin/bash
+
+source ~/.scripts/extra/cmdfns
+
+[ ! -d ~/.cache/boatcfg/prayers ] && mkdir -p ~/.cache/boatcfg/prayers
+
+function removeOld () {
+    rm ~/.cache/boatcfg/prayers/$1
+    rm ~/.cache/boatcfg/prayers/$1-index
+}
+
+function prayerFile () {
+    grep --color=never $1T ~/.scripts/bar/eg-prayers | sed 's/^.*T//g; s/[0.9]\{2\}Z//g' > ~/.cache/boatcfg/prayers/$1
+}
+
+function calculator () {
+
+    prayTime=$(awk 'NR=='$1'{print $1}' ~/.cache/boatcfg/prayers/$2) 
+    summary=$(awk 'NR=='$1'{print $2}' ~/.cache/boatcfg/prayers/$2) 
+    tzPrayTime=$((10#$prayTime+300))
+
+    year=`date +"%Y"`
+    value=`date --date="${year}$2 $tzPrayTime" +%s` 
+    current=`date +'%s'`
+
+    # print name of prayer + its time
+    prayTimeText="$summary `date -d@${value} \"+%I:%M %p\"`"
+
+    # only print name of prayer
+    #prayTimeText="$summary" 
+
+    remSec=$((($value - $current)%60))
+    remTime=$((($value - $current)/60))
+
+}
+
+today=`date +'%m%d'`
+yesterday=`date -d yesterday +'%m%d'`
+
+if [ -f ~/.cache/boatcfg/prayers/$yesterday ]; then
+    removeOld $yesterday
+fi
+
+if ! [ -f ~/.cache/boatcfg/prayers/$today-index ]; then
+    echo 1 > ~/.cache/boatcfg/prayers/$today-index
+fi
+
+if ! [ -f ~/.cache/boatcfg/prayers/$today ]; then
+     prayerFile $today
+fi
+
+position=`cat ~/.cache/boatcfg/prayers/$today-index`
+
+calculator $position $today
+
+if [ $position -ge 6 ] && [ $remTime -le 0 ] && [ $remSec -le 0 ]; then
+	remTimeText="󰸞"
+	prayTimeText=""	
+
+elif [ $remTime -eq 0 ] && [ $remSec -ge 0 ]; then
+
+    remTimeText="${remSec}s"
+
+elif [ $remTime -le 0 ] && [ $remSec -le 0 ]; then
+
+	while [ $remTime -le 0 ] && [ $remSec -le 0 ] && [ $position -lt 6 ]
+	do
+		position=$(($position+1))
+		echo $position > ~/.cache/boatcfg/prayers/$today-index
+		calculator $position $today
+	done
+
+    if [ $remTime -eq 0 ] && [ $remSec -ge 0 ]; then
+        remTimeText=`printf "%02d S" ${remSec}`
+    elif [ $remTime -ge 60 ]; then
+        remMin=$(($remTime%60))
+        remHour=$(($remTime/60)) 
+        remTimeText=`printf "%02d:%02d" ${remHour} ${remMin}`
+    else
+	    remTimeText=`printf "%02d M" ${remTime}`
+    fi
+
+
+elif [ $remTime -ge 60 ]; then
+	remMin=$(($remTime%60))
+	remHour=$(($remTime/60)) 
+    remTimeText=`printf "%02d:%02d" ${remHour} ${remMin}`
+else
+	remTimeText=`printf "%02d M" ${remTime}`
+fi
+
+case $1 in
+    "q") echo "$prayTimeText" ;;
+    "t") 
+        echo "$remTimeText" 
+
+        case $remTime in
+            0) locknum=1 ;;
+            1) locknum=2 ;;
+            [2-5]) locknum=5 ;;
+            [6-9]|10) locknum=10 ;;
+            1[1-5]) locknum=15 ;;
+            *) locknum=0 ;;
+        esac
+
+        if [ $locknum -gt 0 ]; then
+            locker=`cat ~/.cache/boatcfg/scripts/prayer.lock`
+            if [ -z "$locker" ] || [ $locker -ne $locknum ] ; then
+                echo "$locknum" > ~/.cache/boatcfg/scripts/prayer.lock
+                notifier normal \
+                    "software-update-urgent-symbolic" \
+                    "Prayer ($summary)" \
+                    "Only ${remTime}m remaining" \
+                    "<b>Prepare for the prayer</b>"
+            fi
+        fi
+        ;;
+
+    parse)
+
+        # Just supply the url from the button in https://prayerwebcal.dsultan.com/
+        # after configuring the settings as first argument and it will output 
+        # the result in the same directory you invoked the script from.
+        #
+        # the resulted file is expected to be placed in ~/.config/eww/scripts 
+        # unless you changed eww configuration.
+
+        if [ $# -ne 3 ]; then
+            notifier normal \
+                "dialog-error" \
+                "PrayerTime" \
+                "Invalid number of arguments" \
+                "<b>Number of arguments is $# while 3 arguments were expected</b>\n\n<b>Please supply webcal url as well as the name of output file</b>"
+            exit 1
+        fi
+            
+
+        url="$2"
+
+        if [ -z "$url" ]; then
+            notifier err \
+                "dialog-error" \
+                "Prayer ical parser" \
+                "$2"
+                "<b>Please supply the webcal url as an argument</b>"
+        else
+            printf "$url" |\
+                sed 's/^webcal/https/g' |\
+                xargs curl |\
+                grep --color=never -C 1 --no-group-separator "DTEND" |\
+                sed '/DTEND/d; s/:.*Sunrise/:Sunrise/; s/\r//g;' |\
+                awk -F ':' '{print $2}' |\
+                sed 'N;s/\n/\t/g; s/^[0-9]\{4\}//g' > ~/.scripts/data/"$3"
+
+                notifier normal \
+                    "cloud-download" \
+                    "Prayer ical parser" \
+                    "Saved as" \
+                    "<b>~/.scripts/data/$3</b>"
+        fi
+        ;;
+esac

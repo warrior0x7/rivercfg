@@ -1,0 +1,190 @@
+#!/bin/bash
+
+source ~/.scripts/extra/cmdfns
+
+DATA=~/.scripts/data
+
+case $1 in
+    nerd)
+        shift
+        case $1 in
+            "update")
+                rm $DATA/nerd.list
+
+                curl \
+                    'https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/css/nerd-fonts-generated.css' \
+                    -o $DATA/nerd-fonts-generated.css
+
+                cat $DATA/nerd-fonts-generated.css |\
+                    grep --color=never -A 2 "nf-" |\
+                    sed 's/^\.//g; s/:before {//g; s/  content: "//g; s/";$//g; /^}$/d; s/\\/\\U/g' |\
+                    perl -pe 's/\n/;;;/g if $. % 2' |\
+                    awk -F ';;;' '{print $2";;;"$1}' > $DATA/nerd.list
+
+                rm $DATA/nerd-fonts-generated.css
+
+                notifier normal \
+                    "folder-dropbox" \
+                    "Themer (Nerd)" \
+                    "Successfully updated nerd icons"
+                ;;
+
+            "get")
+                icon=`printf "$(cat $DATA/nerd.list)" |\
+                        awk -F ';;;' '{ printf "%2s %-5s %s\n", " ", $1, $2}' |\
+                        fzfcmd "[Themer] Nerd" |\
+                        awk '{print $1}'`
+
+                if [ -n "$icon" ]; then 
+                    printf "$icon" | wl-copy
+                    
+                    notifier normal \
+                        "edit-copy" \
+                        "Themer (Nerd)" \
+                        "Copied icon to clipboard"
+                fi
+                ;;
+
+            *)
+                notifier invalid \
+                    "Themer (Nerd)" \
+                    "$1" \
+                    "<b>Either 'install' or 'query' was expected</b>"
+                ;;
+        esac
+        ;;
+
+    icon)
+        ICON_THEME=`cat .config/gtk-3.0/settings.ini |\
+                    grep --color=never "gtk-icon-theme-name" |\
+                    awk -F '=' '{print $2}'`
+        
+        choice=`find /usr/share/icons/$ICON_THEME/ -type f |\
+            grep --color=never "/symbolic/status/\|/16x16/" |\
+            sed "s/^.*\/$ICON_THEME\///g" |\
+            grep svg --color=never |\
+            fzfcmd "[Themer] Icon" \
+                   --preview-window=right:40% \
+                   --preview="magick -density 1200 -background \"#282828\" /usr/share/icons/$ICON_THEME/{} PNG:- | chafa" |\
+            sed 's/^.*\///g; s/.svg//g'`
+        
+        if [ -n "$choice" ]; then
+            printf "$choice" | wl-copy
+            notifier normal \
+                "$choice" \
+                "Themer (Icon)" \
+                "Copied icon name to clipboard"
+        fi
+        ;;
+
+    font)
+        shift
+        case $1 in 
+            name)
+                font=`fc-list |\
+                        awk -F ":" '{print $2}' |\
+                        sed 's/,.*$//g' |\
+                        sort -u |\
+                        fzfcmd "[Themer] Font"`
+
+                if [ -n "$font" ]; then
+                    printf "$font" | wl-copy
+                    
+                    notifier normal \
+                        "dialog-text-and-font" \
+                        "Themer (Font)" \
+                        "Copied Font to clipboard"
+                fi
+                ;;
+
+            file)
+                font=`fc-list |\
+                    awk -F ":" '{print $1}' |\
+                    awk -F "/" '{print $NF}' |\
+                    sort -u |\
+                    fzfcmd "[Themer] Font file"`
+
+                if [ -n "$font" ]; then
+                    printf "$font" | wl-copy
+                    
+                    notifier normal \
+                        "dialog-text-and-font" \
+                        "Themer (Font)" \
+                        "Copied Font filename to clipboard"
+                fi
+                ;;
+            *)
+                notifier invalid
+                    "Themer (Font)" \
+                    "$1" \
+                    "Either 'name' or 'file' was expected"
+                ;;
+        esac
+        ;;
+
+    color)
+        shift
+        case $1 in
+            view)
+                choice=`cat $DATA/colors.list |\
+                                awk -F ';' '{ printf "%2s %-20s %s\n", " ", $1, $2}' |\
+                                fzfcmd "Color" \
+                                    --preview-window=right:50% \
+                                    --preview="~/.scripts/data/fzfpreview color {2}" \
+                                    --header="[alt+a => Autotype, alt+c => Convert]" \
+                                    --bind="alt-c:become(~/.scripts/themer color convert '{2}'),alt-a:become(~/.scripts/themer color autotype {2})" |\
+                                awk '{print $2}'`
+
+                if [ -n "$choice" ]; then
+                    printf '%s' "$choice" | wl-copy
+                fi
+                ;;
+
+            autotype)
+                nohup bash -c "printf '%s' \"$2\" | wtype -s 150 - &" 2&>/dev/null
+                ;;
+
+            convert)
+                if [[ -z $2 ]]; then
+                    input=`wl-paste`
+                    if [[ -z $input ]]; then
+                        exit 1
+                    fi
+                else
+                    input="$2"
+                fi
+                chkcolor=`check_color "$input"`
+                if ! [[ $chkcolor =~ ^(invalid|invalid_rgb)$ ]]; then
+                    if ! [[ $chkcolor == "term" ]]; then
+                        hex=`~/.scripts/xrgb hex $input`
+                        rgb=`~/.scripts/xrgb rgb $input`
+                        term=`~/.scripts/xrgb term $input`
+                        choice=`printf "%2s %-20s %s\n%2s %-20s %s\n%2s %-20s %s" \
+                                " " "hex" $hex \
+                                " " "rgb" $rgb \
+                                " " "term" $term |\
+                        fzfcmd "[Color] Convert" \
+                                --header="[alt+a => Autotype]" \
+                                --bind="alt-a:become(~/.scripts/themer color autotype {2})"|\
+                        awk '{print $2}'`
+                    else
+                        printf "\n%s\n\n%s\n\n%s\n%s" \
+                            "I'm sorry" \
+                            "Color conversion from term to hex or rgb `ctxt r "cannot be done"`" \
+                            "As RGB is converted to the nearest 0-255 terminal color index, so" \
+                            "it will be hard to reverse the process and get the exact same color"
+                        read
+                    fi
+                    if [ -n "$choice" ]; then
+                        printf '%s' "$choice" | wl-copy
+                    fi
+                else
+                    notifier err \
+                        "Colors" \
+                        "Invalid input" \
+                        "<b>Text in your clipboard should be a color</b>"
+                fi
+                ;;
+        esac
+        ;;
+esac

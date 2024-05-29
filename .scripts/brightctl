@@ -1,0 +1,16 @@
+#!/bin/bash
+
+step=5
+
+case $1 in
+    "up") brightnessctl set +$step% ;;
+    "down") brightnessctl set $step%- ;;
+esac
+
+brightness=`brightnessctl i | sed -n '2p' | sed 's/.*(//g;s/)//g'` 
+
+notify-send -r 100 \
+            "Brightness $brightness" \
+            -t 1000 \
+            -i display-brightness-high-symbolic \
+            -h int:value:$brightness

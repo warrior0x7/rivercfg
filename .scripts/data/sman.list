@@ -1,0 +1,27 @@
+󰒲;Suspend;gtklock & sleep 2 && systemctl suspend
+󱎫;Pomo start;pman
+;Pomo stop;~/.scripts/bar/pomo stop
+;Pomo pause;~/.scripts/bar/pomo pause
+;Pomo resume;~/.scripts/bar/pomo resume
+;Bookmarks;bookmark query
+󰸕;Bookmark add;bookmark add
+󰞅;Nerd Icons;themer nerd get
+;Nerd Update;~/.scripts/themer nerd update
+;Theme Icons;themer icon
+;Colors;themer color view
+;Convert Color;themer color convert
+;Font;themer font name
+;Font filename;themer font file
+;MPV YT;mpvyt
+;Ytrss add;ytrss add
+;Ytrss update;~/.scripts/ytrss update
+;Disable Touchpad;~/.config/river/scripts/touchpad disable
+󰟸;Enable Touchpad;~/.config/river/scripts/touchpad enable
+;Lock;gtklock
+;Log out;kill -s SIGINT `pgrep river`
+⏻;Power off;systemctl poweroff
+;Reboot;systemctl reboot
+;Sleep;systemctl suspend
+;Clear clipboard history;cliphist wipe
+󱓞;Run program;cmdrunner
+;Calculator;[i] PYTHONSTARTUP="$HOME/bash/ipython.py" python3

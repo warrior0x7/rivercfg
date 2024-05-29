@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# remove verbosity and print out tasks only
+task rc.verbose=nothing ls
+
+# make task currently active
+task start 1
+
+# grep active task without colors
+task rc.verbose=nothing active | grep --color=never .
+
+# add task
+task add "TEXT"

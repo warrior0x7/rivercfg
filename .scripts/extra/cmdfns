@@ -1,0 +1,129 @@
+#!/bin/bash
+
+function fzfcmd { 
+    fzf --color=preview-bg:'#282829',pointer:1,prompt:4,hl:4,bg+:'#45403d',fg+:7,hl+:1 \
+        --bind 'tab:toggle+up,shift-tab:toggle+down,change:first' \
+        --tiebreak=begin \
+        --prompt="$1 > " \
+        "${@:2}"
+}
+
+function notifier { 
+    case $1 in
+        normal) notify-send -i "$2" "$3" "\n<b><u>$4</u></b>\n\n${@:5}"  ;;
+        invalid) notify-send -i "dialog-error" "$2" "\n<b><u>Invalid argument</u>: '$3'</b>\n\n${@:4}" ;;
+        err) notify-send -i "dialog-error" "$2" "\n<b><u>$3</u></b>\n\n${@:4}"  ;;
+    esac
+}
+
+function fzfprompt {
+    echo "" |\
+        fzf --print-query -0 \
+            --color=pointer:0,prompt:4,hl:4,bg+:0,fg+:7,hl+:1 \
+            --header="" \
+            --no-info \
+            --prompt="$1 > " \
+            "${@:2}" | sed '/^$/d'
+}
+
+function mpvcmd {
+    notifier normal \
+        "im-youtube" \
+        "Mpv (mpvcmd)" \
+        "Your video will run shortly"
+
+    mpv --ytdl=yes \
+        --cache=yes \
+        --cache-secs=30 \
+        --script-opts=ytdl_hook-ytdl_path=yt-dlp \
+        --ytdl-raw-options=force-ipv4= \
+        --ytdl-format='bestvideo[ext=mp4][vcodec^=avc][height<=720]+bestaudio/best[height<=720]' \
+        "$@"
+
+    if [[ $? != 0 ]]; then
+        notifier err \
+            "Mpv (mpvcmd)" \
+            "mpv (yt-dlp) failed to run url" \
+            "<b>Make sure it can be handled by yt-dlp</b>"
+    fi
+}
+
+function ctxt () {
+    ctxt_bseq="\033["
+    ctxt_reset="\033[0m"
+
+    case $1 in
+          black)    ctxt_color=0 ;; # Black
+          r)        ctxt_color=1 ;; # Red
+          g)        ctxt_color=2 ;; # Green
+          y)        ctxt_color=3 ;; # Yellow
+          b)        ctxt_color=4 ;; # Blue
+          p)        ctxt_color=5 ;; # Purple
+          c)        ctxt_color=6 ;; # Cyan
+          w)        ctxt_color=7 ;; # White
+    esac
+
+    printf "${ctxt_bseq}0;3${ctxt_color}m%s${ctxt_reset}" "$2"
+}
+
+function check_num () {
+    if [[ $1 =~ ^[+]?[0-9]+$ ]]; then
+        chknum="int"
+    elif [[ $1 =~ ^[-][0-9]+$ ]]; then
+        chknum="-int"
+    elif [[ $1 =~ ^[+]?[0-9]+([.][0-9]+)?$ ]]; then
+        chknum="float"
+    elif [[ $1 =~ ^[-][0-9]+([.][0-9]+)?$ ]]; then
+        chknum="-float"
+    else
+        chknum="NaN"
+    fi
+    
+    printf "%s" "$chknum"
+}
+
+function rgb_check () {
+    chk_rgb=`check_num $2`
+
+    case $1 in
+        r) msg_color="r Red" ;;
+        g) msg_color="g Green" ;;
+        b) msg_color="b Blue" ;;
+    esac
+    
+    msg_name=`ctxt $msg_color`
+
+    if [ -z "$2" ]; then
+        printf "%-17s : %14s\n" "$msg_name" "Empty value"
+        chkcolor="invalid_rgb"
+    elif [[ "$chk_rgb" != "int" ]]; then
+        printf "%-17s : %17s\n" "$msg_name" "Not an integer"
+        chkcolor="invalid_rgb"
+    fi
+}
+
+function check_color () {
+    if [[ "$1" =~ ^"#" ]] && [[ ${#1} == 7 ]]; then
+        chkcolor="hex"
+    elif [[ "$1" =~ ^"rgb(".*")"$ ]]; then
+        rgb=`echo $1 | sed 's/^rgb(//g; s/)$//g'`
+
+        r=`echo $rgb | awk -F ',' '{print $1}'`
+        g=`echo $rgb | awk -F ',' '{print $2}'`
+        b=`echo $rgb | awk -F ',' '{print $3}'`
+
+        rgb_check r $r
+        rgb_check g $g
+        rgb_check b $b
+
+        if [[ "$chkcolor" != "invalid_rgb" ]]; then
+            chkcolor="rgb"
+        fi
+    elif [ ${#1} -le 3 ]; then
+        chkcolor="term"
+    else
+        chkcolor="invalid"
+    fi
+
+    printf "%s\n" "$chkcolor"
+}

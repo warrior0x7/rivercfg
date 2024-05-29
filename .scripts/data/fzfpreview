@@ -1,0 +1,58 @@
+#!/bin/bash
+
+case $1 in
+    clip)
+        shift
+        filetype=`cliphist decode $1 | file --mime-type -`
+
+        if [[ $filetype =~ "image" ]]; then
+            cliphist decode $1 |\
+                chafa -f sixels \
+                -s ${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES} -
+        else
+            cliphist decode $1 |\
+                bat --color=always \
+                --style=numbers,grid \
+                --wrap=auto \
+                --theme=gruvbox-dark \
+                --terminal-width ${FZF_PREVIEW_COLUMNS}
+        fi 
+        ;;
+
+    color)
+        shift
+        width="25"
+        height="10"
+
+        rgb=`echo "$1" | ~/.scripts/xrgb -stdin rgb | sed 's/^rgb(//g; s/)$//g'`
+        r=`echo $rgb | awk -F ',' '{print $1}'`
+        g=`echo $rgb | awk -F ',' '{print $2}'`
+        b=`echo $rgb | awk -F ',' '{print $3}'`
+
+        for i in `seq 1 ${height}`; do
+            printf "\033[0;48;2;${r};${g};${b}m%${width}s\033[0m\n"
+        done
+        ;;
+
+    ytrss)
+        shift
+        line=`cat ~/.cache/boatcfg/scripts/ytrss | grep --color=never -F ";;;$1"`
+
+        url=`echo "$line" | awk -F ';;;' '{print $5}'`
+        title=`echo "$line" | awk -F ';;;' '{print $4}'`
+        name=`echo "$line" | awk -F ';;;' '{print $2}'`
+
+        preview_height=`printf "%d" $(( $FZF_PREVIEW_LINES - 5 ))`
+        preview_width=`printf "%d" $(( $FZF_PREVIEW_COLUMNS - 5 ))`
+
+        curl -s "$url" | chafa -f sixels -s ${preview_width}x${preview_height} -
+        printf "[%s]" "$name"
+
+        printf "%s" "$title" |\
+            bat --color=always \
+                --style=grid \
+                --wrap=auto \
+                --terminal-width ${FZF_PREVIEW_COLUMNS}
+        ;;
+esac
+

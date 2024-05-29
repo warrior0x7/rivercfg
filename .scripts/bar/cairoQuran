@@ -1,0 +1,31 @@
+#!/bin/bash
+
+source ~/.scripts/extra/cmdfns
+
+process=`ps -e f | grep --color=never "https://stream.radiojar.com/8s5u5tpdtwzuv" | grep --color=never mpv | awk '{print $1}'`
+
+case $1 in
+    "play")
+        if [ -z $process ]; then
+            eww update quran_active=true 
+            mpv https://stream.radiojar.com/8s5u5tpdtwzuv
+        else
+            dunstify "EWW: Cairo Quran CONFLICT!" "\nThere's already a process running"
+        fi
+        ;;
+    "stop")
+        if [ -z $process ]; then
+            dunstify "EWW: Cairo Quran NOT RUNNING!" "\nNo process is running to be stopped"
+        else
+            eww update quran_active=false
+            kill $process
+        fi
+        ;;
+    *)
+        notifier err \
+            "dialog-error" \
+            "CairoQuran" \
+            "$1" \
+            "<b>Either 'play' or 'stop' was expected</b>"
+        ;;
+esac

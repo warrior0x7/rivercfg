@@ -1,0 +1,138 @@
+#!/bin/bash
+
+source ~/.scripts/extra/cmdfns
+
+if ! [ -f ~/.cache/boatcfg/pomo ]; then
+    mkdir -p ~/.cache/boatcfg/pomo
+fi
+
+function escape () {
+    case $1 in
+        stop)
+            duration=`cat ~/.cache/boatcfg/pomo/duration`
+            current=`cat ~/.cache/boatcfg/pomo/current`
+            elapsed="$(( $duration - $current ))"
+            printf "%02d\n" $elapsed >> ~/.cache/boatcfg/pomo/sessions
+            [ -f ~/.cache/boatcfg/pomo/"break" ] && rm ~/.cache/boatcfg/pomo/"break"
+            eww update pomo_icon="󱎫"
+            eww update pomo_break=false
+            eww update rev_pomo=false
+            ;;
+
+        finish)
+            if ! [ -f ~/.cache/boatcfg/pomo/break ]; then
+                echo "$duration" >> ~/.cache/boatcfg/pomo/sessions
+            fi
+            ;;
+    esac
+    rm ~/.cache/boatcfg/pomo/{current,duration}
+    echo "00:00" > ~/.cache/boatcfg/pomo/log
+}
+
+
+function run () {
+
+    duration=`cat ~/.cache/boatcfg/pomo/duration`
+    time="$duration"
+
+    while true; do
+        eww_indicator=`eww get rev_pomo`
+        if [[  $eww_indicator == "false" ]]; then
+            eww update rev_pomo=true
+        fi
+
+        if [ $time -lt 0 ]; then
+            escape finish
+            if ! [ -f ~/.cache/boatcfg/pomo/break ]; then
+                eww update pomo_icon=""
+                eww update pomo_break=true
+                touch ~/.cache/boatcfg/pomo/"break"
+                notifier normal \
+                    "folder-games" \
+                    "Pomo" \
+                    "Started break"
+                duration="$(( $break_time*60 ))"
+            else
+                eww update pomo_icon="󱎫"
+                eww update pomo_break=false
+                rm ~/.cache/boatcfg/pomo/"break"
+                notifier normal \
+                    "fcitx-handwriting-active" \
+                    "Pomo" \
+                    "Started working session"
+                duration="$(( $working_time*60 ))"
+            fi
+
+            echo "$duration" > ~/.cache/boatcfg/pomo/duration
+            duration=`cat ~/.cache/boatcfg/pomo/duration`
+            time="$duration"
+        fi
+
+        min="$(( $time/60 ))"
+        sec="$(( $time%60 ))"
+        printf "%02d:%02d\n" $min $sec >> ~/.cache/boatcfg/pomo/log
+        time=$(( $time-1))
+        echo "$time" > ~/.cache/boatcfg/pomo/current
+        sleep 1
+    done
+}
+
+case $1 in
+    start)
+        if [ $# -eq 3 ]; then
+            working_time=$2
+            break_time=$3
+        elif [ $# -gt 3 ]; then
+            notifier normal \
+                "dialog-error" \
+                "Pomo" \
+                "Invalid number of arguments (start)" \
+                "<b>Make sure you either run without arguments or use 3 arguments</b>"
+        else
+            working_time=25
+            break_time=5
+        fi
+
+        process=`pgrep pomo`
+
+        if ! [ -f ~/.cache/boatcfg/pomo/current ] || [ $process -eq $$ ]; then
+            [ -f ~/.cache/boatcfg/pomo/"break" ] && rm ~/.cache/boatcfg/pomo/"break"
+            eww update pomo_pause=false
+            eww update pomo_icon="󱎫"
+            eww update pomo_break=false
+            eww update rev_pomo=true
+            duration="$(( $working_time * 60 ))"
+            echo "$duration" > ~/.cache/boatcfg/pomo/duration
+            notifier normal \
+                "fcitx-handwriting-active" \
+                "Pomo" \
+                "Started working session"
+            run
+        else
+            notifier normal \
+                "dialog-error" \
+                "Pomo" \
+                "A session is already running"
+        fi
+        ;;
+
+    pause) 
+        eww update pomo_pause=true
+        kill -STOP `pgrep pomo` 
+        ;;
+
+    resume) 
+        eww update pomo_pause=false
+        kill -CONT `pgrep pomo` 
+        ;;
+
+    stop) 
+        notifier normal \
+            "no" \
+            "Pomo" \
+            "Stopped timer"
+        eww update rev_pomo=false 
+        escape stop
+        kill -KILL `pgrep pomo`
+        ;;
+esac

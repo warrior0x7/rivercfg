@@ -1,0 +1,63 @@
+#!/bin/bash
+
+source ~/.scripts/extra/cmdfns
+
+case $1 in
+    view)
+        choice=`cat ~/.scripts/data/colors.list |\
+                        awk -F ';' '{ printf "%2s %-20s %s\n", " ", $1, $2}' |\
+                        fzfcmd "Color" \
+                            --preview-window=right:50% \
+                            --preview="~/.scripts/data/fzfpreview color {2}" \
+                            --header="[alt+a => Autotype, alt+c => Convert]" \
+                            --bind="alt-c:become(~/.scripts/colors convert '{2}'),alt-a:become(~/.scripts/colors autotype {2})" |\
+                        awk '{print $2}'`
+
+        if [ -n "$choice" ]; then
+            printf '%s' "$choice" | wl-copy
+        fi
+        ;;
+
+    autotype)
+        nohup bash -c "printf '%s' \"$2\" | wtype -s 150 - &" 2&>/dev/null
+        ;;
+
+    convert)
+        if [[ -z $2 ]]; then
+            input=`wl-paste`
+            if [[ -z $input ]]; then
+                exit 1
+            fi
+        else
+            input="$2"
+        fi
+        chkcolor=`check_color "$input"`
+        if ! [[ $chkcolor =~ ^(invalid|invalid_rgb)$ ]]; then
+            if ! [[ $chkcolor == "term" ]]; then
+                hex=`~/.scripts/xrgb hex $input`
+                rgb=`~/.scripts/xrgb rgb $input`
+                term=`~/.scripts/xrgb term $input`
+                choice=`printf "%2s %-20s %s\n%2s %-20s %s\n%2s %-20s %s" " " "hex" $hex " " "rgb" $rgb " " "term" $term |\
+                fzfcmd "[Color] Convert" \
+                        --header="[alt+a => Autotype]" \
+                        --bind="alt-a:become(~/.scripts/colors autotype {2})"|\
+                awk '{print $2}'`
+            else
+                printf "\n%s\n\n%s\n\n%s\n%s" \
+                    "I'm sorry" \
+                    "Color conversion from term to hex or rgb `ctxt r "cannot be done"`" \
+                    "As RGB is converted to the nearest 0-255 terminal color index, so" \
+                    "it will be hard to reverse the process and get the exact same color"
+                read
+            fi
+            if [ -n "$choice" ]; then
+                printf '%s' "$choice" | wl-copy
+            fi
+        else
+            notifier err \
+                "Colors" \
+                "Invalid input" \
+                "<b>Text in your clipboard should be a color</b>"
+        fi
+        ;;
+esac

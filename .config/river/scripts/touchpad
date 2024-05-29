@@ -1,0 +1,10 @@
+#!/bin/bash
+
+touchpad=`riverctl list-inputs | grep --color=never TouchPad`
+
+function toggle () { riverctl input $touchpad events $1; }
+
+case $1 in
+    enable) toggle enabled ;;
+    disable) toggle disabled ;;
+esac

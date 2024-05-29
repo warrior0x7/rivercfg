@@ -1,0 +1,13 @@
+#!/bin/bash
+
+case $1 in
+    "enter")
+        riverctl enter-mode recording
+        eww update rev_mode=true
+        ;;
+
+    "exit")
+        riverctl enter-mode normal
+        eww update rev_mode=false
+        ;;
+esac

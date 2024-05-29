@@ -1,0 +1,12 @@
+#!/bin/bash
+
+source ~/.scripts/extra/cmdfns
+
+choice=$(cat ~/.scripts/data/browser.list |\
+            awk -F ';' '{ printf "%2s %-4s %s\n", " ", $1, $2}' |\
+            fzfcmd --prompt='Firefox > ' |\
+            sed 's/[^A-Za-z0-9]/ /g; s/ \{3,\}//g')
+
+if [ -n "$choice" ]; then
+    nohup bash -c "firefox -P $choice &" 2&>/dev/null
+fi

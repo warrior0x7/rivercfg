@@ -1,0 +1,96 @@
+#!/bin/bash
+
+source ~/.scripts/extra/cmdfns
+
+function invalid_color_msg () {
+    printf "%s\n\n" "$color is an invalid color"
+    printf "%s\n" "Valid options are : "
+    printf "%5s %s\n" " " "1) rgb(`ctxt r r`,`ctxt g g`,`ctxt b b`)"
+    printf "%5s %s\n" " " "2) #`ctxt r RR``ctxt g GG``ctxt b BB`"
+    printf "%5s %s\n" " " "3) 3 digit terminal color"
+    exit 1
+}
+
+function split_rgb () {
+    rgb=`echo $1 | sed 's/^rgb(//g; s/)$//g'`
+    r=`echo $rgb | awk -F ',' '{print $1}'`
+    g=`echo $rgb | awk -F ',' '{print $2}'`
+    b=`echo $rgb | awk -F ',' '{print $3}'`
+}
+
+function hex_to_rgb () {
+    # Print RGB color
+    hex=`echo $1 | sed 's/^#//g'`
+    r=$(( 16#${hex:0:2} ))
+    g=$(( 16#${hex:2:2} ))
+    b=$(( 16#${hex:4:2} ))
+}
+
+function rgb_to_hex () {
+    split_rgb "$1"
+    printf "#%02x%02x%02x\n" $r $g $b
+}
+
+function rgb_to_term () {
+    # Print nearest 0-255 color index
+    # Credit: https://unix.stackexchange.com/a/269085
+    split_rgb "$1"
+    [[ $r -lt 75 ]] && r=0
+    [[ $g -lt 75 ]] && g=0
+    [[ $b -lt 75 ]] && b=0
+    printf "%03d\n" "$(( ((r-35)/40)*6*6 + ((g-35)/40)*6 + ((b-35)/40) + 16 ))"
+}
+
+if [[ $1 == -stdin ]]; then
+    read color
+    shift
+else
+    color=$2
+fi
+
+case $1 in
+    rgb)
+        chkcolor=`check_color "$color"`
+
+        if [[ $chkcolor == "rgb" ]]; then
+            printf "%s\n" "$color"
+        elif [[ $chkcolor == "hex" ]]; then
+            hex_to_rgb "$color"
+            printf "rgb(%d,%d,%d)\n" $r $g $b
+        elif [[ $chkcolor == "term" ]]; then
+            printf "%s\n" "Term => RGB conversion is unavailable"
+        elif [[ $chkcolor == "invalid" ]]; then
+            invalid_color_msg
+        fi
+        ;;
+    hex)
+        chkcolor=`check_color "$color"`
+
+        if [[ $chkcolor == "rgb" ]]; then
+            rgb_to_hex "$color"
+        elif [[ $chkcolor == "hex" ]]; then
+            printf "%s\n" "$color"
+        elif [[ $chkcolor == "term" ]]; then
+            printf "%s\n" "Term => Hex conversion is unavailable"
+        elif [[ $chkcolor == "invalid" ]]; then
+            invalid_color_msg
+        fi
+        ;;
+    term)
+        chkcolor=`check_color "$color"`
+
+        if [[ $chkcolor == "rgb" ]]; then
+            rgb_to_term "$color"
+        elif [[ $chkcolor == "hex" ]]; then
+            rgb=`hex_to_rgb "$color"`
+            rgb_to_term "$rgb"
+        elif [[ $chkcolor == "term" ]]; then
+            printf "%s\n" "$color"
+        elif [[ $chkcolor == "invalid" ]]; then
+            invalid_color_msg
+        fi
+        ;;
+    *)
+        printf "%s\n" "Invalid option"
+        ;;
+esac

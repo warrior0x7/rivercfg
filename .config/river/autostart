@@ -1,0 +1,26 @@
+#!/bin/bash
+
+wallpaper="`ls -l --color=never ~/Pictures/wallpapers/ | awk '{print $9}' | sed '/^$/d' | shuf -n 1`"
+
+cleaner=("konsole" "lxpolkit" "kdeconnect-indicator" "eww" "dunst" "gammastep" "kdeconnectd" "swww-daemon" "wl-paste" "nm-applet" "headphoned")
+
+for str in "${cleaner[@]}"; do
+    kill -SIGTERM `pgrep $str`
+done
+
+swww-daemon --format xrgb &
+swww img ~/Pictures/wallpapers/"$wallpaper" &
+dunst &
+lxpolkit &
+gammastep -O 3500 &
+/usr/lib/kdeconnectd &
+eww open bar &
+wl-paste --type text --watch cliphist store &
+wl-paste --type image --watch cliphist store &
+wl-paste --primary --watch cliphist store &
+kdeconnect-indicator &
+konsole --background-mode &
+nm-applet &
+xhost + local: &
+~/.scripts/headphoned &
+~/.scripts/ytrss update

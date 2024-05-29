@@ -3,10 +3,17 @@
 # ----------------------------
 # PACKAGE MANAGER
 # ----------------------------
-alias q='pacman -Ss'
-alias u='sudo pacman -Syu'
-alias i='sudo pacman -Sy'
-alias r='sudo pacman -R'
+alias q='pacman -Ss'                    # Search for package
+alias u='sudo pacman -Syu'              # Update all packages
+alias i='sudo pacman -Sy'               # Install package
+alias r='sudo pacman -R'                # Remove package
+alias cc='sudo pacman -Scc'             # Clear cache
+alias o='pacman -Qdt'                   # List orphan packages
+alias info='pacman -Si'                 # Get info on package
+alias e='sudo pacman -D --asexp'        # Mark package as explicitly installed
+alias d='sudo pacman -D --asdep'        # Mark package as dependency
+alias f='pacman -Ql'                    # List files installed by a package
+
 
 
 # ----------------------------
@@ -14,25 +21,45 @@ alias r='sudo pacman -R'
 # ----------------------------
 alias mki='make && sudo make install'
 alias grep='grep --color=always -i'
-alias ll='eza -lah --icons=always --group-directories-first'
+alias ll='eza -lah --icons=always --group-directories-first --sort=modified --time-style="+%Y/%m/%d %p %I:%M"'
 alias v='nvim'
-alias dv='sudo nvim -u ~/.config/nvim/init.lua'
+alias sv='sudo nvim -u ~/.config/nvim/init.lua'
 alias ugrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias ytd='yt-dlp -f "bestvideo[ext=mp4][vcodec^=avc][height<=720]+bestaudio/best[height<=720]"'
-alias sbrc="source ~/.bashrc"
+alias sb="source ~/.bashrc"
 alias rm="trash"
 alias tl="trash-list"
-alias tr="trash-restore"
-alias ginterrupts="grep . --color=never -r /sys/firmware/acpi/interrupts"
+alias tre="trash-restore"
+alias rgi="grep . --color=never -r /sys/firmware/acpi/interrupts"
+
+function rgc () {
+    grep -r "$1" *
+}
+
+function mks () {
+    if ! [ -f $1 ]; then
+        touch $1
+        printf "%s" "#!/bin/bash" > $1
+        chmod +x $1
+        nvim $1
+    else
+        printf "%s\n%s\n" "File already exists" "I will open it in your EDITOR ($EDITOR)"
+        nvim $1
+    fi
+}
 
 # ----------------------------
 # GIT
 # ----------------------------
 
 function bare () { /usr/bin/git --git-dir=/home/user/git/rivercfg/ --work-tree=$HOME "$@";}
+function git_relay () { $1 ;}
 
 function git_options () {
     case $2 in
+        # ----------------------------
+        # COMMON OPTIONS
+        # ----------------------------
         a) $1 add "${@:3}" ;;
         u) $1 add -u "${@:3}" ;;
         c) $1 commit "${@:3}" ;;
@@ -42,13 +69,16 @@ function git_options () {
         lu) $1 ls-files --others "${@:3}" ;;
         pull) $1 pull origin main --allow-unrelated-histories "${@:3}" ;;
         ds) $1 diff --staged "${@:3}" ;;
-        d) $1 diff "${@:3}" ;;
+        d) $1 difftool "${@:3}" ;;
         r) $1 rm "${@:3}" ;;
         rc) $1 rm --cached "${@:3}" ;;
         ra) $1 remote add origin "${@:3}" ;;
         rs) $1 remote set-url origin "${@:3}" ;;
         stop) $1 update-index --skip-worktree "${@:3}" ;;
         *)
+            # ----------------------------
+            # SPECIFIC OPTIONS
+            # ----------------------------
             case $1 in
                 git)
                     case $2 in
@@ -72,7 +102,3 @@ function git_options () {
 
 function b () { git_options bare "$@"; }
 function g () { git_options git "$@"; }
-
-export PATH="$PATH:$HOME/.scripts:$HOME/go/bin"
-export MANPAGER="nvim +Man!"
-export EDITOR="nvim"

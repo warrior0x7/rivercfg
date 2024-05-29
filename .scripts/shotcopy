@@ -1,0 +1,136 @@
+#!/bin/bash
+#
+# TODO: prevent overriding
+
+# If cache directory does not exist, create one
+[ ! -d ~/.cache/boatcfg/scripts ] && mkdir -p ~/.cache/boatcfg/scripts
+
+source ~/.scripts/extra/cmdfns
+
+function menu () { ~/.scripts/extra/fterm rename "$@"; }
+
+case $1 in
+    "shot")
+        case $2 in
+            "copy")
+                region=`slurp`
+                if [ -n "$region" ]; then
+                    grim -g "$region" - | wl-copy
+                    notifier normal \
+                        "folder-pictures" \
+                        "Shotcopy: Screenshot (Copy)" \
+                        "Copied to clipboard"
+                fi
+                ;;
+
+            "region")
+                region=`slurp`
+                if [ -n "$region" ]; then 
+                    grim -g "$region" ~/.cache/boatcfg/scripts/screenshot.png
+                    menu shot "Region"
+                else
+                    notifier normal \
+                        "folder-pictures" \
+                        "Shotcopy: Screenshot (Region)" \
+                        "No region provided so didn't take screenshot"
+                fi
+                ;;
+
+            "full")
+                grim ~/.cache/boatcfg/scripts/screenshot.png
+                menu shot "Full"
+                ;;
+           
+            *)
+                notifier err \
+                    "dialog-error" \
+                    "Shotcopy: Screenshot" \
+                    "$2" \
+                    "<b>One of 'copy', 'region' or 'full' was expected</b>"
+                ;;
+        esac
+        ;;
+
+
+    "rec")
+        # name of device below will be used as an audio source for screen recording
+        device_name="alsa_output.pci-0000_00_1b.0.analog-stereo.monitor"
+
+        case $2 in
+            "region")
+                if [ -f ~/.cache/boatcfg/scripts/recorder.lock ]; then
+                    notifier normal \
+                        "dialog-error" \
+                        "Shotcopy: Recorder" \
+                        "The script wasn't made to be run concurrently"
+                else
+                    region=`slurp`
+                    if [ -n "$region" ]; then 
+                        echo "Region" > ~/.cache/boatcfg/scripts/recorder.lock
+
+                        eww update rev_recording=true
+
+                        notifier normal \
+                            "folder-video" \
+                            "Shotcopy: Recorder" \
+                            "Region video recording started"
+
+                        wf-recorder -x yuv420p                  \
+                                    --audio="$device_name"      \
+                                    -g "$region"                \
+                                    -f ~/.cache/boatcfg/scripts/recording.mp4
+                    fi
+                fi
+                ;;
+
+            "full")
+                if [ -f ~/.cache/boatcfg/scripts/recorder.lock ]; then
+                    notifier normal \
+                        "dialog-error" \
+                        "Shotcopy: Recorder" \
+                        "The script wasn't made to be run concurrently"
+                else
+                    echo "Full" > ~/.cache/boatcfg/scripts/recorder.lock
+
+                    eww update rev_recording=true
+
+                    notifier normal \
+                        "folder-video" \
+                        "Shotcopy: Recorder" \
+                        "Fullscreen video recording started"
+
+                    wf-recorder -x yuv420p                  \
+                                --audio="$device_name"      \
+                                -f ~/.cache/boatcfg/scripts/recording.mp4
+                fi
+                ;;
+
+            "stop")
+                if [ -f ~/.cache/boatcfg/scripts/recorder.lock ]; then
+                    kill -s SIGINT `pgrep wf-recorder`
+                    eww update rev_recording=false
+                    menu video
+                else
+                    notifier normal \
+                        "dialog-error" \
+                        "Shotcopy: Recorder" \
+                        "Not even running to be stopped"
+                fi
+                ;;
+            *)
+                notifier err \
+                    "dialog-error" \
+                    "Shotcopy: Recorder" \
+                    "$2" \
+                    "<b>One of 'full', 'region' or 'stop' was expected</b>"
+                ;;
+        esac
+        ;;
+    *)
+        notifier err \
+            "dialog-error" \
+            "Shotcopy" \
+            "$1" \
+            "<b>Either 'shot' or 'rec' was expected</b>"
+        ;;
+esac

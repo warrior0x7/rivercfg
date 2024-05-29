@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?playlist_id=UUld68syR8Wi-GY_n4CaoJGA"/>
+ <id>yt:playlist:UUld68syR8Wi-GY_n4CaoJGA</id>
+ <yt:playlistId>UUld68syR8Wi-GY_n4CaoJGA</yt:playlistId>
+ <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+ <title>Uploads from Brodie Robertson</title>
+ <author>
+  <name>Brodie Robertson</name>
+  <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+ </author>
+ <published>2020-02-23T08:00:00+00:00</published>
+ <entry>
+  <id>yt:video:JsUWl0zbQBg</id>
+  <yt:videoId>JsUWl0zbQBg</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>Gnome's Icon Theme Is Objectively Broken</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=JsUWl0zbQBg"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-28T21:00:10+00:00</published>
+  <updated>2024-05-28T21:00:11+00:00</updated>
+  <media:group>
+   <media:title>Gnome's Icon Theme Is Objectively Broken</media:title>
+   <media:content url="https://www.youtube.com/v/JsUWl0zbQBg?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/JsUWl0zbQBg/hqdefault.jpg" width="480" height="360"/>
+   <media:description>For the longest time on Linux we've had the ability to set a default icon theme for our applications but in the journey of GNOME trying to be different this has lead to the Adwaita Icon Theme becoming objectively broken and this lead to a giant discussion.
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+==========Resources==========
+GNOME Issue: https://gitlab.gnome.org/GNOME/adwaita-icon-theme/-/issues/288
+XDG Spec Issue: https://gitlab.freedesktop.org/xdg/xdg-specs/-/issues/132
+GTK Issue: https://gitlab.gnome.org/GNOME/gtk/-/issues/5007
+XDG issue: https://gitlab.freedesktop.org/xdg/default-icon-theme/-/issues/23
+Recolor Issue: https://gitlab.freedesktop.org/xdg/default-icon-theme/-/issues/24
+Symbolic Spec: https://gitlab.freedesktop.org/xdg/default-icon-theme/-/issues/25
+KDE Issue: https://invent.kde.org/frameworks/kiconthemes/-/issues/3
+GNOME Legacy: https://gitlab.gnome.org/Teams/Releng/AppOrganization/-/issues/26
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+#GNOME #Linux #OpenSource #FOSS
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="905" average="5.00" min="1" max="5"/>
+    <media:statistics views="9939"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:_lauTrwlFqQ</id>
+  <yt:videoId>_lauTrwlFqQ</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>NetBSD Completely Bans AI Generated Code</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=_lauTrwlFqQ"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-27T21:00:23+00:00</published>
+  <updated>2024-05-29T08:23:34+00:00</updated>
+  <media:group>
+   <media:title>NetBSD Completely Bans AI Generated Code</media:title>
+   <media:content url="https://www.youtube.com/v/_lauTrwlFqQ?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/_lauTrwlFqQ/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Whether you like the direction that AI is going or not you have to decide how you're going to use or not use it, it's no longer enough to just ignore the tech especially if you're running an open source project and NetBSD recently came out with a clear stance.
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+==========Resources==========
+Mastodon Post: https://mastodon.sdf.org/@netbsd/112446618914747900
+NetBSD Guidelines: https://www.netbsd.org/contrib/
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="881" average="5.00" min="1" max="5"/>
+    <media:statistics views="11579"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:gphY5Okx_vs</id>
+  <yt:videoId>gphY5Okx_vs</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>Open Source Software Is Not A Democracy</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=gphY5Okx_vs"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-26T21:00:18+00:00</published>
+  <updated>2024-05-28T05:50:55+00:00</updated>
+  <media:group>
+   <media:title>Open Source Software Is Not A Democracy</media:title>
+   <media:content url="https://www.youtube.com/v/gphY5Okx_vs?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/gphY5Okx_vs/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Recently this post by DHH has been making the rounds about the use of the term community around open source and the fact that these projects are not democracies.
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+==========Resources==========
+DHH Post: https://world.hey.com/dhh/open-source-is-neither-a-community-nor-a-democracy-606abdab
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="968" average="5.00" min="1" max="5"/>
+    <media:statistics views="15373"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:2Sy90K9CB8w</id>
+  <yt:videoId>2Sy90K9CB8w</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>Winamp Plans To &quot;Open The Source Code&quot;</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=2Sy90K9CB8w"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-25T21:00:00+00:00</published>
+  <updated>2024-05-28T05:59:31+00:00</updated>
+  <media:group>
+   <media:title>Winamp Plans To &quot;Open The Source Code&quot;</media:title>
+   <media:content url="https://www.youtube.com/v/2Sy90K9CB8w?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/2Sy90K9CB8w/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Winamp is a music player that I extensively used during my youth on Windows and it turns out that the project is going to &quot;open the source code&quot; whatever that is supposed to mean.
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+==========Resources==========
+Twitter Post: https://x.com/winamp/status/1791121664689725683
+Press Release: https://about.winamp.com/press/article/winamp-open-source-code
+XDA Developer Post: https://www.xda-developers.com/winamp-open-source/
+Tech Spot Post: https://www.techspot.com/news/103039-winamp-music-player-soon-become-open-source-project.html
+NFTs: https://mashable.com/article/winamp-nft-art-original-skin
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+#OpenSource #FOSS #Linux #Windows #WinAmp
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="1355" average="5.00" min="1" max="5"/>
+    <media:statistics views="18368"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Aqo8g3Hx4rA</id>
+  <yt:videoId>Aqo8g3Hx4rA</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>Microsoft Windows Worst Spyware Ever... So Far!!</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Aqo8g3Hx4rA"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-23T21:00:06+00:00</published>
+  <updated>2024-05-26T08:10:26+00:00</updated>
+  <media:group>
+   <media:title>Microsoft Windows Worst Spyware Ever... So Far!!</media:title>
+   <media:content url="https://www.youtube.com/v/Aqo8g3Hx4rA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/Aqo8g3Hx4rA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>You've probably heard quite a bit about Microsoft's new Recall feature which I'm not going to sugar coat it, is literally just spyware and I do not trust that this data is never going to collected or leaked through some malware.
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+==========Resources==========
+The Verge Article: https://www.theverge.com/2024/5/20/24159258/microsoft-recall-ai-explorer-windows-11-surface-event
+Endgadget Article: https://www.engadget.com/with-recall-microsoft-is-using-ai-to-fix-windows-eternally-broken-search-172510698.html
+WSJ Interview: https://youtu.be/uHEPBzYick0
+Copilot PC: https://www.microsoft.com/en-gb/windows/copilot-plus-pcs
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+#Windows #Microsoft #Linux #OpenSource #Copilot #Recall
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="5508" average="5.00" min="1" max="5"/>
+    <media:statistics views="67596"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:Xmk4dwst-Js</id>
+  <yt:videoId>Xmk4dwst-Js</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>Ubuntu 24.10 Goes Wayland Default On NVIDIA!?!?</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=Xmk4dwst-Js"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-22T21:00:16+00:00</published>
+  <updated>2024-05-24T05:13:01+00:00</updated>
+  <media:group>
+   <media:title>Ubuntu 24.10 Goes Wayland Default On NVIDIA!?!?</media:title>
+   <media:content url="https://www.youtube.com/v/Xmk4dwst-Js?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/Xmk4dwst-Js/hqdefault.jpg" width="480" height="360"/>
+   <media:description>We are moving more and more into a Wayland world and finally Ubuntu with it's 24.10 release is going full default Wayland, 21.04 was on AMD and Intel GPUs, now even on NVIDIA.
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+==========Resources==========
+Ubuntu 24.10 Roadmap: https://discourse.ubuntu.com/t/ubuntu-desktop-s-24-10-dev-cycle-the-roadmap/45120
+Ubuntu 17.10: https://www.omgubuntu.co.uk/2017/08/ubuntu-confirm-wayland-default-17-10
+Ubuntu 21.04: https://www.omgubuntu.co.uk/2021/01/ubuntu-21-04-will-use-wayland-by-default
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+#Linux #Ubuntu #NVIDIA #FOSS #GPU #AMD
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="1121" average="5.00" min="1" max="5"/>
+    <media:statistics views="18544"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:sCoioLCT5_o</id>
+  <yt:videoId>sCoioLCT5_o</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>KDE Plasma Constantly Stuttering, Try This!!</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=sCoioLCT5_o"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-21T21:00:38+00:00</published>
+  <updated>2024-05-27T08:18:17+00:00</updated>
+  <media:group>
+   <media:title>KDE Plasma Constantly Stuttering, Try This!!</media:title>
+   <media:content url="https://www.youtube.com/v/sCoioLCT5_o?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/sCoioLCT5_o/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Since the day I switched to KDE Plasma I had had a really annoying stutter bug but we have finally tracked it down and the reason it's happening is really dumb and has really wide reaching effects on KDE Plasma.
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+==========Resources==========
+Ritchie Video: https://www.youtube.com/watch?v=3pOKciPIBvY
+KDE Bug Report: https://bugs.kde.org/show_bug.cgi?id=487043
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+#KDE #Linux OpenSource #FOSS #GNOME #LinuxDesktop
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="1317" average="5.00" min="1" max="5"/>
+    <media:statistics views="16142"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:_w8Cw7ZoF8k</id>
+  <yt:videoId>_w8Cw7ZoF8k</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>Kernel Developer Tries To Solve Every Overflow Bug</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=_w8Cw7ZoF8k"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-20T21:00:28+00:00</published>
+  <updated>2024-05-23T15:02:52+00:00</updated>
+  <media:group>
+   <media:title>Kernel Developer Tries To Solve Every Overflow Bug</media:title>
+   <media:content url="https://www.youtube.com/v/_w8Cw7ZoF8k?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/_w8Cw7ZoF8k/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Dealing with numbers in a computer isn't as simple as just add them together, eventually you hit the limit either on the bottom or top and this creates an overflow or underflow but this developer is trying to resolve every single bug caused by this.
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+==========Resources==========
+Kernel Discussion: https://lore.kernel.org/lkml/202404291502.612E0A10@keescook/
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="1578" average="5.00" min="1" max="5"/>
+    <media:statistics views="30539"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:qhEKoZO6DM8</id>
+  <yt:videoId>qhEKoZO6DM8</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>Never Criticize The Linux Foundation Expenses</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=qhEKoZO6DM8"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-19T21:00:26+00:00</published>
+  <updated>2024-05-19T21:00:26+00:00</updated>
+  <media:group>
+   <media:title>Never Criticize The Linux Foundation Expenses</media:title>
+   <media:content url="https://www.youtube.com/v/qhEKoZO6DM8?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/qhEKoZO6DM8/hqdefault.jpg" width="480" height="360"/>
+   <media:description>I feel like my stance on the Linux Foundation has been pretty consistent, thinking that it would be nice if they cared at least a little bit about the Linux desktop and I'm going to stand by that point
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+==========Resources==========
+Linux Foundation Report 2023: https://www.linuxfoundation.org/resources/publications/linux-foundation-annual-report-2023
+RENE Rebe Stream: https://youtu.be/EWIrbzn0t4s
+Twitter Thread: https://x.com/sysrich/status/1788833704837587148
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+#Linux #OpenSource #FOSS
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="1465" average="5.00" min="1" max="5"/>
+    <media:statistics views="18225"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:fjQWRq2xjG0</id>
+  <yt:videoId>fjQWRq2xjG0</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>Libreboot Developer Trolls The FSF... Once Again</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=fjQWRq2xjG0"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-18T21:00:19+00:00</published>
+  <updated>2024-05-18T21:00:19+00:00</updated>
+  <media:group>
+   <media:title>Libreboot Developer Trolls The FSF... Once Again</media:title>
+   <media:content url="https://www.youtube.com/v/fjQWRq2xjG0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/fjQWRq2xjG0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>A couple of months back I did some videos on the Libreboot developer going to war with some FSF people and Leah Rowe is back at it again, this time wanting membership of her project in GNU
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+==========Resources==========
+GNU Boot: https://savannah.gnu.org/projects/gnuboot/
+Canoeboot: https://canoeboot.org
+Canoeboot GNU: https://canoeboot.org/news/gnu.html
+GNU Mailing List: https://lists.gnu.org/archive/html/libreplanet-discuss/2024-05/msg00001.html
+Mastodon: https://mas.to/@libreleah/112428793049670713
+Triquel Forum: https://trisquel.info/en/forum/should-gnu-boot-become-gnu-canoeboot
+Reddit: https://www.reddit.com/r/linux/comments/1cqe924/should_canoeboot_become_gnu_canoeboot/
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+#Linux #OpenSource #FOSS #Libreboot #coreboot #fsf
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="1662" average="5.00" min="1" max="5"/>
+    <media:statistics views="23896"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:WJ4TTjH8FIc</id>
+  <yt:videoId>WJ4TTjH8FIc</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>The Most Uncomfortable Truths About Linux</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=WJ4TTjH8FIc"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-16T21:00:20+00:00</published>
+  <updated>2024-05-21T01:38:08+00:00</updated>
+  <media:group>
+   <media:title>The Most Uncomfortable Truths About Linux</media:title>
+   <media:content url="https://www.youtube.com/v/WJ4TTjH8FIc?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/WJ4TTjH8FIc/hqdefault.jpg" width="480" height="360"/>
+   <media:description>A few days ago I asked you guys for some uncomfortable truths about Linux and whilst some of you misunderstood the assignment we got some very fun takes a long the way.
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+#Linux #OpenSource #FOSS
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="2960" average="5.00" min="1" max="5"/>
+    <media:statistics views="45633"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:-mXdH7u5ffY</id>
+  <yt:videoId>-mXdH7u5ffY</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>Debian's OpenSSL Bug Lingers 16 Years Later</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=-mXdH7u5ffY"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-15T21:00:01+00:00</published>
+  <updated>2024-05-16T06:32:32+00:00</updated>
+  <media:group>
+   <media:title>Debian's OpenSSL Bug Lingers 16 Years Later</media:title>
+   <media:content url="https://www.youtube.com/v/-mXdH7u5ffY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/-mXdH7u5ffY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>16 years ago Debian shipped a massive vulnerability in OpenSSL and even though the bug has been addressed that hasn't stopped some companies not rotating there keys for 16 years.
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+==========Resources==========
+CVE 2008-0166:  https://lists.debian.org/debian-security-announce/2008/msg00152.html
+16 Years Of CVE: https://16years.secvuln.info/
+Tranco List: https://tranco-list.eu/
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+#Linux #OpenSSL #OpenSource #Debian
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="1025" average="5.00" min="1" max="5"/>
+    <media:statistics views="14521"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:9AV1Q-JfHpI</id>
+  <yt:videoId>9AV1Q-JfHpI</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>Debian Breaks KeepassXC Package For &quot;Security&quot;</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=9AV1Q-JfHpI"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-14T21:00:07+00:00</published>
+  <updated>2024-05-20T03:47:08+00:00</updated>
+  <media:group>
+   <media:title>Debian Breaks KeepassXC Package For &quot;Security&quot;</media:title>
+   <media:content url="https://www.youtube.com/v/9AV1Q-JfHpI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/9AV1Q-JfHpI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Debian has a much bigger focus on security than many other Linux distros so much so that they will sometimes miss the mark like with this KeepassXC case, the issue is the maintainer won't revert the change.
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+==========Resources==========
+KeepassXC Post: https://fosstodon.org/@keepassxc/112417353193348720
+Debian Bug Report: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=953529
+Minimal Default: https://packages.debian.org/sid/keepassxc
+Full Package: https://packages.debian.org/sid/keepassxc-full
+Github Issue: https://github.com/keepassxreboot/keepassxc/issues/10725
+Xscreensaver: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=819703
+MPV: https://github.com/mpv-player/mpv/commit/cdaa496314f90412963f2b3211e18df72910066d
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+#Linux #Debian #OpenSource #FOSS
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="2074" average="5.00" min="1" max="5"/>
+    <media:statistics views="31552"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:zBr2myHoJaA</id>
+  <yt:videoId>zBr2myHoJaA</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>The State Of Xorg Outside Of Linux</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=zBr2myHoJaA"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-13T21:00:38+00:00</published>
+  <updated>2024-05-15T16:21:34+00:00</updated>
+  <media:group>
+   <media:title>The State Of Xorg Outside Of Linux</media:title>
+   <media:content url="https://www.youtube.com/v/zBr2myHoJaA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/zBr2myHoJaA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Whilst this isn't a BSD channel, it's always fun to see what's happening on the other side of the Unix world outside of Linux
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+==========Resources==========
+Wayland On NetBSD: https://blog.netbsd.org/tnf/entry/wayland_on_netbsd_trials_and
+Xorg On NetBSD: https://blog.netbsd.org/tnf/entry/x_org_on_netbsd_the
+Xenocara: https://xenocara.org/
+Old Nvidia Driver: https://lwn.net/Articles/380704/
+Xedit Post: https://opensource.com/article/20/12/xedit
+Xbiff: https://man.netbsd.org/xbiff.1
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+#Xorg #Linux #OpenSource #FOSS #Wayland
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="1177" average="5.00" min="1" max="5"/>
+    <media:statistics views="22021"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:UPzIz9v0EIY</id>
+  <yt:videoId>UPzIz9v0EIY</yt:videoId>
+  <yt:channelId>UCld68syR8Wi-GY_n4CaoJGA</yt:channelId>
+  <title>Stop Recommending Niche Linux Distros!</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=UPzIz9v0EIY"/>
+  <author>
+   <name>Brodie Robertson</name>
+   <uri>https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA</uri>
+  </author>
+  <published>2024-05-12T21:00:12+00:00</published>
+  <updated>2024-05-13T19:00:33+00:00</updated>
+  <media:group>
+   <media:title>Stop Recommending Niche Linux Distros!</media:title>
+   <media:content url="https://www.youtube.com/v/UPzIz9v0EIY?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/UPzIz9v0EIY/hqdefault.jpg" width="480" height="360"/>
+   <media:description>There are tons of Linux distros, some might say way too many Linux distros and if I'm being honest you shouldn't be recommending most of those distros, not because they're bad but because there's basically no documentation.
+
+==========Support The Channel==========
+► Patreon: https://brodierobertson.xyz/patreon
+► Paypal: https://brodierobertson.xyz/paypal
+► Liberapay: https://brodierobertson.xyz/liberapay
+► Amazon USA: https://brodierobertson.xyz/amazonusa
+
+=========Video Platforms==========
+🎥 Odysee: https://brodierobertson.xyz/odysee
+🎥 Podcast: https://techovertea.xyz/youtube
+🎮 Gaming: https://brodierobertson.xyz/gaming
+
+==========Social Media==========
+🎤 Discord: https://brodierobertson.xyz/discord
+🐦 Twitter: https://brodierobertson.xyz/twitter
+🌐 Mastodon: https://brodierobertson.xyz/mastodon
+🖥️ GitHub: https://brodierobertson.xyz/github
+
+==========Credits==========
+🎨 Channel Art:
+Profile Picture:
+https://www.instagram.com/supercozman_draws/
+
+#Linux #OpenSource #FOSS #LinuxDistro #Ubuntu #Manjaro #ArchLinux
+
+🎵 Ending music
+Track: Debris &amp; Jonth - Game Time [NCS Release]
+Music provided by NoCopyrightSounds.
+Watch:  https://www.youtube.com/watch?v=yDTvvOTie0w 
+Free Download / Stream: http://ncs.io/GameTime
+
+DISCLOSURE: Wherever possible I use referral links, which means if you click one of the links in this video or description and make a purchase I may receive a small commission or other compensation.</media:description>
+   <media:community>
+    <media:starRating count="2020" average="5.00" min="1" max="5"/>
+    <media:statistics views="30403"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>

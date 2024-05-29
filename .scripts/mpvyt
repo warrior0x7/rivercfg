@@ -1,0 +1,17 @@
+#!/bin/bash
+
+source ~/.scripts/extra/cmdfns
+
+url=`wl-paste`
+
+if [ -n "$url" ]; then
+    if [[ $url =~ ^"https" ]]; then
+        nohup bash -c "source ~/.scripts/extra/cmdfns; mpvcmd $url &" 2&>/dev/null
+    else
+        notifier normal \
+            "dialog-error" \
+            "Mpvyt" \
+            "You have provided an invalid URL" \
+            "<b>Make sure it can be handled by yt-dlp</b>"
+    fi
+fi

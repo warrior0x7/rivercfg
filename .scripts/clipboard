@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source ~/.scripts/extra/cmdfns
+
+DATA=~/.scripts/data
+
+choice="`cliphist list | fzfcmd "Clip" \
+                     --ansi \
+                     -d $'\t' \
+                     --with-nth 2 \
+                     --preview-window=right:50% \
+                     --preview=''$DATA'/fzfpreview clip {}'`"
+
+if [ -n "$choice" ]; then
+    nohup bash -c "printf '%s' ${choice@Q} | cliphist decode | wtype -s 150 - &" 2&>/dev/null
+fi

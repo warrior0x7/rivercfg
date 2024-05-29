@@ -1,0 +1,81 @@
+#!/bin/bash
+
+source ~/.scripts/extra/cmdfns
+
+BOOKMARKS=~/.scripts/data/bookmarks.list
+
+[ ! -f $BOOKMARKS ] && touch $BOOKMARKS
+
+function bnotify () { notifier normal "bookmarks" "Bookmark" "$1" "$2"; }
+function bnotify_edit () { notifier normal "edit" "Bookmark" "$1"; }
+function bnotify_err () { notifier normal "dialog-error" "Bookmark" "$1"; }
+function bnotify_add () { notifier normal "bookmark-new" "Bookmark" "Added successfully" "$1"; }
+function bnotify_invalid () { notifier err "Bookmark" "$1" "$2"; }
+
+case $1 in
+    "add")
+        bookmark=`wl-paste`
+        if [[ $bookmark =~ ^"http" ]]; then
+            if grep -q "$bookmark" $BOOKMARKS ;then
+                bnotify "Already exists"
+            else
+                name=`fzfprompt "Bookmark Name" --header="$bookmark"`
+                if [ -n "$name" ]; then
+                    bnotify_add "<b>$name</b>\n\n<b>$bookmark</b>"
+                    printf "%s;;;%s" "$name" "$bookmark" >> $BOOKMARKS
+                else
+                    bnotify "Not saved because you didn't specify a name"
+                fi
+            fi
+        else
+            bnotify_err "Text in your clipboard is not a valid url"
+        fi
+        ;;
+    
+    "query")
+        query="$(cat $BOOKMARKS |\
+            awk -F ';;;' '{ printf "%2s %-40s %s\n", " ", $1, $2}' |\
+            fzfcmd "Marks" \
+                --multi \
+                --bind='alt-r:become(~/.scripts/bookmark rename {}),alt-d:become(~/.scripts/bookmark delete)' |\
+                sed 's/^.*\shttp/http/g')"
+
+        if [ -n "$query" ]; then
+            nohup /bin/bash -c "printf '%s' ${query@Q} | wtype -s 150 - &" 2&>/dev/null
+        fi
+        ;;
+
+    "rename")
+        query=`echo $2 | sed 's/^.*\shttp/http/g'`
+
+        rename=`fzfprompt "[Rename] Marks" --header="$query"`
+
+        if [ -n "$rename" ]; then
+            bnotify "Bookmark name has changed to" "<b>$rename</b>\n\n<b>$query</b>"
+
+            printf "$query" |\
+                xargs -n 1 -I {} sed -i "s|^.*;;;{}$|$rename;;;{}|g" $BOOKMARKS 2&>/dev/null
+        else
+            bnotify "Bookmark hasn't been named because valid input was not provided"
+        fi
+
+        ~/.scripts/bookmark query
+        ;;
+
+    "delete")
+        del=`cat $BOOKMARKS |\
+            awk -F ';;;' '{ printf "%2s %-30s %s\n", " ", $1, $2}' |\
+            fzfcmd --multi "[Delete] Marks" |\
+            sed 's/^.*http/http/g'`
+
+        if [ -n "$del" ]; then
+            printf '%s\n' "$del" |\
+                xargs -n 1 -I {} sed -i "\|;;;{}$|d" $BOOKMARKS 2&>/dev/null
+        fi
+        ~/.scripts/bookmark query
+        ;;
+
+    *)
+        bnotify_invalid "$1" "Either 'add' or 'query' was expected"
+        ;;
+esac

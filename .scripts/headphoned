@@ -1,0 +1,30 @@
+#!/bin/bash
+# 
+# Credit : https://askubuntu.com/a/1284966
+
+source ~/.scripts/extra/cmdfns
+
+function update_eww () {
+    volume=`pamixer --get-volume`
+    muted=`pamixer --get-mute`
+    eww update volume="$volume"
+    eww update volume_mute="$muted"
+}
+
+acpi_listen | while IFS= read -r line;
+do
+    if [ "$line" = "jack/headphone HEADPHONE plug" ]; then
+        update_eww
+        notifier normal \
+            "audio-headphones" \
+            "Headphone Detector" \
+            "Headphones plugged in"
+
+    elif [ "$line" = "jack/headphone HEADPHONE unplug" ]; then
+        update_eww
+        notifier normal \
+            "audio-speakers" \
+            "Headphone Detector" \
+            "Headphones unplugged"
+    fi
+done

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Using Konsole because both sixel and bidi are available
+function fterm () { konsole --notransparency -p tabtitle="Floating" -e "$@"; }
+function term () { konsole --notransparency -p tabtitle="$1" -e "${@:2}"; }
+
+
+case $1 in
+    sman) fterm ~/.scripts/sman;;
+    clip) fterm ~/.scripts/clipboard;;
+    run) fterm ~/.scripts/cmdrunner;;
+    bmark) fterm ~/.scripts/bookmark query;;
+    ffprofile) fterm ~/.scripts/browser;;
+    search) fterm ~/.scripts/search;;
+    ytrss) fterm ~/.scripts/ytrss view;;
+    rename) fterm ~/.scripts/extra/rename ${@:2};;
+    rprop) term "riverprop" ~/.config/river/scripts/riverprop;;
+    fman) term "fileManager" lf;;
+esac
