@@ -1,0 +1,95 @@
+[global]
+    monitor = 0
+    follow = mouse
+    width = 300
+    height = 300
+    origin = top-right
+    offset = 15x20
+    scale = 0
+    notification_limit = 6
+    progress_bar = true
+    progress_bar_height = 20
+    progress_bar_frame_width = 2
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    progress_bar_corner_radius = 7
+    indicate_hidden = yes
+    padding = 20
+    horizontal_padding = 10
+    text_icon_padding = 0
+    frame_width = 2
+    frame_color = "#ea6962"
+    gap_size = 10
+    separator_color = frame
+    sort = yes
+
+    ### Text ###
+    font = DejaVuSansM Nerd Font Propo 10
+    line_height = 2
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = end
+    ignore_newline = no
+    stack_duplicates = false
+    hide_duplicate_count = false
+    show_indicators = no
+
+    ### Icons ###
+    enable_recursive_icon_lookup = false
+    icon_theme = Papirus-Dark
+    icon_position = left
+    min_icon_size = 30
+    max_icon_size = 128
+
+    icon_path = /usr/share/icons/Papirus-Dark/16x16/places:/usr/share/icons/Papirus-Dark/16x16/actions:/usr/share/icons/Papirus-Dark/16x16/apps:/usr/share/icons/Papirus-Dark/16x16/categories:/usr/share/icons/Papirus-Dark/16x16/emblems:/usr/share/icons/Papirus-Dark/16x16/emotes:/usr/share/icons/Papirus-Dark/16x16/mimetypes:/usr/share/icons/Papirus-Dark/16x16/devices:/usr/share/icons/Papirus-Dark/16x16/panel:/usr/share/icons/Papirus-Dark/symbolic/status
+
+    ### History ###
+    sticky_history = yes
+    history_length = 50
+
+    ### Misc/Advanced ###
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    corner_radius = 15
+    ignore_dbusclose = true
+
+    ### Wayland ###
+    layer = overlay
+    force_xwayland = false
+
+    ### mouse
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[experimental]
+    per_monitor_dpi = false
+
+[urgency_low]
+    background = "#282828"
+    foreground = "#d4be98"
+    timeout = 10
+    #default_icon = /path/to/icon
+
+[urgency_normal]
+    background = "#282828"
+    foreground = "#d4be98"
+    timeout = 10
+    #default_icon = /path/to/icon
+
+[urgency_critical]
+    background = "#ea6962"
+    foreground = "#282828"
+    frame_color = "#ff0000"
+    timeout = 0
+    #default_icon = /path/to/icon
+
+[Progressbar]
+    appname="*"
+    highlight="#ea6962"

@@ -1,0 +1,344 @@
+/************************************
+              Variables
+
+    THEME: GRUVBOX MATERIAL MEDIUM 
+ ************************************/
+
+$bg: #282828;
+$white: #d4be98;
+$grey: #5a524c; 
+$red: #ea6962;
+$yellow: #d8a657;
+$green: #a9b665;
+$blue: #7daea3;
+$cyan: #89b482;
+$purple: #d3869b;
+
+$accentColor: $red;
+$altBg: #45403d;
+$altBgRadius: rgba(69, 64, 61, 0.99);
+$trayDisabled: #7c6f64;
+
+$borderRadius: 0.6em;
+
+
+/************************************
+                GLOBAL 
+ ************************************/
+
+* {
+    all:unset;
+    font-family: "JetBrainsMono Nerd Font Propo", "monospace";
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.bar {
+
+    /* 
+        I used rgba here because border-radius won't
+        render on river unless there's transparency... 
+        so I just put 0.99 in alpha to make it work
+     */
+  
+  background-color: rgba(40,40,40,0.99);
+  color: $white;
+  padding: 0.1em 0.2em 0.1em 0.2em;
+  border-radius: 0.9em;
+}
+
+.tasks {
+  background-color: rgba(40,40,40,0.99);
+  color: $white;
+  padding: 0.1em 0.2em 0.1em 0.2em;
+  border-radius: 0.9em;
+  border: 2px solid $red;
+}
+
+.side { margin: 0.2em; }
+
+.module {
+    padding: 0.2em 0.6em 0.2em 0.6em;
+    color: $bg;
+    border-radius: $borderRadius;
+}
+
+.module_inactive {
+    background-color: $grey; 
+    color: $white;
+}
+
+.module_active {
+    background-color: $green; 
+    color: $bg;
+}
+
+.module_critical {
+    background-color: $red;
+    color: $bg;
+}
+
+/************************************
+                MIDDLE 
+ ************************************/
+.quran_radio {
+    border-radius: $borderRadius;
+    padding: 0em 1em 0em 1em;
+}
+
+.quran-button {
+    padding-left: 0.5em;
+}
+
+/************************************
+            RIGHT SIDE 
+ ************************************/
+.right_side {
+    margin-right: 0.4em;
+}
+
+.clock { 
+    background-color: $purple; 
+    margin-right: 0em;
+}
+.date { background-color: $purple; }
+.prayer { background-color: $yellow; }
+.battery_state { padding-right: 0.5em; }
+.systray { margin-right: 0.6em; }
+
+tooltip {
+    background-color: $altBgRadius;
+    border-radius: $borderRadius;
+    color: $white;
+}
+
+
+
+.systray menu {
+	border-radius: $borderRadius;
+	padding: 0.33em;
+	color: $white;
+	background-color: $altBg;
+
+    /*
+        >menuitem matches menuitem elements nested directly inside menu
+    */
+
+	menuitem {
+		padding: 0.25em;
+        
+        arrow {
+            
+            /*
+                Symbolic icons from your icons theme
+
+                EXAMPLE: (using Papirus-Dark icons)
+                1. run `find /usr/share/icons/Papirus-Dark/symbolic | grep <YOUR-ICON-NAME>`
+                2. use the name without the .svg part like what i did below
+
+             */
+
+            -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+            color: $white;
+            
+            // min-width and min-height are required for the icon to be rendered
+            min-width: 1em;
+            min-height: 1em;
+        }
+
+        /* 
+            & before pseudo element means nesting selector modifiers
+            so instead of 
+            
+            menuitem:disabled{
+
+            } 
+
+            you type:
+
+            menuitem {
+                &:disabled{
+                }
+            }
+
+         */
+
+        radio{
+            // min-width and min-height are required for the icon to be rendered
+            min-width: 1em;
+            min-height: 1em;
+            padding-right: 0.5em;
+            
+            /*
+                How to get the url for icon?
+
+                1. Use your terminal to go to gtk-3.0 sub-directory inside your gtk theme directory, 
+                   `/usr/share/themes/<YOUR-GTK-THEME>/gtk-3.0/` NOTE: also works for `~/.themes`
+
+                   EXAMPLE: I use arc-dark theme, so for me it's `/usr/share/themes/Arc-Dark/gtk-3.0/`
+                
+
+                2. View contents of either `gtk.css` or `gtk-dark.css`, for me it looks like this
+                   
+                   `@import url("resource:///org/gnome/arc-theme/gtk-main-dark.css");`
+                   
+                   the important part is `url("resource:///org/gnome/arc-theme/")`
+
+
+                3. run `gresource list <NAME-OF-GRESOURCE-FILE>.gresource` in the same directory to 
+                   list all files inside of it or even easier, pipe it to grep to pick the icon you want.
+
+                   EXAMPLE: `gresource list gtk.gresource | grep radio-checked-dark` 
+                   
+                   RESULT: `
+                            /org/gnome/arc-theme/assets/radio-checked-dark.png
+                            /org/gnome/arc-theme/assets/radio-checked-dark@2.png
+                           `
+                   The @2 variant is a an additional scale 
+                   SEE: https://docs.gtk.org/gtk3/css-overview.html#using-themed-icons-in-css
+                   
+                   I'm not concerned so I'll just pick the intended one
+
+
+                4. Merging the two would be:
+                   
+                   `url("resource:///org/gnome/arc-theme/assets/radio-checked-dark.png")`
+             */
+
+            /*
+                Scale 2 can be added through:
+
+                `-gtk-icon-source: -gtk-scaled(url(...), url(..<SCALE-2>..));`
+             
+             */
+
+            -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/radio-unchecked-dark.png"));
+
+            &:checked {
+                -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/radio-checked-dark.png"));
+                &:hover {
+                    -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/radio-checked-selected.png"));
+                }
+            }
+            
+            &:hover {
+                -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/radio-unchecked-selected.png"));
+            }
+        }
+        
+        check{
+            // same as before, min-width and min-height are required for the icon to be rendered
+            min-width: 1em;
+            min-height: 1em;
+            padding-right: 0.5em;
+            -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/checkbox-unchecked-dark.png"));
+
+            &:checked {
+                -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/checkbox-checked-dark.png"));
+                &:hover {
+                    -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/checkbox-checked-selected.png"));
+                }
+            }
+            
+            &:hover {
+                -gtk-icon-source: -gtk-scaled(url("resource:///org/gnome/arc-theme/assets/checkbox-unchecked-selected.png"));
+            }
+        }
+
+        &:disabled label { color: $trayDisabled; }
+		&:hover {
+            arrow { color: $bg; }
+			background-color: $accentColor;
+			color: $bg;
+		}
+	}
+
+	separator {
+		background-color: $bg;
+		padding-top: 0.06em;
+
+		&:last-child {
+			padding: unset;
+		}
+	}
+}
+
+/************************************
+            LEFT SIDE                         
+************************************/
+
+.left_side {
+    margin-left: 0.2em;
+}
+
+.tag { 
+    padding: 0em 0.53em 0em 0.53em; 
+    border-radius: $borderRadius;
+}
+
+.active-tag {
+background: $accentColor;
+color: $bg;
+}
+
+.empty-tag { color: $grey; }
+
+.layout {
+ background-color: $grey;
+ border-radius: $borderRadius;
+ padding: 0em 0.2em 0em 0.2em;
+}
+
+.mode { 
+    background-color: $yellow; 
+}
+
+.pomo_work {
+    background-color: $red;
+    color: $bg;
+}
+
+.pomo_break {
+    background-color: $green;
+    color: $bg;
+}
+
+/************************************
+            CALENDAR                         
+************************************/
+
+.calendar {
+  background-color: rgba(40,40,40,0.99);
+  color: $white;
+  border-radius: 0.9em;
+  border: 2px solid $accentColor;
+  padding: 2em 1.5em 1.5em 1.5em;
+}
+
+.cal_header {
+    margin: 0em 1em 0em 1em;
+    padding: 0em 1em 0em 1em;
+}
+
+.cal_days {
+    margin: 1em 1em 0em 1em;
+}
+
+.cal_main_container {
+    padding-top: 1.3em;
+}
+
+.today {
+    background-color: $red;
+    color: $bg;
+}
+
+.day:hover {
+    background-color: $yellow;
+    color: $bg;
+}
+
+.cal_button:hover {
+    background-color: $yellow;
+    color: $bg;
+}

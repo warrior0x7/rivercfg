@@ -1,0 +1,39 @@
+*{
+    color: #d4be98;
+    font-family: JetBrainsMono Nerd Font Propo;
+    font-weight: bold;
+}
+
+window {
+   background-image: url("nord_mountains.png");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-color: #282828;
+}
+
+#input-field {
+    background-color: #282828;
+    color: #d4be98;
+    border-radius: 2em;
+}
+
+#window-box {
+    background: rgba(40,40,40,0.9);
+    border-radius: 2em;
+    padding: 4em;
+}
+
+#clock-label {
+    font-size: 2em;
+}
+
+button{
+    background-color: #ea6962;
+    border: 0px;
+    border-radius: 2em;
+}
+
+button label {
+    color: #282828;
+}

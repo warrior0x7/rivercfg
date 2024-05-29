@@ -1,0 +1,312 @@
+(deflisten current-json :initial "[]"
+    `ristate -t | stdbuf -o0 sed '/{"tags":{}}/d; s/├─┤ │/[]/g; s/│ ├─┤/[]/g; s/│   │/[1]/g; s/│ /[/; s/ │/]/;'`
+)
+
+(deflisten occupied-tags :initial "1" 
+    `ristate -vt | stdbuf -o0 sed '/{"viewstag":{}}/d'`
+)
+
+(deflisten pomo :initial "00:00"
+    `tail -f ~/.cache/boatcfg/pomo/log`
+)
+
+(defpoll time :initial ""
+              :interval "10s"
+    `date +"%I:%M %p %d %b %Y"`)
+
+(defpoll battery_percent :initial "0"
+                         :interval "1s"
+    `~/.scripts/bar/battery percent`)
+
+(defpoll battery_state :initial "0"
+                       :interval "1s"
+    `~/.scripts/bar/battery state`)
+
+(defpoll prayerTime :initial ""
+                    :interval "1s"
+    `~/.scripts/bar/prayerTime t`)
+
+(defpoll prayer :initial ""
+                :interval "1s"
+    `~/.scripts/bar/prayerTime q`)
+
+(defpoll ethernet_state :initial "down"
+                        :interval "2s"
+    `~/.scripts/bar/network eth state`)
+
+(defpoll volume :initial "0"
+                :interval "86400s"
+  `pamixer --get-volume`)
+
+(defpoll volume_mute :initial "false"
+                     :interval "86400s"
+  `pamixer --get-mute`)
+
+(defvar rev_pomo false)
+(defvar pomo_icon "󱎫")
+(defvar pomo_break false)
+(defvar pomo_pause false)
+
+(defvar rev_prayer false)
+(defvar rev_date false)
+(defvar rev_battery false)
+(defvar rev_mode false)
+(defvar rev_recording false)
+(defvar recording_paused false)
+(defvar quran_active false)
+
+(defvar cal_open false)
+(defvar hovered false)
+
+(defwidget bar []
+
+  	(centerbox :orientation "h"
+    (left)
+    (middle)
+    (right)
+))
+
+
+(defwidget middle []
+    (box
+        :space-evenly false
+        :class "side"
+        (revealer
+            :reveal {rev_recording}
+            :transition "slideright"
+            :duration "350ms"
+            (label
+                :class "module right_side mode"
+                :text "${recording_paused == true ? "" : "󰑊"} Rec"
+            )
+        )
+        
+        (box
+        :class `quran_radio ${quran_active == false ? "module_inactive" : "module_active" }`
+        :space-evenly false
+          (label
+              :text "Quran Radio"
+          )
+          (button
+            :onclick `${quran_active == false ? "~/.scripts/bar/cairoQuran play" : "~/.scripts/bar/cairoQuran stop"}`
+            :class "quran-button"
+            `${quran_active == true ? "" : ""}`
+          )
+        )
+    )
+)
+
+(defwidget right []
+    (box
+        :class "side"
+        :orientation "h"
+        :halign "end"
+        :space-evenly false
+        :spacing 0
+
+        (systray 
+            :class "systray"
+            :icon-size 22
+            :space-evenly true
+            :spacing 8
+        )
+        
+        (box
+          :class `module right_side ${battery_percent > 30 ? "module_active" : battery_state == 0 ? "module_critical" : "module_active" }`
+          :space-evenly false
+          :style ''
+
+          (label
+              :class "battery_state"
+              :text `${battery_state == 1 ? "󱐋" : battery_percent == 100 ? "" : battery_percent >= 75 ? "" : battery_percent >= 50 ? "" : battery_percent >= 25 ? "" : "" }`
+          )
+          (label
+              :class "battery_percent"
+              :text `${battery_percent}%`
+          )
+        )
+
+        (label
+          :class `module right_side ${ethernet_state == "up" ? "module_active" : "module_inactive"}`
+          :text `${ethernet_state == "up" ? "󰈀" : ""}`
+        )
+
+        (label
+          :class `module right_side ${volume_mute == "false" ? "module_active" : "module_inactive"}`
+          :text `${volume_mute == "false" ? "" : "" } ${volume}%`
+        )
+
+        (revealer
+            :reveal `${prayer == "" ? false : rev_prayer}`
+            :transition "slideleft"
+            :duration "350ms"
+            (label
+                :class "module right_side prayer"
+                :text "${prayer}"
+            )
+        )
+
+        (eventbox
+            :onhover "eww update rev_prayer=true"
+            :onhoverlost "eww update rev_prayer=false"
+            (label
+                :class "module right_side prayer"
+                :text " ${prayerTime}"
+            )
+        )
+
+        (eventbox
+            :onhover "eww update rev_date=true"
+            :onhoverlost "eww update rev_date=false"
+            :onclick `${cal_open == false ? "eww update cal_open=true; eww open calendar" : "eww update cal_open=false; eww close calendar" }`
+            (label
+                :class "module right_side clock"
+                :text "${substring(time, 0, 8)}"
+            )
+        )
+    )
+)
+
+(defwidget tag [id symbol]
+    (eventbox
+        :onclick `riverctl set-focused-tags \`echo "2^${id - 1}" | bc -l\``
+        ( box 
+		:class `tag ${id == current-json["tags"]["LGDisplay"][0] ? "active-tag" : matches(occupied-tags["viewstag"]["LGDisplay"], id) == true ? "occupied-tag" : "empty-tag"}` 
+          {symbol}
+        )
+    )
+)
+
+(defvar tags "[1, 2, 3, 4, 5, 6, 7, 8, 9]")
+(defvar tagSymbols `["", "", "", "", "󱟱", "", "", "󰭹", "󰂔"]`)
+
+(defwidget left []
+    (box
+        :class "side"
+       	:orientation "h"
+       	:space-evenly false
+        :halign "start"
+        :spacing 3
+        (for tagnum in tags
+          (tag :id tagnum
+               :symbol `${tagSymbols[tagnum - 1]}`)
+        )
+        (label 
+		    :class "layout"
+            :justify "center"
+		    :text `${current-json["layout"] == "null" ? "[]" : current-json["layout"]}`
+        )
+
+        (revealer
+            :reveal `${rev_pomo}`
+            :transition "slideleft"
+            :duration "350ms"
+          (box
+          :class `module left_side ${pomo_pause == true ? "module_inactive" : pomo_break == false ? "pomo_work" : "pomo_break"}`
+          :space-evenly false
+            (label
+              :text `${pomo_icon} ${pomo}`
+            )
+          )
+        )
+
+        (revealer
+            :reveal {rev_mode}
+            :transition "slideright"
+            :duration "350ms"
+            (label
+                :class "module mode left_side"
+                :text "R"
+            )
+        )
+    )
+)
+
+
+(defwindow bar
+  :monitor 0
+  :exclusive true
+  :class "bar"
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0.7%"
+                      :width "99.3%"
+                      :height "3.9%"
+                      :anchor "top center")
+  (bar)
+)
+
+
+
+;; CALENDAR
+;;
+;;(defwindow calendar
+;;  :monitor 0
+;;  :exclusive false
+;;  :class "calendar"
+;;  :windowtype "normal"
+;;  :geometry (geometry :x "74.5%"
+;;                      :y "1%"
+;;                      :width "25%"
+;;                      :height "35%")
+;;  (calendar_main)
+;;)
+;;
+;;(defvar weekdays `["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]`)
+;;
+;;(defpoll month :initial ""
+;;               :interval "86400s"
+;;  `~/.scripts/bar/cal reset && ~/.scripts/bar/cal query`)
+;;
+;;(defpoll month_name :initial "Jan"
+;;                    :interval "86400s"
+;;  `~/.scripts/bar/cal month`)
+;;
+;;(defvar check_month "true")
+;;
+;;(defwidget calendar_main []
+;;  (box
+;;    :space-evenly "false"
+;;    :orientation "vertical"
+;;    (centerbox
+;;      :space-evenly "false"
+;;      :orientation "horizontal"
+;;      (button
+;;        :class "cal_button"
+;;        :onclick "~/.scripts/bar/cal prev &"
+;;        ""
+;;      )
+;;      (button
+;;        :class "cal_header cal_button"
+;;        :onclick "~/.scripts/bar/cal reset &"
+;;        `${month_name}`
+;;      )
+;;      (button
+;;        :class "cal_button"
+;;        :onclick "~/.scripts/bar/cal next &"
+;;        ""
+;;      )
+;;    )
+;;    (box
+;;      :class "cal_days"
+;;      :space-evenly "true"
+;;      :spacing 5
+;;      :orientation "horizontal"
+;;      :class "cal_main_container"
+;;      (for day in weekdays
+;;        (box
+;;          :space-evenly "true"
+;;          :spacing 5
+;;          :orientation "vertical"
+;;          (label :text day)
+;;          (for num in {month[day]}
+;;              (button
+;;                :class `${ check_month == "false" ? "" : num == substring(time, 9, 2) ? "today" : ""} ${ num != "" ? "day" : ""}`
+;;                num
+;;              )
+;;          )
+;;        )
+;;      )
+;;    )
+;;  )
+;;)

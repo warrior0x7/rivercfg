@@ -2,9 +2,11 @@
 
 source ~/.scripts/extra/cmdfns
 
-choice=$(cat ~/.scripts/data/browser.list |\
+BROWSERDATA=~/.scripts/data/browser.list
+
+choice=$(cat $BROWSERDATA |\
             awk -F ';' '{ printf "%2s %-4s %s\n", " ", $1, $2}' |\
-            fzfcmd --prompt='Firefox > ' |\
+            fzfcmd "Firefox" |\
             sed 's/[^A-Za-z0-9]/ /g; s/ \{3,\}//g')
 
 if [ -n "$choice" ]; then
