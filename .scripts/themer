@@ -130,8 +130,8 @@ case $1 in
                                 awk -F ';' '{ printf "%2s %-20s %s\n", " ", $1, $2}' |\
                                 fzfcmd "Color" \
                                     --preview-window=right:50% \
-                                    --preview="~/.scripts/data/fzfpreview color {2}" \
-                                    --header="[alt+a => Autotype, alt+c => Convert]" \
+                                    --preview="~/.scripts/extra/fzfpreview color {2}" \
+                                    --header="[alt-a => Autotype, alt-c => Convert]" \
                                     --bind="alt-c:become(~/.scripts/themer color convert '{2}'),alt-a:become(~/.scripts/themer color autotype {2})" |\
                                 awk '{print $2}'`
 

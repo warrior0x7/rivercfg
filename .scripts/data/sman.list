@@ -25,3 +25,4 @@
 ;Clear clipboard history;cliphist wipe
 󱓞;Run program;cmdrunner
 ;Calculator;[i] PYTHONSTARTUP="$HOME/bash/ipython.py" python3
+󰆴;Delete bookmark;bookmark delete

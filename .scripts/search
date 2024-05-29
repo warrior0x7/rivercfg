@@ -2,16 +2,16 @@
 
 source ~/.scripts/extra/cmdfns
 
-SEARCH=~/.scripts/data/search.list
+SEARCH_LIST=~/.scripts/data/search.list
 
-choice=`cat $SEARCH |\
+choice=`cat $SEARCH_LIST |\
      awk -F ';' '{ printf "%2s %-5s %-5s %s\n", " ", $1, $2, $3}' |\
      fzfcmd "Search"`
 
 if [ -n "$choice" ]; then
     entry=`echo $choice | sed 's/\s/;/; s/\s/;/'`
-    url=`grep -w "$entry" $SEARCH | awk -F ';' '{print $4}'`
-    prompt=`grep -w "$entry" $SEARCH | awk -F ';' '{print $3}'`
+    url=`grep -w "$entry" $SEARCH_LIST | awk -F ';' '{print $4}'`
+    prompt=`grep -w "$entry" $SEARCH_LIST | awk -F ';' '{print $3}'`
 
     input=`fzfprompt "$prompt"`
 

@@ -63,7 +63,7 @@ case $1 in
             fzfcmd --prompt="Video > " \
                    --preview-window=right:50% \
                    --bind="focus:transform-header(~/.scripts/ytrss fzfheader {})" \
-                   --preview="~/.scripts/data/fzfpreview ytrss {}"`
+                   --preview="~/.scripts/extra/fzfpreview ytrss {}"`
 
         choiceUrl=`grep -F ";;;$choice" ~/.cache/boatcfg/scripts/ytrss | awk -F ';;;' '{print $3}'`
 

@@ -8,9 +8,9 @@ BOOKMARKS=~/.scripts/data/bookmarks.list
 
 function bnotify () { notifier normal "bookmarks" "Bookmark" "$1" "$2"; }
 function bnotify_edit () { notifier normal "edit" "Bookmark" "$1"; }
-function bnotify_err () { notifier normal "dialog-error" "Bookmark" "$1"; }
+function bnotify_err () { notifier err "Bookmark" "$1"; }
 function bnotify_add () { notifier normal "bookmark-new" "Bookmark" "Added successfully" "$1"; }
-function bnotify_invalid () { notifier err "Bookmark" "$1" "$2"; }
+function bnotify_invalid () { notifier invalid "Bookmark" "$1" "$2"; }
 
 case $1 in
     "add")
@@ -37,12 +37,17 @@ case $1 in
             awk -F ';;;' '{ printf "%2s %-40s %s\n", " ", $1, $2}' |\
             fzfcmd "Marks" \
                 --multi \
-                --bind='alt-r:become(~/.scripts/bookmark rename {}),alt-d:become(~/.scripts/bookmark delete)' |\
+                --header="[alt-a => Autotype, alt-r => Rename, alt-d => Delete Menu]" \
+                --bind='alt-a:become(~/.scripts/bookmark autotype {2}),alt-r:become(~/.scripts/bookmark rename {}),alt-d:become(~/.scripts/bookmark delete fzf)' |\
                 sed 's/^.*\shttp/http/g')"
 
         if [ -n "$query" ]; then
-            nohup /bin/bash -c "printf '%s' ${query@Q} | wtype -s 150 - &" 2&>/dev/null
+            printf '%s' "$query" | wl-copy
         fi
+        ;;
+
+    autotype)
+        nohup bash -c "printf '%s' ${2@Q} | wtype -s 150 - &" 2&>/dev/null
         ;;
 
     "rename")
@@ -65,14 +70,18 @@ case $1 in
     "delete")
         del=`cat $BOOKMARKS |\
             awk -F ';;;' '{ printf "%2s %-30s %s\n", " ", $1, $2}' |\
-            fzfcmd --multi "[Delete] Marks" |\
+            fzfcmd "[Delete] Marks"\
+                   --multi |\
             sed 's/^.*http/http/g'`
 
         if [ -n "$del" ]; then
             printf '%s\n' "$del" |\
                 xargs -n 1 -I {} sed -i "\|;;;{}$|d" $BOOKMARKS 2&>/dev/null
         fi
-        ~/.scripts/bookmark query
+
+        if [[ $2 == "fzf" ]]; then
+            ~/.scripts/bookmark query
+        fi
         ;;
 
     *)

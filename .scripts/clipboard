@@ -2,15 +2,25 @@
 
 source ~/.scripts/extra/cmdfns
 
-DATA=~/.scripts/data
+PREVIEWER=~/.scripts/extra/fzfpreview
 
-choice="`cliphist list | fzfcmd "Clip" \
-                     --ansi \
-                     -d $'\t' \
-                     --with-nth 2 \
-                     --preview-window=right:50% \
-                     --preview=''$DATA'/fzfpreview clip {}'`"
+case $1 in
+    view)
+        choice="`cliphist list | fzfcmd "Clip" \
+                             --preview-window=right:50% \
+                             --preview=''$PREVIEWER' clip {}' \
+                             --header="[alt-a => Autotype]" \
+                             --bind="alt-a:become(~/.scripts/clipboard autotype {})"`"
 
-if [ -n "$choice" ]; then
-    nohup bash -c "printf '%s' ${choice@Q} | cliphist decode | wtype -s 150 - &" 2&>/dev/null
-fi
+        echo $choice
+
+        if [ -n "$choice" ]; then
+            printf "%s" "$choice" | cliphist decode | wl-copy
+        fi
+        ;;
+
+    autotype)
+        nohup bash -c "printf '%s' '${2}' | cliphist decode | wtype -s 150 - &" 2&>/dev/null
+        ;;
+esac
+

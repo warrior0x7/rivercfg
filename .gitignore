@@ -1,3 +1,11 @@
 .scripts/data/.web_bookmarks
 .scripts/data/ytsubs
 .local/share/konsole/konsolestaterc
+.cache/
+Downloads/
+Videos/
+Pictures/
+git/
+src/
+.cargo/
+.mozilla/
