@@ -50,4 +50,4 @@ You can avoid that with river keybindings to refocus the previous window, but th
 River doesn't provide eye-candy effects nor the developer intends to [Issue #81](https://codeberg.org/river/river/issues/81). It just happened that I used a hack with EWW to render it with rounded corners (used `rgba(40,40,40,0.99)` instead of hex)
 
 ## Support
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www/paypal.me/warrior0x7)
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/warrior0x7)
