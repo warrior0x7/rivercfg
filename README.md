@@ -51,3 +51,4 @@ River doesn't provide eye-candy effects nor the developer intends to [Issue #81]
 
 ## Support
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/warrior0x7)
+[![Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/Warrior0x7/donate)
