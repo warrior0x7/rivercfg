@@ -22,7 +22,7 @@ case $1 in
                 name=`fzfprompt "Bookmark Name" --header="$bookmark"`
                 if [ -n "$name" ]; then
                     bnotify_add "<b>$name</b>\n\n<b>$bookmark</b>"
-                    printf "%s;;;%s" "$name" "$bookmark" >> $BOOKMARKS
+                    printf "%s;;;%s\n" "$name" "$bookmark" >> $BOOKMARKS
                 else
                     bnotify "Not saved because you didn't specify a name"
                 fi
@@ -38,7 +38,7 @@ case $1 in
             fzfcmd "Marks" \
                 --multi \
                 --header="[alt-a => Autotype, alt-r => Rename, alt-d => Delete Menu]" \
-                --bind='alt-a:become(~/.scripts/bookmark autotype {2}),alt-r:become(~/.scripts/bookmark rename {}),alt-d:become(~/.scripts/bookmark delete fzf)' |\
+                --bind='alt-a:become(~/.scripts/bookmark autotype {}),alt-r:become(~/.scripts/bookmark rename {}),alt-d:become(~/.scripts/bookmark delete fzf)' |\
                 sed 's/^.*\shttp/http/g')"
 
         if [ -n "$query" ]; then
@@ -47,7 +47,8 @@ case $1 in
         ;;
 
     autotype)
-        nohup bash -c "printf '%s' ${2@Q} | wtype -s 150 - &" 2&>/dev/null
+        url=`printf "%s" "$2" | sed 's/^.*\shttp/http/'`
+        nohup bash -c "printf '%s' "$url" | wtype -s 150 - &" 2&>/dev/null
         ;;
 
     "rename")
@@ -68,14 +69,16 @@ case $1 in
         ;;
 
     "delete")
-        del=`cat $BOOKMARKS |\
+        del="`cat $BOOKMARKS |\
             awk -F ';;;' '{ printf "%2s %-30s %s\n", " ", $1, $2}' |\
             fzfcmd "[Delete] Marks"\
                    --multi |\
-            sed 's/^.*http/http/g'`
+            sed 's/^.*\shttp/http/g'`"
+
+        echo ${del} > .logger
 
         if [ -n "$del" ]; then
-            printf '%s\n' "$del" |\
+            printf '%s\n' ${del} |\
                 xargs -n 1 -I {} sed -i "\|;;;{}$|d" $BOOKMARKS 2&>/dev/null
         fi
 

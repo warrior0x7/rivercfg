@@ -2,12 +2,14 @@
 #
 # TODO: prevent overriding
 
-# If cache directory does not exist, create one
-[ ! -d ~/.cache/boatcfg/scripts ] && mkdir -p ~/.cache/boatcfg/scripts
-
 source ~/.scripts/extra/cmdfns
 
-function menu () { ~/.scripts/extra/fterm rename "$@"; }
+CACHE=~/.cache/dotfiles/shotcopy
+TERMAN=~/.scripts/extra/terman
+
+[ ! -d $CACHE ] && mkdir -p $CACHE
+
+function menu () { $TERMAN rename "$@"; }
 
 case $1 in
     "shot")
@@ -26,7 +28,7 @@ case $1 in
             "region")
                 region=`slurp`
                 if [ -n "$region" ]; then 
-                    grim -g "$region" ~/.cache/boatcfg/scripts/screenshot.png
+                    grim -g "$region" $CACHE/screenshot.png
                     menu shot "Region"
                 else
                     notifier normal \
@@ -37,7 +39,7 @@ case $1 in
                 ;;
 
             "full")
-                grim ~/.cache/boatcfg/scripts/screenshot.png
+                grim $CACHE/screenshot.png
                 menu shot "Full"
                 ;;
            
@@ -58,7 +60,7 @@ case $1 in
 
         case $2 in
             "region")
-                if [ -f ~/.cache/boatcfg/scripts/recorder.lock ]; then
+                if [ -f $CACHE/recorder.lock ]; then
                     notifier normal \
                         "dialog-error" \
                         "Shotcopy: Recorder" \
@@ -66,7 +68,7 @@ case $1 in
                 else
                     region=`slurp`
                     if [ -n "$region" ]; then 
-                        echo "Region" > ~/.cache/boatcfg/scripts/recorder.lock
+                        echo "Region" > $CACHE/recorder.lock
 
                         eww update rev_recording=true
 
@@ -78,19 +80,19 @@ case $1 in
                         wf-recorder -x yuv420p                  \
                                     --audio="$device_name"      \
                                     -g "$region"                \
-                                    -f ~/.cache/boatcfg/scripts/recording.mp4
+                                    -f $CACHE/recording.mp4
                     fi
                 fi
                 ;;
 
             "full")
-                if [ -f ~/.cache/boatcfg/scripts/recorder.lock ]; then
+                if [ -f $CACHE/recorder.lock ]; then
                     notifier normal \
                         "dialog-error" \
                         "Shotcopy: Recorder" \
                         "The script wasn't made to be run concurrently"
                 else
-                    echo "Full" > ~/.cache/boatcfg/scripts/recorder.lock
+                    echo "Full" > $CACHE/recorder.lock
 
                     eww update rev_recording=true
 
@@ -101,12 +103,12 @@ case $1 in
 
                     wf-recorder -x yuv420p                  \
                                 --audio="$device_name"      \
-                                -f ~/.cache/boatcfg/scripts/recording.mp4
+                                -f $CACHE/recording.mp4
                 fi
                 ;;
 
             "stop")
-                if [ -f ~/.cache/boatcfg/scripts/recorder.lock ]; then
+                if [ -f $CACHE/recorder.lock ]; then
                     kill -s SIGINT `pgrep wf-recorder`
                     eww update rev_recording=false
                     menu video

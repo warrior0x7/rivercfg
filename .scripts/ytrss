@@ -2,21 +2,21 @@
 
 source ~/.scripts/extra/cmdfns
 
+BINARY=~/.scripts/ytrss
 YTSUBS=~/.scripts/data/ytsubs
-DATA=~/.scripts/data
 CACHE=~/.cache/dotfiles/ytrss/
     
 [ ! -f $YTSUBS ] && touch $YTSUBS
 
 function updater {
-    [ ! -f $DATA/tmp ] && mkdir -p $DATA/tmp
-    [ ! -f $DATA/videotmp ] && mkdir -p $DATA/videotmp
-    rm $DATA/tmp/*
+    [ ! -f $CACHE/tmp ] && mkdir -p $CACHE/tmp
+    # [ ! -f $CACHE/videotmp ] && mkdir -p $CACHE/videotmp
+    rm $CACHE/tmp/*
 
     cat $YTSUBS |\
         awk -F ';;;' '{print $2}' |\
         sed 's/=/={/g; s/$/}/g' |\
-        xargs -P 0 -I {} curl -X 'GET' -s {} --output $DATA/tmp/'#1'
+        xargs -P 0 -I {} curl -X 'GET' -s {} --output $CACHE/tmp/'#1'
 
     if [ $? -ne 0 ]; then
         notifier normal \
@@ -26,22 +26,25 @@ function updater {
         exit 1
     fi
 
-    cat $DATA/tmp/* |\
+    cat $CACHE/tmp/* |\
             awk '/<entry>/,/<\/entry>/' |\
             grep --no-group-separator --color=never -A 10 href |\
             sed '/author>/d; /<uri>/d; /<media:group>/d; /<media:content url=/d; /<updated>/d; s/.*href="//g; s/.*<media:thumbnail url="//g; s/".*$//g; s/.*<published>//g; s/<\/published>.*$//g; s/^.*<media:title>//g; s/<\/media:title>.*$//g; s/&quot;/"/g; s/^.*<name>//g; s/<\/name>.*$//g; s/&amp;/\&/g' |\
             perl -pe 's/\n/;;;/g if $. % 5' |\
-            awk -F ';;;' '{t=$1; $1=$3; $3=t; print $1";;;"$2";;;"$3";;;"$4";;;"$5";;";}' > ~/.cache/boatcfg/scripts/ytrss-tmp
-        
-    cat ~/.cache/boatcfg/scripts/ytrss-tmp |\
-            awk -F ';;;' '{print $3}' |\
-            sed 's/?v=/?v={/g; s/$/}/g' |\
-            xargs -P 0 -I {} curl -s -X 'GET' "{}" --output ~/.cache/boatcfg/scripts/videotmp/'#1'
+            awk -F ';;;' '{t=$1; $1=$3; $3=t; print $1";;;"$2";;;"$3";;;"$4";;;"$5";;";}' > $CACHE/ytrss
     
-    grep -F '<meta itemprop="duration"' ~/.cache/boatcfg/scripts/videotmp/* |\
-    sed 's/^.*content="PT//g; s/".*$//g; s/M/:/g; s/S//g' > ~/.cache/boatcfg/scripts/videotmp/duration
+    #    
+    # Fetching video duration (Commented because it didn't work properly)
+    #
+    #cat $CACHE/ytrss |\
+    #        awk -F ';;;' '{print $3}' |\
+    #        sed 's/?v=/?v={/g; s/$/}/g' |\
+    #        xargs -P 0 -I {} curl -s -X 'GET' "{}" --output $CACHE/videotmp/'#1'
+    #
+    # grep -F '<meta itemprop="duration"' ~/.cache/boatcfg/scripts/videotmp/* |\
+    # sed 's/^.*content="PT//g; s/".*$//g; s/M/:/g; s/S//g' > ~/.cache/boatcfg/scripts/videotmp/duration
 
-    paste -d\; ~/.cache/boatcfg/scripts/ytrss-tmp ~/.cache/boatcfg/scripts/videotmp/duration > ~/.cache/boatcfg/scripts/ytrss
+    # paste -d\; ~/.cache/boatcfg/scripts/ytrss-tmp ~/.cache/boatcfg/scripts/videotmp/duration > ~/.cache/boatcfg/scripts/ytrss
 
     notifier normal \
         "application-rss+xml" \
@@ -51,21 +54,21 @@ function updater {
 
 case $1 in
     view)
-        if ! [ -f ~/.cache/boatcfg/scripts/ytrss ]; then
+        if ! [ -f $CACHE/ytrss ]; then
             clear
             echo "Updating feed..."
             updater
         fi
 
-        choice=`cat ~/.cache/boatcfg/scripts/ytrss |\
+        choice=`cat $CACHE/ytrss |\
             sort -r |\
             awk -F ';;;' '{ printf "%s\n", $4}' |\
-            fzfcmd --prompt="Video > " \
+            fzfcmd "Video" \
                    --preview-window=right:50% \
                    --bind="focus:transform-header(~/.scripts/ytrss fzfheader {})" \
                    --preview="~/.scripts/extra/fzfpreview ytrss {}"`
 
-        choiceUrl=`grep -F ";;;$choice" ~/.cache/boatcfg/scripts/ytrss | awk -F ';;;' '{print $3}'`
+        choiceUrl=`grep -F ";;;$choice" $CACHE/ytrss | awk -F ';;;' '{print $3}'`
 
         if [ -n "$choice" ]; then
             nohup bash -c "source ~/.scripts/extra/cmdfns; mpvcmd $choiceUrl &" 2&>/dev/null
@@ -73,9 +76,9 @@ case $1 in
         ;;
 
     fzfheader)
-        grep -F ";;;${@:2}" ~/.cache/boatcfg/scripts/ytrss |\
+        grep -F ";;;${@:2}" $CACHE/ytrss |\
             sed 's|$HOME/.cache/boatcfg/scripts/ytrss:||g' |\
-            awk -F ';;;' '{printf "[ %s ] [ Upload: %s ]" ,$6,$1 }'
+            awk -F ';;;' '{printf "[ Upload: %s ]" ,$1 }'
         ;;
 
     update)
@@ -88,13 +91,12 @@ case $1 in
             if [[ $yturl =~ ^"https://www.youtube.com/@" ]]; then
                 rssinfo=`curl -s "$yturl" | grep '{"title":' | sed 's/.*{"channelMetadataRenderer"://g; s/{"title"://g; s/","description":.*,"rssUrl":"/;;;/g; s/",".*//g; s/^.*"//g; s/channel_id=UC/playlist_id=UU/g'`
                 
-                ~/.scripts/ytrss ytrssCheckUrl add "$rssinfo" "$yturl"
+                $BINARY ytrssCheckUrl add "$rssinfo" "$yturl"
             else
-                notifier normal \
-                "dialog-error" \
-                "Ytrss" \
-                "Not a youtube url" \
-                "<b>Please copy the url of a youtube channel to your clipboard</b>"
+                notifier err
+                    "Ytrss" \
+                    "Not a youtube url" \
+                    "<b>Please copy the url of a youtube channel to your clipboard</b>"
             fi
         fi
         ;;
@@ -105,7 +107,7 @@ case $1 in
             sed 's|^"http.*channel/UC|https://www.youtube.com/feeds/videos.xml?playlist_id=UU|g; s/^"//g ;s/"$//g' |\
             perl -pe 's/\n/;;;/g if $. % 2' |\
             awk -F ';;;' '{t=$1; $1=$2; $2=t; print $1";;;"$2}' |\
-            xargs -n1 -I {} bash -c '~/.scripts/ytrss ytrssCheckUrl import "{}"' 2&>/dev/null
+            xargs -n1 -I {} bash -c "$BINARY ytrssCheckUrl import '{}'" 2&>/dev/null
 
         notifier normal \
             "application-rss+xml" \
@@ -116,23 +118,22 @@ case $1 in
     ytrssCheckUrl)
         case $2 in
             add)
-                if grep -q -w "^$3$" ~/.scripts/data/ytsubs; then
-                    notifier normal \
-                    "dialog-error" \
-                    "Ytrss" \
-                    "Feed already exists"
+                if grep -q -w "^$3$" $YTSUBS; then
+                    notifier err \
+                        "Ytrss" \
+                        "Feed already exists"
                 else
-                    echo "$3" >> ~/.scripts/data/ytsubs
+                    echo "$3" >> $YTSUBS
                     notifier normal \
-                    "application-rss+xml" \
-                    "Ytrss" \
-                    "Feed added successfully" \
-                    "<b>$4</b>"
+                        "application-rss+xml" \
+                        "Ytrss" \
+                        "Feed added successfully" \
+                        "<b>$4</b>"
                 fi
                 ;;
             import)
-                if ! grep -q -w "^$3$" ~/.scripts/data/ytsubs; then
-                    echo "$3" >> ~/.scripts/data/ytsubs
+                if ! grep -q -w "^$3$" $YTSUBS; then
+                    echo "$3" >> $YTSUBS
                 fi
                 ;;
         esac
@@ -140,7 +141,7 @@ case $1 in
 
     export)
         if [ -n "$2" ]; then
-            cat .scripts/data/ytsubs |\
+            cat $YTSUBS |\
                 awk -F ';;;' '{t=$1; $1=$2; $2=t; print $1";;;"$2}' |\
                 sed 's/^/{\n"service_id": 0,\n"url": "/g; s/;;;/",\n"name": "/g; s/$/"\n}/g; s|feeds/videos.xml?playlist_id=UU|channel/UC|g' |\
                 jq -s '{"app_version": "0.27.0", "app_version_int": 997, "subscriptions": .}' > $2.json
@@ -152,8 +153,7 @@ case $1 in
         fi
         ;;
     *)
-        notifier err \
-            "dialog-error" \
+        notifier invalid \
             "Ytrss" \
             "$1" \
             "<b>One of 'view', 'update', 'add' or 'import' was expected</b>"
