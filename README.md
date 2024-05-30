@@ -1,5 +1,6 @@
-**Dotfiles**
-------------
+# Dotfiles
+_**Note**_: This repo is a continuation of my [old repo](https://github.com/cry0x11/boatcfg) (Yes I lost my account as I didn't do backups)
+
 Dotfiles of river with my user-scripts + functions inside river `init` file to easily set rules.
 
 ## Features
