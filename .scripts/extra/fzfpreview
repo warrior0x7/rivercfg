@@ -1,5 +1,7 @@
 #!/bin/bash
 
+CACHE=~/.cache/dotfiles/ytrss
+
 case $1 in
     clip)
         shift
@@ -36,7 +38,7 @@ case $1 in
 
     ytrss)
         shift
-        line=`cat ~/.cache/boatcfg/scripts/ytrss | grep --color=never -F ";;;$1"`
+        line=`cat $CACHE/ytrss | grep --color=never -F ";;;$1"`
 
         url=`echo "$line" | awk -F ';;;' '{print $5}'`
         title=`echo "$line" | awk -F ';;;' '{print $4}'`

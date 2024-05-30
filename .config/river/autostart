@@ -13,7 +13,7 @@ swww img ~/Pictures/wallpapers/"$wallpaper" &
 dunst &
 lxpolkit &
 gammastep -O 3500 &
-/usr/lib/kdeconnectd &
+kdeconnectd &
 eww open bar &
 wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
