@@ -1,5 +1,12 @@
 #!/bin/bash
 
+CACHE=~/.cache/dotfiles
+SCRIPTS=~/.scripts
+DATA=~/.scripts/data
+BAR_SCRIPTS=~/.scripts/bar
+RIVER_SCRIPTS=~/.config/river/scripts
+CMDFNS=~/.scripts/extra/cmdfns
+
 function fzfcmd { 
     fzf --color=preview-bg:'#282829',pointer:1,prompt:4,hl:4,bg+:'#45403d',fg+:7,hl+:1 \
         --bind 'tab:toggle+up,shift-tab:toggle+down,change:first' \

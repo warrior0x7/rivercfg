@@ -7,42 +7,33 @@
 )
 
 (deflisten pomo :initial "00:00"
-    `tail -f ~/.cache/boatcfg/pomo/log`
+    `source ~/.scripts/extra/cmdfns; tail -f $CACHE/pomo/log`
 )
 
 (defpoll time :initial ""
-              :interval "10s"
-    `date +"%I:%M %p %d %b %Y"`)
+              :interval "5s"
+    `date +"%I:%M %p %b %Y %d"`)
 
-(defpoll battery_percent :initial "0"
-                         :interval "1s"
-    `~/.scripts/bar/battery percent`)
-
-(defpoll battery_state :initial "0"
-                       :interval "1s"
-    `~/.scripts/bar/battery state`)
-
-(defpoll prayerTime :initial ""
-                    :interval "1s"
-    `~/.scripts/bar/prayerTime t`)
+(defpoll battery :initial "0"
+                 :interval "1s"
+    `source ~/.scripts/extra/cmdfns; $BAR_SCRIPTS/battery &`)
 
 (defpoll prayer :initial ""
                 :interval "1s"
-    `~/.scripts/bar/prayerTime q`)
-
-(defpoll ethernet_state :initial "down"
-                        :interval "2s"
-    `~/.scripts/bar/network eth state`)
+    `source ~/.scripts/extra/cmdfns; $BAR_SCRIPTS/prayerTime get &`)
 
 (defpoll volume :initial "0"
                 :interval "86400s"
-  `sleep 0.5 & pamixer --get-volume`)
+  `source ~/.scripts/extra/cmdfns; sleep 0.5 && $BAR_SCRIPTS/volume`)
 
-(defpoll volume_mute :initial "false"
-                     :interval "86400s"
-  `sleep 0.5 & pamixer --get-mute`)
+(defpoll rev_pomo :initial false
+                  :interval "86400s"
+  `source ~/.scripts/extra/cmdfns; [ -f $CACHE/eww/pomo.visible ] && echo "true" || echo "false"`)
 
-(defvar rev_pomo false)
+(defpoll rev_mode :initial false
+                  :interval "86400s"
+  `source ~/.scripts/extra/cmdfns; [ -f $CACHE/eww/mode.visible ] && echo "true" || echo "false"`)
+
 (defvar pomo_icon "󱎫")
 (defvar pomo_break false)
 (defvar pomo_pause false)
@@ -50,12 +41,11 @@
 (defvar rev_prayer false)
 (defvar rev_date false)
 (defvar rev_battery false)
-(defvar rev_mode false)
 (defvar rev_recording false)
 (defvar recording_paused false)
 (defvar quran_active false)
-(defvar cal_greg true)
 
+(defvar cal_greg true)
 (defvar cal_open false)
 (defvar hovered false)
 
@@ -113,37 +103,31 @@
         )
         
         (box
-          :class `module right_side ${battery_percent > 30 ? "module_active" : battery_state == 0 ? "module_critical" : "module_active" }`
+          :class `module right_side ${battery["percent"] > 30 ? "module_active" : battery["state"] == "0" ? "module_critical" : "module_active" }`
           :space-evenly false
-          :style ''
 
           (label
               :class "battery_state"
-              :text `${battery_state == 1 ? "󱐋" : battery_percent == 100 ? "" : battery_percent >= 75 ? "" : battery_percent >= 50 ? "" : battery_percent >= 25 ? "" : "" }`
+              :text `${battery["state"] == "1" ? "󱐋" : battery["percent"] == 100 ? "" : battery["percent"] >= 75 ? "" : battery["percent"] >= 50 ? "" : battery["percent"] >= 25 ? "" : "" }`
           )
           (label
               :class "battery_percent"
-              :text `${battery_percent}%`
+              :text `${battery["percent"]}%`
           )
         )
 
         (label
-          :class `module right_side ${ethernet_state == "up" ? "module_active" : "module_inactive"}`
-          :text `${ethernet_state == "up" ? "󰈀" : ""}`
-        )
-
-        (label
-          :class `module right_side ${volume_mute == "false" ? "module_active" : "module_inactive"}`
-          :text `${volume_mute == "false" ? "" : "" } ${volume}%`
+          :class `module right_side ${volume["mute"] == "false" ? "module_active" : "module_inactive"}`
+          :text `${volume["mute"] == "false" ? "" : "" } ${volume["value"]}%`
         )
 
         (revealer
-            :reveal `${prayer == "" ? false : rev_prayer}`
+            :reveal `${prayer["time"] == "" ? false : rev_prayer}`
             :transition "slideleft"
             :duration "350ms"
             (label
                 :class "module right_side prayer"
-                :text "${prayer}"
+                :text "${prayer["prayer"]}"
             )
         )
 
@@ -152,7 +136,7 @@
             :onhoverlost "eww update rev_prayer=false"
             (label
                 :class "module right_side prayer"
-                :text " ${prayerTime}"
+                :text " ${prayer["time"]}"
             )
         )
 
@@ -302,7 +286,7 @@
           (label :text day)
           (for num in {month[day]}
               (button
-                :class `${ check_month == "false" ? "" : num == substring(time, 9, 2) ? "today" : ""} ${ num != "" ? "day" : ""}`
+                :class `${ check_month == "false" ? "" : num == substring(time, 18, 2) ? "today" : ""} ${ num != "" ? "day" : ""}`
                 num
               )
           )

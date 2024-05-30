@@ -10,20 +10,23 @@ case $1 in
             eww update quran_active=true 
             mpv https://stream.radiojar.com/8s5u5tpdtwzuv
         else
-            dunstify "EWW: Cairo Quran CONFLICT!" "\nThere's already a process running"
+            notifier err \
+                "CairoQuran" \
+                "There's already a process running"
         fi
         ;;
     "stop")
         if [ -z $process ]; then
-            dunstify "EWW: Cairo Quran NOT RUNNING!" "\nNo process is running to be stopped"
+            notifier err \
+                "CairoQuran" \
+                "There's no process running to be stopped"
         else
             eww update quran_active=false
             kill $process
         fi
         ;;
     *)
-        notifier err \
-            "dialog-error" \
+        notifier invalid \
             "CairoQuran" \
             "$1" \
             "<b>Either 'play' or 'stop' was expected</b>"

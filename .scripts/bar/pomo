@@ -2,51 +2,45 @@
 
 source ~/.scripts/extra/cmdfns
 
-if ! [ -f ~/.cache/boatcfg/pomo ]; then
-    mkdir -p ~/.cache/boatcfg/pomo
-fi
+[ ! -f $CACHE/pomo ] && mkdir -p $CACHE/pomo
+
+function eww_reset () {
+    [ -f $CACHE/pomo/"break" ] && rm $CACHE/pomo/"break"
+    [[ $1 == "start" ]] && eww update pomo_pause=false
+    eww update pomo_icon="󱎫"
+    eww update pomo_break=false
+    eww update rev_pomo=false
+}
 
 function escape () {
     case $1 in
         stop)
-            duration=`cat ~/.cache/boatcfg/pomo/duration`
-            current=`cat ~/.cache/boatcfg/pomo/current`
+            duration=`cat $CACHE/pomo/duration`
+            current=`cat $CACHE/pomo/current`
             elapsed="$(( $duration - $current ))"
-            printf "%02d\n" $elapsed >> ~/.cache/boatcfg/pomo/sessions
-            [ -f ~/.cache/boatcfg/pomo/"break" ] && rm ~/.cache/boatcfg/pomo/"break"
-            eww update pomo_icon="󱎫"
-            eww update pomo_break=false
-            eww update rev_pomo=false
+            printf "%02d\n" $elapsed >> $CACHE/pomo/sessions
+            eww_reset
             ;;
 
-        finish)
-            if ! [ -f ~/.cache/boatcfg/pomo/break ]; then
-                echo "$duration" >> ~/.cache/boatcfg/pomo/sessions
-            fi
-            ;;
+        finish) [ ! -f $CACHE/pomo/break ] && echo "$duration" >> $CACHE/pomo/sessions ;;
     esac
-    rm ~/.cache/boatcfg/pomo/{current,duration}
-    echo "00:00" > ~/.cache/boatcfg/pomo/log
+    rm $CACHE/pomo/{current,duration}
+    echo "00:00" > $CACHE/pomo/log
 }
 
 
 function run () {
 
-    duration=`cat ~/.cache/boatcfg/pomo/duration`
+    duration=`cat $CACHE/pomo/duration`
     time="$duration"
 
     while true; do
-        eww_indicator=`eww get rev_pomo`
-        if [[  $eww_indicator == "false" ]]; then
-            eww update rev_pomo=true
-        fi
-
         if [ $time -lt 0 ]; then
             escape finish
-            if ! [ -f ~/.cache/boatcfg/pomo/break ]; then
+            if ! [ -f $CACHE/pomo/break ]; then
                 eww update pomo_icon=""
                 eww update pomo_break=true
-                touch ~/.cache/boatcfg/pomo/"break"
+                touch $CACHE/pomo/"break"
                 notifier normal \
                     "folder-games" \
                     "Pomo" \
@@ -55,7 +49,7 @@ function run () {
             else
                 eww update pomo_icon="󱎫"
                 eww update pomo_break=false
-                rm ~/.cache/boatcfg/pomo/"break"
+                rm $CACHE/pomo/"break"
                 notifier normal \
                     "fcitx-handwriting-active" \
                     "Pomo" \
@@ -63,16 +57,16 @@ function run () {
                 duration="$(( $working_time*60 ))"
             fi
 
-            echo "$duration" > ~/.cache/boatcfg/pomo/duration
-            duration=`cat ~/.cache/boatcfg/pomo/duration`
+            echo "$duration" > $CACHE/pomo/duration
+            duration=`cat $CACHE/pomo/duration`
             time="$duration"
         fi
 
         min="$(( $time/60 ))"
         sec="$(( $time%60 ))"
-        printf "%02d:%02d\n" $min $sec >> ~/.cache/boatcfg/pomo/log
+        printf "%02d:%02d\n" $min $sec >> $CACHE/pomo/log
         time=$(( $time-1))
-        echo "$time" > ~/.cache/boatcfg/pomo/current
+        echo "$time" > $CACHE/pomo/current
         sleep 1
     done
 }
@@ -82,12 +76,6 @@ case $1 in
         if [ $# -eq 3 ]; then
             working_time=$2
             break_time=$3
-        elif [ $# -gt 3 ]; then
-            notifier normal \
-                "dialog-error" \
-                "Pomo" \
-                "Invalid number of arguments (start)" \
-                "<b>Make sure you either run without arguments or use 3 arguments</b>"
         else
             working_time=25
             break_time=5
@@ -95,22 +83,19 @@ case $1 in
 
         process=`pgrep pomo`
 
-        if ! [ -f ~/.cache/boatcfg/pomo/current ] || [ $process -eq $$ ]; then
-            [ -f ~/.cache/boatcfg/pomo/"break" ] && rm ~/.cache/boatcfg/pomo/"break"
-            eww update pomo_pause=false
-            eww update pomo_icon="󱎫"
-            eww update pomo_break=false
-            eww update rev_pomo=true
+        if ! [ -f $CACHE/pomo/current ] || [ $process -eq $$ ]; then
+            eww_reset "start"
             duration="$(( $working_time * 60 ))"
-            echo "$duration" > ~/.cache/boatcfg/pomo/duration
+            echo "$duration" > $CACHE/pomo/duration
             notifier normal \
                 "fcitx-handwriting-active" \
                 "Pomo" \
                 "Started working session"
+            touch $CACHE/eww/pomo.visible
+            eww update rev_pomo=true
             run
         else
-            notifier normal \
-                "dialog-error" \
+            notifier err \
                 "Pomo" \
                 "A session is already running"
         fi
@@ -133,6 +118,12 @@ case $1 in
             "Stopped timer"
         eww update rev_pomo=false 
         escape stop
+        rm $CACHE/eww/pomo.visible
         kill -KILL `pgrep pomo`
         ;;
+    *)
+        notifier invalid \
+            "Pomo" \
+            "$1" \
+            "<b>One of 'resume', 'pause', 'stop' and 'start' was expected</b>"
 esac

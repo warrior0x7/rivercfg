@@ -4,11 +4,14 @@
 
 source ~/.scripts/extra/cmdfns
 
-preset=`cat ~/.scripts/data/pman.list | awk -F ';' '{ printf "%2s Work:%-5s Break:%s\n", " ", $1, $2}' |\
-            fzfcmd --prompt="Pomo preset > " |\
+preset=`cat $DATA/pman.list |\
+            awk -F ';' '{ printf "%2s Work:%-5s Break:%s\n", " ", $1, $2}' |\
+            fzfcmd "Pomo preset" |\
             sed 's/.*Work://g; s/Break://g;'`
 
-working_time=`echo $preset | awk '{print $1}'`
-break_time=`echo $preset | awk '{print $2}'`
+if [ -n "$preset" ]; then
+    working_time=`printf "%s" "$preset" | awk '{print $1}'`
+    break_time=`printf "%s" "$preset" | awk '{print $2}'`
 
-nohup bash -c "~/.scripts/bar/pomo start $working_time $break_time &" 2&>/dev/null
+    nohup bash -c "source $CMDFNS; $BAR_SCRIPTS/pomo start $working_time $break_time &" 2&>/dev/null
+fi

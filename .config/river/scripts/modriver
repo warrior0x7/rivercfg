@@ -1,13 +1,17 @@
 #!/bin/bash
 
+source ~/.scripts/extra/cmdfns
+
 case $1 in
     "enter")
         riverctl enter-mode recording
+        touch $CACHE/eww/mode.visible
         eww update rev_mode=true
         ;;
 
     "exit")
         riverctl enter-mode normal
+        rm $CACHE/eww/mode.visible
         eww update rev_mode=false
         ;;
 esac

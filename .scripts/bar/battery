@@ -2,61 +2,56 @@
 
 source ~/.scripts/extra/cmdfns
 
-percent=`cat /sys/class/power_supply/BAT0/capacity`
-state=`cat /sys/class/power_supply/ACAD/online`
+function notify_full () { 
+    notifier normal \
+        "battery-level-100-charged-symbolic" \
+        "Battery is fully charged" \
+        "Please disconnect the charger"
+}
 
-case $1 in
-    percent)    
-        echo "$percent" 
+function notify_critical () {
+    notifier normal \
+        "battery-caution-symbolic" \
+        "Battery is ${1}%" \
+        "Please connect the charger"
+}
 
+CACHE=~/.cache/dotfiles/eww
+
+percent="`cat /sys/class/power_supply/BAT0/capacity`"
+state="`cat /sys/class/power_supply/ACAD/online`"
+
+jq --null-input -s '{"percent":"'$percent'", "state":"'$state'"}'
+
+if [[ $percent == 100 ]]; then
+    if [ $state -eq 1 ]; then
+        locker="`cat $CACHE/battery.lock`"
+        if [ -z "$locker" ] || [ $locker -ne $percent ] ; then
+            printf "%03d\n" "$percent" > $CACHE/battery.lock
+            notify_full
+        fi
+    else
+        [ -f $CACHE/battery.lock ] && rm $CACHE/battery.lock
+    fi
+else
+    if [ $state -eq 0 ]; then
         case $percent in
-            100)
-                if [ $state -eq 1 ]; then
-                    locker=`cat ~/.cache/boatcfg/scripts/battery.lock`
-                    if [ -z "$locker" ] || [ $locker -ne $percent ] ; then
-                        echo "$percent" > ~/.cache/boatcfg/scripts/battery.lock
-                        notifier normal \
-                            "battery-level-100-charged-symbolic" \
-                            "Battery is fully charged" \
-                            "Please disconnect the charger"
-                    fi
-                fi
-                ;;
-            *)
-                if [ $state -eq 0 ]; then
-                    case $percent in
-                        [1-9]|10) locknum=$percent ;;
-                        1[1-5]) locknum=15 ;;
-                        1[6-9]|20) locknum=20 ;;
-                        2[1-5]) locknum=25 ;;
-                        2[6-9]|30|29) locknum=30 ;;
-                        *) locknum=0 ;;
-                    esac
-
-                    if [ $locknum -gt 0 ]; then
-                        locker=`cat ~/.cache/boatcfg/scripts/battery.lock`
-                        if [ -z "$locker" ] || [ $locker -ne $locknum ] ; then
-                            echo "$locknum" > ~/.cache/boatcfg/scripts/battery.lock
-                            notifier normal \
-                                "battery-caution-symbolic" \
-                                "Battery is ${percent}%" \
-                                "Please connect the charger"
-                        fi
-                    fi
-                else
-                    if [ -f ~/.cache/boatcfg/scripts/battery.lock ]; then
-                        rm ~/.cache/boatcfg/scripts/battery.lock
-                    fi
-                fi
-                ;;
+            [1-9]|10) locknum=$percent ;;
+            1[1-5]) locknum=15 ;;
+            1[6-9]|20) locknum=20 ;;
+            2[1-5]) locknum=25 ;;
+            2[6-9]|30|29) locknum=30 ;;
+            *) locknum=0 ;;
         esac
-        ;;
 
-    state)      echo "$state"   ;;
-    *)
-        notifier err \
-            "dialog-error" \
-            "Battery" \
-            "$1" \
-            "<b>Either 'percent' or 'state' was expected</b>"
-esac
+        if [ $locknum -gt 0 ]; then
+            locker=`cat $CACHE/battery.lock`
+            if [ -z "$locker" ] || [ $locker -ne $locknum ] ; then
+                echo "$locknum" > $CACHE/battery.lock
+                notify_critical $percent
+            fi
+        fi
+    else
+        [ -f $CACHE/battery.lock ] && rm $CACHE/battery.lock
+    fi
+fi

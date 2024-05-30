@@ -1,12 +1,12 @@
 󰒲;Suspend;gtklock & sleep 2 && systemctl suspend
 󱎫;Pomo start;pman
-;Pomo stop;~/.scripts/bar/pomo stop
-;Pomo pause;~/.scripts/bar/pomo pause
-;Pomo resume;~/.scripts/bar/pomo resume
+;Pomo stop;$BAR_SCRIPTS/pomo stop
+;Pomo pause;$BAR_SCRIPTS/pomo pause
+;Pomo resume;$BAR_SCRIPTS/pomo resume
 ;Bookmarks;bookmark query
 󰸕;Bookmark add;bookmark add
 󰞅;Nerd Icons;themer nerd get
-;Nerd Update;~/.scripts/themer nerd update
+;Nerd Update;$SCRIPTS/themer nerd update
 ;Theme Icons;themer icon
 ;Colors;themer color view
 ;Convert Color;themer color convert
@@ -14,9 +14,9 @@
 ;Font filename;themer font file
 ;MPV YT;mpvyt
 ;Ytrss add;ytrss add
-;Ytrss update;~/.scripts/ytrss update
-;Disable Touchpad;~/.config/river/scripts/touchpad disable
-󰟸;Enable Touchpad;~/.config/river/scripts/touchpad enable
+;Ytrss update;$SCRIPTS/ytrss update
+;Disable Touchpad;$RIVER_SCRIPTS/touchpad disable
+󰟸;Enable Touchpad;$RIVER_SCRIPTS/touchpad enable
 ;Lock;gtklock
 ;Log out;kill -s SIGINT `pgrep river`
 ⏻;Power off;systemctl poweroff

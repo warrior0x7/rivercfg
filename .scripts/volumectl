@@ -3,28 +3,31 @@
 step=5
 muted=`pamixer --get-mute`
 
+BARSCRIPTS=~/.scripts/bar
+
+function update_eww () { eww update volume="`$BARSCRIPTS/volume`"; }
+
 case $1 in
     "down")
         if [ $muted == "false" ]; then 
 		    pamixer -d $step
-            volume=`pamixer --get-volume`
-            eww update volume="$volume"
+            update_eww
 	    fi
         ;;
     "up")
         if [ $muted == "false" ]; then
 		    pamixer -i $step
-            volume=`pamixer --get-volume`
-            eww update volume="$volume"
+            update_eww
 	    fi
         ;;
     "toggle")
 	    pamixer -t
-        muted=`pamixer --get-mute`
-        volume=`pamixer --get-volume`
-        eww update volume_mute="$muted"
+        update_eww
         ;;
 esac
+
+muted=`pamixer --get-mute`
+volume=`pamixer --get-volume`
 
 
 if [ $muted == "true" ]; then

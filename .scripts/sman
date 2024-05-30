@@ -2,28 +2,27 @@
 
 source ~/.scripts/extra/cmdfns
 
-DATA=~/.scripts/data/sman.list
+CMD_LIST=sman.list
 
-choice=`cat $DATA |\
+choice=`cat $DATA/$CMD_LIST |\
      awk -F ';' '{ printf "%2s %-5s %s\n", " ", $1, $2}' |\
      fzfcmd "CMD" |\
      sed 's/[^A-Za-z]/ /g; s/ \{3,\}//g'`
 
 if [ -n "$choice" ]; then
-    cmd=`cat $DATA |\
+    cmd=`cat $DATA/$CMD_LIST |\
             grep --color=never ";$choice;" |\
             awk -F ';' '{print $3}'`
 
-    script=`echo "$cmd" |\
-                cut -d' ' -f1`
+    script=`echo "$cmd" | cut -d' ' -f1`
 
-    if [ -f ~/.scripts/$script ]; then
-        bash -c "~/.scripts/$cmd"
+    if [ -f $SCRIPTS/$script ]; then
+        bash -c "$SCRIPTS/$cmd"
     else
         if [[ "$cmd" =~ "[i]" ]]; then
             bash -c "`echo $cmd | sed 's/^\[i\]//g'`"
         else
-            bash -c "nohup bash -c '$cmd &' 2&>/dev/null"
+            bash -c "nohup bash -c 'source $CMDFNS; $cmd &' 2&>/dev/null"
         fi
     fi
 fi

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+value="`pamixer --get-volume`"
+mute="`pamixer --get-mute`"
+
+jq --null-input -s '{"value":"'$value'", "mute":"'$mute'"}'
