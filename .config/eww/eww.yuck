@@ -239,74 +239,95 @@
 
 
 ;; CALENDAR
-;;
-;;(defwindow calendar
-;;  :monitor 0
-;;  :exclusive false
-;;  :class "calendar"
-;;  :windowtype "normal"
-;;  :geometry (geometry :x "74.5%"
-;;                      :y "1%"
-;;                      :width "25%"
-;;                      :height "35%")
-;;  (calendar_main)
-;;)
-;;
-;;(defvar weekdays `["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]`)
-;;
-;;(defpoll month :initial ""
-;;               :interval "86400s"
-;;  `~/.scripts/bar/cal reset && ~/.scripts/bar/cal query`)
-;;
-;;(defpoll month_name :initial "Jan"
-;;                    :interval "86400s"
-;;  `~/.scripts/bar/cal month`)
-;;
-;;(defvar check_month "true")
-;;
-;;(defwidget calendar_main []
-;;  (box
-;;    :space-evenly "false"
-;;    :orientation "vertical"
-;;    (centerbox
-;;      :space-evenly "false"
-;;      :orientation "horizontal"
-;;      (button
-;;        :class "cal_button"
-;;        :onclick "~/.scripts/bar/cal prev &"
-;;        ""
-;;      )
-;;      (button
-;;        :class "cal_header cal_button"
-;;        :onclick "~/.scripts/bar/cal reset &"
-;;        `${month_name}`
-;;      )
-;;      (button
-;;        :class "cal_button"
-;;        :onclick "~/.scripts/bar/cal next &"
-;;        ""
-;;      )
-;;    )
-;;    (box
-;;      :class "cal_days"
-;;      :space-evenly "true"
-;;      :spacing 5
-;;      :orientation "horizontal"
-;;      :class "cal_main_container"
-;;      (for day in weekdays
-;;        (box
-;;          :space-evenly "true"
-;;          :spacing 5
-;;          :orientation "vertical"
-;;          (label :text day)
-;;          (for num in {month[day]}
-;;              (button
-;;                :class `${ check_month == "false" ? "" : num == substring(time, 9, 2) ? "today" : ""} ${ num != "" ? "day" : ""}`
-;;                num
-;;              )
-;;          )
-;;        )
-;;      )
-;;    )
-;;  )
-;;)
+
+(defwindow calendar
+  :monitor 0
+  :exclusive false
+  :class "calendar"
+  :windowtype "normal"
+  :geometry (geometry :x "74.5%"
+                      :y "1%"
+                      :width "25%"
+                      :height "35%")
+  (calendar_main)
+)
+
+(defvar weekdays `["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]`)
+
+(defpoll month :initial ""
+               :interval "86400s"
+  `~/.scripts/bar/cal reset && ~/.scripts/bar/cal query`)
+
+(defpoll month_name :initial "Jan"
+                    :interval "86400s"
+  `~/.scripts/bar/cal month`)
+
+(defvar check_month "true")
+
+(defwidget calendar_main []
+  (box
+    :space-evenly "false"
+    :orientation "vertical"
+    (centerbox
+      :space-evenly "false"
+      :orientation "horizontal"
+      (button
+        :class "cal_button"
+        :onclick "~/.scripts/bar/cal prev &"
+        ""
+      )
+      (button
+        :class "cal_header cal_button"
+        :onclick "~/.scripts/bar/cal reset &"
+        `${month_name}`
+      )
+      (button
+        :class "cal_button"
+        :onclick "~/.scripts/bar/cal next &"
+        ""
+      )
+    )
+    (box
+      :class "cal_days"
+      :space-evenly "true"
+      :spacing 5
+      :orientation "horizontal"
+      :class "cal_main_container"
+      (for day in weekdays
+        (box
+          :space-evenly "true"
+          :spacing 5
+          :orientation "vertical"
+          (label :text day)
+          (for num in {month[day]}
+              (button
+                :class `${ check_month == "false" ? "" : num == substring(time, 9, 2) ? "today" : ""} ${ num != "" ? "day" : ""}`
+                num
+              )
+          )
+        )
+      )
+    )
+
+    (centerbox
+      :space-evenly "false"
+      :orientation "horizontal"
+      :class "cal_type_switcher"
+      (button
+        :class "cal_button"
+        :onclick "~/.scripts/bar/cal prev &"
+        ""
+      )
+      (button
+        :class "cal_type_header"
+        :onclick "~/.scripts/bar/cal reset &"
+        "Gregorian"
+      )
+      (button
+        :class "cal_button"
+        :onclick "~/.scripts/bar/cal next &"
+        ""
+      )
+    )
+  )
+)
