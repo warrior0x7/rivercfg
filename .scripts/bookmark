@@ -37,13 +37,18 @@ case $1 in
             awk -F ';;;' '{ printf "%2s %-40s %s\n", " ", $1, $2}' |\
             fzfcmd "Marks" \
                 --multi \
-                --header="[alt-a => Autotype, alt-r => Rename, alt-d => Delete Menu]" \
-                --bind='alt-a:become(~/.scripts/bookmark autotype {}),alt-r:become(~/.scripts/bookmark rename {}),alt-d:become(~/.scripts/bookmark delete fzf)' |\
+                --header="[alt-a => Autotype, alt-r => Rename, alt-d => Delete Menu, alt-e => Firefox]" \
+                --bind='alt-a:become(~/.scripts/bookmark autotype {}),alt-r:become(~/.scripts/bookmark rename {}),alt-d:become(~/.scripts/bookmark delete fzf),alt-e:become(~/.scripts/bookmark fzfhandle {})' |\
                 sed 's/^.*\shttp/http/g')"
 
         if [ -n "$query" ]; then
             printf '%s' "$query" | wl-copy
         fi
+        ;;
+
+    fzfhandle)
+        url=`printf "%s" "$2" | sed 's/^.*\shttp/http/'`
+        nohup bash -c "firefox \"${url}\" &" 2&>/dev/null
         ;;
 
     autotype)
