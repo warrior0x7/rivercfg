@@ -1,0 +1,50 @@
+#!/bin/bash
+
+weekdays=("Sat" "Sun" "Mon" "Tue" "Wed" "Thu" "Fri")
+month=`seq 1 12`
+year=`date +"%Y"`
+        
+json=`jq --null-input "."`
+
+for m in ${month[@]}
+do
+    days=`date -u -d "$m/1 + 1 month - 1 day" +"%d"`
+    day_list=`seq 1 $days`
+    monthName=`date -u -d "${year}-${m}-01" +"%b"`
+    firstDay=`date -u -d "${year}-${m}-01" +"%a"`
+
+    first_day_order=`echo ${weekdays[@]} |\
+                sed 's/\s/\n/g' |\
+                grep --color=never -n "$firstDay" |\
+                awk -F ':' '{print $1}'`
+    order="$first_day_order"
+
+    while [ $order -gt 1 ]; do
+        json=`echo $json | jq ".$monthName.${weekdays[$order-2]}+=[\"\"]"`
+        order=$(( order - 1 ))
+    done
+
+    for day in ${day_list[@]}; do
+        dayName=`date -u -d "${year}-${m}-${day}" +"%a"`
+        json=`echo $json | jq ".$monthName.$dayName+=[$day]"`
+        if [[ "$day" == "$days" ]]; then
+            lastDay="$dayName"
+        fi
+    done
+
+    last_day_order=`echo ${weekdays[@]} |\
+                sed 's/\s/\n/g' |\
+                grep --color=never -n "$lastDay" |\
+                awk -F ':' '{print $1}'`
+
+    order="$(( last_day_order + 1))"
+    while [ $order -le 7 ]; do
+        json=`echo $json | jq ".$monthName.${weekdays[$order-1]}+=[\"\"]"`
+        order=$(( order + 1 ))
+    done
+done
+
+echo $json | jq
+
+
+

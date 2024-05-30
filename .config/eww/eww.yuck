@@ -36,11 +36,11 @@
 
 (defpoll volume :initial "0"
                 :interval "86400s"
-  `pamixer --get-volume`)
+  `sleep 0.5 & pamixer --get-volume`)
 
 (defpoll volume_mute :initial "false"
                      :interval "86400s"
-  `pamixer --get-mute`)
+  `sleep 0.5 & pamixer --get-mute`)
 
 (defvar rev_pomo false)
 (defvar pomo_icon "󱎫")
@@ -54,6 +54,7 @@
 (defvar rev_recording false)
 (defvar recording_paused false)
 (defvar quran_active false)
+(defvar cal_greg true)
 
 (defvar cal_open false)
 (defvar hovered false)
@@ -315,17 +316,17 @@
       :class "cal_type_switcher"
       (button
         :class "cal_button"
-        :onclick "~/.scripts/bar/cal prev &"
+        :onclick "${ cal_greg == true ? "eww update cal_greg=false" : "eww update cal_greg=true" }"
         ""
       )
       (button
         :class "cal_type_header"
         :onclick "~/.scripts/bar/cal reset &"
-        "Gregorian"
+        "${ cal_greg == true ? "Gregorian" : "Hijri"}"
       )
       (button
         :class "cal_button"
-        :onclick "~/.scripts/bar/cal next &"
+        :onclick "${ cal_greg == true ? "eww update cal_greg=false" : "eww update cal_greg=true" }"
         ""
       )
     )
