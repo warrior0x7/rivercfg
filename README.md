@@ -16,10 +16,11 @@ Dotfiles of river with my user-scripts + functions inside river `init` file to e
 * Prayer times in EWW [prayerTime](.scripts/bar/prayerTime)
 * Calendar widget for both gregorian and hijri (soon) [cal](.scripts/bar/cal)
 * Pomodoro timer [pomo](.scripts/bar/pomo)
-* Menus for Fonts, Nerd icons, Icon theme's icons
+* Menus for Fonts, Nerd icons and icons of theme [themer](.scripts/themer)
+* Color selection and conversion [themer (Color)](.scripts/themer)
 * Screenshots and screen recording with [shotcopy](.scripts/shotcopy)
 * Bookmarks menu [Bookmarks](.scripts/bookmark)
-* Notification upon headphone plug/unplug [detect_headphone](.scripts/detect_headphone)
+* Notification upon headphone plug/unplug [headphoned](.scripts/headphoned)
 * [Script manager](.scripts/sman) with configuration in [text format](.scripts/data/sman.list)
 * Launch firefox profiles with [browser](.scripts/browser)
 
