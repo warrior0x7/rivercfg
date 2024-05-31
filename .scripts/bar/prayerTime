@@ -3,6 +3,7 @@
 source ~/.scripts/extra/cmdfns
 
 [ ! -d $CACHE/prayers ] && mkdir -p $CACHE/prayers
+[ ! -d $DATA ] && mkdir -p $DATA
 
 function removeOld () {
     [ -f $CACHE/prayers/$1 ] && rm $CACHE/prayers/$1
