@@ -1,5 +1,9 @@
 #!/bin/bash
 
+source ~/.scripts/extra/cmdfns
+
+[ ! -f $CACHE/cal ] && mkdir -p $CACHE/cal
+
 weekdays=("Sat" "Sun" "Mon" "Tue" "Wed" "Thu" "Fri")
 month=`seq 1 12`
 year=`date +"%Y"`
@@ -44,7 +48,4 @@ do
     done
 done
 
-echo $json | jq
-
-
-
+printf "%s\n" "$json" | jq -M -c > $CACHE/cal/greg_calendar

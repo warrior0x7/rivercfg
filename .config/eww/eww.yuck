@@ -238,16 +238,16 @@
 )
 
 (defvar weekdays `["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"]`)
+(defvar gregmonth `["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]`)
 
 (defpoll month :initial ""
                :interval "86400s"
-  `~/.scripts/bar/cal reset && ~/.scripts/bar/cal query`)
+  `source ~/.scripts/extra/cmdfns; cat $CACHE/cal/greg_calendar`)
 
-(defpoll month_name :initial "Jan"
-                    :interval "86400s"
-  `~/.scripts/bar/cal month`)
-
-(defvar check_month "true")
+(defvar month_pos 0)
+(defpoll current_month :initial ""
+                       :interval "86400"
+  `date +"%m"`)
 
 (defwidget calendar_main []
   (box
@@ -258,17 +258,17 @@
       :orientation "horizontal"
       (button
         :class "cal_button"
-        :onclick "~/.scripts/bar/cal prev &"
+        :onclick '${current_month + month_pos > 1 ? "eww update month_pos=$(( `eww get month_pos` - 1 ))" : "" }'
         ""
       )
       (button
         :class "cal_header cal_button"
-        :onclick "~/.scripts/bar/cal reset &"
-        `${month_name}`
+        :onclick "eww update month_pos=0"
+        `${gregmonth[current_month + month_pos - 1]} ${substring(time,13,4)}`
       )
       (button
         :class "cal_button"
-        :onclick "~/.scripts/bar/cal next &"
+        :onclick '${current_month + month_pos < 12 ? "eww update month_pos=$(( `eww get month_pos` + 1 ))" : "" }'
         ""
       )
     )
@@ -284,9 +284,9 @@
           :spacing 5
           :orientation "vertical"
           (label :text day)
-          (for num in {month[day]}
+          (for num in {month[gregmonth[current_month + month_pos - 1]][day]}
               (button
-                :class `${ check_month == "false" ? "" : num == substring(time, 18, 2) ? "today" : ""} ${ num != "" ? "day" : ""}`
+                :class `${ gregmonth[current_month + month_pos - 1] != substring(time,9,3) ? "" : num == substring(time, 18, 2) ? "today" : ""} ${ num != "" ? "day" : ""}`
                 num
               )
           )
@@ -305,7 +305,7 @@
       )
       (button
         :class "cal_type_header"
-        :onclick "~/.scripts/bar/cal reset &"
+        :onclick "echo hi"
         "${ cal_greg == true ? "Gregorian" : "Hijri"}"
       )
       (button
