@@ -2,9 +2,7 @@
 
 source ~/.scripts/extra/cmdfns
 
-DATA=~/.scripts/data
-
-[ ! -f $DATA ] && mkdir $DATA
+[[ ! -f "$DATA" ]] && mkdir -p $DATA
 
 case $1 in
     nerd)
