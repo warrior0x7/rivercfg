@@ -72,12 +72,7 @@ case $1 in
 
                         eww update rev_recording=true
 
-                        notifier normal \
-                            "folder-video" \
-                            "Shotcopy: Recorder" \
-                            "Region video recording started"
-
-                        wf-recorder -x yuv420p                  \
+                        wf-recorder -c libx264rgb               \
                                     --audio="$device_name"      \
                                     -g "$region"                \
                                     -f $CACHE/recording.mp4
@@ -96,12 +91,7 @@ case $1 in
 
                     eww update rev_recording=true
 
-                    notifier normal \
-                        "folder-video" \
-                        "Shotcopy: Recorder" \
-                        "Fullscreen video recording started"
-
-                    wf-recorder -x yuv420p                  \
+                    wf-recorder -c libx264rgb               \
                                 --audio="$device_name"      \
                                 -f $CACHE/recording.mp4
                 fi

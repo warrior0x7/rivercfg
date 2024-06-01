@@ -48,4 +48,5 @@ do
     done
 done
 
-printf "%s\n" "$json" | jq -M -c > $CACHE/cal/greg_calendar
+#printf "%s\n" "$json" | jq -M -c > $CACHE/cal/greg_calendar
+printf "%s\n" "$json" | jq -M -c

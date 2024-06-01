@@ -16,7 +16,7 @@ case $1 in
     "add")
         bookmark=`wl-paste`
         if [[ $bookmark =~ ^"http" ]]; then
-            if grep -q "$bookmark" $BOOKMARKS ;then
+            if grep -q "$bookmark$" $BOOKMARKS ;then
                 bnotify "Already exists"
             else
                 name=`fzfprompt "Bookmark Name" --header="$bookmark"`

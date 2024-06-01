@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+# This script is a modification of the script in this link: https://github.com/gojigeje/hijri.sh/blob/master/hijri.sh
+# with some minor modifications
+
+source ~/.scripts/extra/cmdfns
+
+[ ! -f $CACHE/cal ] && mkdir -p $CACHE/cal
+
+function converter () {
+    adjust=0
+
+    greg_year="$3"
+    greg_month=`echo $2 | sed 's/^0*//'`
+    greg_day=`date +%d -u -d "$3-$2-$1 $adjust day" | sed 's/^0*//'`
+
+    # -----------------------------------------------------------------------------------
+    # Calculation method below is pure magic to me ... I didn't manage to understand it
+    # -----------------------------------------------------------------------------------
+    # My understading so far is that it converts date like this
+    # Gregorian => Julian => Hijri
+    # -----------------------------------------------------------------------------------
+    l=$(( ( ( ( 1461 * ( greg_year + 4800 + ( ( greg_month - 14 ) / 12 ) ) ) / 4 ) + ( ( 367 * ( greg_month - 2 - 12 * ( ( greg_month - 14 ) / 12 ) ) ) / 12 ) - ( ( 3 * ( ( greg_year + 4900 + ( ( greg_month - 14 ) / 12 ) ) / 100 ) ) / 4 ) + greg_day - 32075 ) - 1948440 + 10632 ))
+    n=$(( ( l - 1 ) / 10631 ))
+    l=$(( l - 10631 * n + 354 ))
+    z=$(( ( ( 10985 - l ) / 5316 ) * ( ( 50 * l ) / 17719 ) + ( l / 5670 ) * ( ( 43 * l ) / 15238 ) ))
+    l=$(( l - (( 30 - z ) / 15 ) * ( ( 17719 * z ) / 50 ) - ( z / 16 ) * ( ( 15238 * z ) / 43 ) + 29 ))
+    m=$(( ( 24 * l ) / 709 ))
+    d=$(( l - (( 709 * m ) / 24 ) ))
+    y=$(( 30 * n + z - 30 ))
+    # -----------------------------------------------------------------------------------
+
+    lunar_day=$d
+    lunar_month=$m
+    lunar_year=$y
+
+    printf "%02d-%02d-%04d" "$lunar_day" "$lunar_month" "$lunar_year"
+}
+
+lunar_months=( "Muharram" "Safar" "Rabi Al-Awwal" "Rabi Al-Akhir" "Jumada Al-Awwal" "Jumada Al-Akhir" "Rajab" "Sha'ban" "Ramadhan" "Shawwal" "Zul Qa'dah" "Zul Hijjah" )
+weekdays=("Sat" "Sun" "Mon" "Tue" "Wed" "Thu" "Fri")
+months=`seq 1 12`
+year=`date +%Y`
+
+json=`jq --null-input "."`
+
+for month in ${months[@]}
+do
+    days=`date -u -d "$month/1 + 1 month - 1 day" +"%d"`
+    day_list=`seq 1 $days`
+
+    for day in ${day_list[@]}; do
+        hijri_date=$(converter ${day} ${month} ${year})
+        lunar_day=`echo $hijri_date | awk -F '-' '{print $1}'`
+        lunar_month=`echo $hijri_date | awk -F '-' '{print $2}'`
+        lunar_year=`echo $hijri_date | awk -F '-' '{print $3}'`
+
+        dayName=`date -u -d "${year}-${month}-${day} day" +"%a"`
+        position=$((10#$lunar_month - 1))
+        json=`echo $json | jq ".\"$lunar_year\".\"${lunar_months[$position]}\".$dayName+=[$lunar_day]"`
+    done
+done
+
+
+# jq --null-input -s '{"Day":"'$lunar_day'", "Month":"'"$lunar_month"'", "Year":"'$lunar_year'"}'
+#printf "%s\n" "$json" | jq -M -c > $CACHE/cal/hijri_calendar
+printf "%s\n" "$json" | jq 

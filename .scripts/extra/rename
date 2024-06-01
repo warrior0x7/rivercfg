@@ -22,7 +22,8 @@ function move () {
                 "<b>~/Pictures/$3.png</b>"
             ;;
         video)
-            mv $DATA/recording.mp4 ~/Videos/"$3".mp4
+            ffmpeg -i $DATA/recording.mp4 -c:v libx264 -pix_fmt yuv420p ~/Videos/"$3".mp4
+            rm $DATA/recording.mp4
             case $2 in
                 name) msg="Saved as" ;;
                 noname) msg="Used date because no name was provided" ;;

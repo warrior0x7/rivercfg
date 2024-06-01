@@ -44,7 +44,7 @@ function mpvcmd {
         --cache-secs=30 \
         --script-opts=ytdl_hook-ytdl_path=yt-dlp \
         --ytdl-raw-options=force-ipv4= \
-        --ytdl-format='bestvideo[ext=mp4][vcodec^=avc][height<=720]+bestaudio/best[height<=720]' \
+        --ytdl-format='bestvideo[ext=mp4][vcodec^=avc][height<=480]+bestaudio/best[height<=4800]' \
         "$@"
 
     if [[ $? != 0 ]]; then
