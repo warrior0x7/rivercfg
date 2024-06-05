@@ -38,7 +38,7 @@ case $1 in
             fzfcmd "Marks" \
                 --multi \
                 --header="[alt-a => Autotype, alt-r => Rename, alt-d => Delete Menu, alt-e => Firefox]" \
-                --bind='alt-a:become(~/.scripts/bookmark autotype {}),alt-r:become(~/.scripts/bookmark rename {}),alt-d:become(~/.scripts/bookmark delete fzf),alt-e:become(~/.scripts/bookmark fzfhandle {})' |\
+                --bind='alt-a:become(~/.scripts/bookmark autotype {}),alt-r:become(~/.scripts/bookmark rename {}),alt-d:become(for item in {+}; do url=`printf "%s\n" "$item" | sed "s/^.*\shttp/http/"`; ~/.scripts/bookmark delete "$url"; done; ~/.scripts/bookmark query),alt-e:become(for item in {+}; do url=`printf "%s\n" "$item" | sed "s/^.*\shttp/http/"`; ~/.scripts/bookmark open "$url"; done)' |\
                 sed 's/^.*\shttp/http/g')"
 
         if [ -n "$query" ]; then
@@ -46,10 +46,8 @@ case $1 in
         fi
         ;;
 
-    fzfhandle)
-        url=`printf "%s" "$2" | sed 's/^.*\shttp/http/'`
-        nohup bash -c "firefox \"${url}\" &" 2&>/dev/null
-        ;;
+    open) nohup bash -c "xdg-open \"${2}\" &" 2&>/dev/null ;;
+    delete) printf "%s\n" ${2} | xargs -n 1 -I {} sed -i "\|;;;{}$|d" $BOOKMARKS 2&>/dev/null ;;
 
     autotype)
         url=`printf "%s" "$2" | sed 's/^.*\shttp/http/'`
@@ -73,26 +71,6 @@ case $1 in
         ~/.scripts/bookmark query
         ;;
 
-    "delete")
-        del="`cat $BOOKMARKS |\
-            awk -F ';;;' '{ printf "%2s %-30s %s\n", " ", $1, $2}' |\
-            fzfcmd "[Delete] Marks"\
-                   --multi |\
-            sed 's/^.*\shttp/http/g'`"
+    *) bnotify_invalid "$1" "Either 'add' or 'query' was expected" ;;
 
-        echo ${del} > .logger
-
-        if [ -n "$del" ]; then
-            printf '%s\n' ${del} |\
-                xargs -n 1 -I {} sed -i "\|;;;{}$|d" $BOOKMARKS 2&>/dev/null
-        fi
-
-        if [[ $2 == "fzf" ]]; then
-            ~/.scripts/bookmark query
-        fi
-        ;;
-
-    *)
-        bnotify_invalid "$1" "Either 'add' or 'query' was expected"
-        ;;
 esac

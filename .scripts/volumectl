@@ -5,7 +5,7 @@ muted=`pamixer --get-mute`
 
 BARSCRIPTS=~/.scripts/bar
 
-function update_eww () { eww update volume="`$BARSCRIPTS/volume`"; }
+function update_eww () { eww update volume="`~/.scripts/bar/volume`"; }
 
 case $1 in
     "down")

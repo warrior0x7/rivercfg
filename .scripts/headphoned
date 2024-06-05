@@ -4,12 +4,7 @@
 
 source ~/.scripts/extra/cmdfns
 
-function update_eww () {
-    volume=`pamixer --get-volume`
-    muted=`pamixer --get-mute`
-    eww update volume="$volume"
-    eww update volume_mute="$muted"
-}
+function update_eww () { eww update volume="`~/.scripts/bar/volume`"; }
 
 acpi_listen | while IFS= read -r line;
 do

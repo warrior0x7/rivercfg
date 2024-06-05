@@ -323,11 +323,11 @@ tiler Super Tab "--layout-toggle"   # toggle layout
 #       APP-ID                       APP-TITLE                           W       H       X       Y 
 float 'org.kde.konsole'             "riverprop — Konsole"               400     250    center   center
 float 'org.kde.konsole'             "Floating — Konsole"                1100    500    center   center
-float 'Anki'                        "Browse*"                           1000    650    center   center
-float 'Anki'                        "Statistics"                        1000    650    center   center
-float 'Anki'                        "Preferences"                       1000    650    center   center
-float 'Anki'                        "Image Occlusion Enhanced*"         1200    650    center   center
-float 'Anki'                        "Add"                               500     650    center   center
+float 'anki'                        "Browse*"                           1000    650    center   center
+float 'anki'                        "Statistics"                        1000    650    center   center
+float 'anki'                        "Preferences"                       1000    650    center   center
+float 'anki'                        "Image Occlusion Enhanced*"         1200    650    center   center
+float 'anki'                        "Add"                               500     650    center   center
 float 'Gimp'                        "Change Foreground Color"           500     500    center   center
 float 'Firefox'                     "Firefox - Choose User Profile"     1000    650    center   center
 float 'org.keepassxc.KeePassXC'      0                                  900     550    center   center
@@ -337,14 +337,16 @@ float 'Nsxiv'                        0
 float 'org.fcitx.fcitx5-config-qt'   0
 float 'nm-connection-editor'         0
 float 'pavucontrol'                  0
+float 'org.kde.kdeconnect.handler'   0
+float 'org.kde.kdeconnect.daemon'    0
 
 # Start app in specific tag
 #    APP-ID                                                           TAG
 tags 'sioyek'                                                          1
 tags 'mpv'                                                             3
 tags 'firefox'                  "Mozilla Firefox"                      4
-tags 'Anki'                     "* - Anki"                             5
-tags 'org.kde.konsole'          "fileManager — Konsole"                6
+tags 'org.kde.konsole'          "fileManager — Konsole"                5
+tags 'anki'                     "* - Anki"                             6
 tags 'Gimp'                                                            7
 tags 'org.inkscape.Inkscape'                                           7
 tags 'org.telegram.desktop'                                            8

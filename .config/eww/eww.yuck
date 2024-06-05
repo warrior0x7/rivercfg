@@ -122,7 +122,7 @@
         )
 
         (revealer
-            :reveal `${prayer["time"] == "" ? false : rev_prayer}`
+            :reveal `${prayer["prayer"] == "" ? false : rev_prayer}`
             :transition "slideleft"
             :duration "350ms"
             (label
@@ -163,7 +163,7 @@
 )
 
 (defvar tags "[1, 2, 3, 4, 5, 6, 7, 8, 9]")
-(defvar tagSymbols `["", "", "", "", "󱟱", "", "", "󰭹", "󰂔"]`)
+(defvar tagSymbols `["", "", "", "", "", "󱟱", "", "󰭹", "󰂔"]`)
 
 (defwidget left []
     (box

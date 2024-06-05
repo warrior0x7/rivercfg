@@ -7,7 +7,7 @@
 source ~/bash/prompt
 source ~/bash/aliases
 source ~/bash/variables
-source ~/.scripts/extra/cmdfns
+source ~/.local/lib/xlotus/xlfns
 
 # ----------------------------
 # AUTOSTART TMUX UPON LAUNCH
@@ -28,6 +28,6 @@ fi
 # ----------------------------
 # VARIABLES
 # ----------------------------
-export PATH="$PATH:$HOME/.scripts:$HOME/go/bin"
+export PATH="$PATH:$HOME/.scripts:$HOME/go/bin:$HOME/.local/bin"
 export MANPAGER="nvim +Man!"
 export EDITOR="nvim"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 0.5
+sleep 1.5
 lswt -j |\
     jq '.["toplevels"].[] | select(.activated==true) | { "title" : .["title"], "app_id" : .["app-id"]}' && read
 

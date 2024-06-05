@@ -1,18 +1,15 @@
 #!/bin/bash
 #
 # This script is a modification of the script in this link: https://github.com/gojigeje/hijri.sh/blob/master/hijri.sh
-# with some minor modifications
 
 source ~/.scripts/extra/cmdfns
-
-[ ! -f $CACHE/cal ] && mkdir -p $CACHE/cal
 
 function converter () {
     adjust=0
 
-    greg_year="$3"
-    greg_month=`echo $2 | sed 's/^0*//'`
-    greg_day=`date +%d -u -d "$3-$2-$1 $adjust day" | sed 's/^0*//'`
+    gregYear="$3"
+    gregMonth=`echo $2 | sed 's/^0*//'`
+    gregDay=`date +%d -u -d "$3-$2-$1 $adjust day" | sed 's/^0*//'`
 
     # -----------------------------------------------------------------------------------
     # Calculation method below is pure magic to me ... I didn't manage to understand it
@@ -20,12 +17,12 @@ function converter () {
     # My understading so far is that it converts date like this
     # Gregorian => Julian => Hijri
     # -----------------------------------------------------------------------------------
-    a=$(( ( greg_month - 14 ) / 12 ))
-    b=$(( ( greg_year + 4900 + a ) / 100 ))
-    c=$(( ( 1461 * ( greg_year + 4800 + a ) ) / 4 ))
-    d=$(( ( 367 * ( greg_month - 2 - 12 * a ) ) / 12 ))
+    a=$(( ( gregMonth - 14 ) / 12 ))
+    b=$(( ( gregYear + 4900 + a ) / 100 ))
+    c=$(( ( 1461 * ( gregYear + 4800 + a ) ) / 4 ))
+    d=$(( ( 367 * ( gregMonth - 2 - 12 * a ) ) / 12 ))
     e=$(( ( 3 * b ) / 4 ))
-    jd=$(( c + d - e + greg_day - 32075 ))
+    jd=$(( c + d - e + gregDay - 32075 ))
     l=$(( jd - 1948440 + 10632 ))
     n=$(( ( l - 1 ) / 10631 ))
     l=$(( l - 10631 * n + 354 ))
@@ -36,35 +33,84 @@ function converter () {
     y=$(( 30 * n + z - 30 ))
     # -----------------------------------------------------------------------------------
 
-    lunar_day=$d
-    lunar_month=$m
-    lunar_year=$y
+    lunarDay=$d
+    lunarMonth=$m
+    lunarYear=$y
 
-    printf "%02d-%02d-%04d" "$lunar_day" "$lunar_month" "$lunar_year"
+    printf "%02d-%02d-%04d" "$lunarDay" "$lunarMonth" "$lunarYear"
 }
 
-lunar_months=( "Muharram" "Safar" "Rabi Al-Awwal" "Rabi Al-Akhir" "Jumada Al-Awwal" "Jumada Al-Akhir" "Rajab" "Sha'ban" "Ramadhan" "Shawwal" "Zul Qa'dah" "Zul Hijjah" )
-weekdays=("Sat" "Sun" "Mon" "Tue" "Wed" "Thu" "Fri")
-months=`seq 1 12`
+lunarMonths=( "Muharram" "Safar" "Rabi Al-Awwal" "Rabi Al-Akhir" "Jumada Al-Awwal" "Jumada Al-Akhir" "Rajab" "Sha'ban" "Ramadan" "Shawwal" "Zul Qa'dah" "Zul Hijjah" )
+
+dayNames=("Sat" "Sun" "Mon" "Tue" "Wed" "Thu" "Fri")
+numOfMonths=`seq 1 12`
 year=`date +%Y`
 
 json=`jq --null-input "."`
 
-for month in ${months[@]}
+for month in ${numOfMonths[@]}
 do
-    days=`date -u -d "$month/1 + 1 month - 1 day" +"%d"`
-    day_list=`seq 1 $days`
+    numOfDays=`date -u -d "$month/1 + 1 month - 1 day" +"%d"`
+    dayRange=`seq 1 $numOfDays`
 
-    for day in ${day_list[@]}; do
-        hijri_date=$(converter ${day} ${month} ${year})
-        lunar_day=`echo $hijri_date | awk -F '-' '{print $1}'`
-        lunar_month=`echo $hijri_date | awk -F '-' '{print $2}'`
-        lunar_year=`echo $hijri_date | awk -F '-' '{print $3}'`
+    firstHijriDate=`python $SCRIPTS/islamic/hijri.py 1 1 2024`
+    firstHijriDayName=`python $SCRIPTS/islamic/hijri.py dayname greg 1 1 2024`
+
+    firstHijriYear=`echo $firstHijriDate | awk -F '-' '{print $1}'`
+    firstHijriMonth=`echo $firstHijriDate | awk -F '-' '{print $2}'`
+    firstHijriDay=`echo $firstHijriDate | awk -F '-' '{print $3}'`
+        
+    firstHijriMonthPos=$((10#$firstHijriMonth - 1))
+    firstHijriMonthName="${lunarMonths[$firstHijriMonthPos]}"
+
+    firstHijriDayOrder=`echo ${dayNames[@]} |\
+                sed 's/\s/\n/g' |\
+                grep --color=never -n "${firstHijriDayName:0:3}" |\
+                awk -F ':' '{print $1}'`
+
+    loopOrder="$firstHijriDayOrder"
+    loopWeekOrder=$(( firstHijriDay / 7 ))
+    loopDayCounter=7
+
+    if [ $month -eq 1 ]; then
+        while [[ $loopWeekOrder -ge 0 ]]; do
+            if [[ $loopWeekOrder -gt 0 ]]; then
+                while [[ $loopDayCounter -gt 0 ]]; do
+                    json=`echo $json | jq ".\"$firstHijriYear\".\"$firstHijriMonthName\".${dayNames[$loopDayCounter-1]}+=[\"\"]"`
+                    loopDayCounter=$(( loopDayCounter - 1 ))
+                done
+            else
+                while [[ $loopOrder -gt 1 ]]; do
+                    json=`echo $json | jq ".\"$firstHijriYear\".\"$firstHijriMonthName\".${dayNames[$loopOrder-2]}+=[\"\"]"`
+                    loopOrder=$(( loopOrder - 1 ))
+                done
+            fi
+            loopWeekOrder=$(( loopWeekOrder - 1 ))
+            [ $loopWeekOrder -gt 0 ] && loopDayCounter=7
+        done
+    fi
+
+    for day in ${dayRange[@]}; do
+        hijriDate=$(converter ${day} ${month} ${year})
+        lunarDay=`echo $hijriDate | awk -F '-' '{print $1}'`
+        lunarMonth=`echo $hijriDate | awk -F '-' '{print $2}'`
+        lunarYear=`echo $hijriDate | awk -F '-' '{print $3}'`
 
         dayName=`date -u -d "${year}-${month}-${day} day" +"%a"`
-        position=$((10#$lunar_month - 1))
-        json=`echo $json | jq ".\"$lunar_year\".\"${lunar_months[$position]}\".$dayName+=[$lunar_day]"`
+        lunarMonthPos=$((10#$lunarMonth - 1))
+        json=`echo $json | jq ".\"$lunarYear\".\"${lunarMonths[$lunarMonthPos]}\".$dayName+=[$lunarDay]"`
     done
+    
+    #last_day_order=`echo ${weekdays[@]} |\
+    #            sed 's/\s/\n/g' |\
+    #            grep --color=never -n "$lastDay" |\
+    #            awk -F ':' '{print $1}'`
+
+    #order="$(( last_day_order + 1))"
+    #while [ $order -le 7 ]; do
+    #    json=`echo $json | jq ".$monthName.${weekdays[$order-1]}+=[\"\"]"`
+    #    order=$(( order + 1 ))
+    #done
 done
 
 
