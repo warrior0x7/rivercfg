@@ -42,12 +42,13 @@ require('bufferline').setup({
             icon = "",
             style = "none"
         },
+        modified_icon=" 󰆓"
     };
 
     highlights = {
         buffer_selected = {
-            fg = '#d4be98',
-            bg = '#5a524c',
+            fg = '#282828',
+            bg = '#a9b665',
         },
 
         modified = {
@@ -57,7 +58,7 @@ require('bufferline').setup({
 
         modified_selected = {
             fg = '#d8a657',
-            bg = '#5a524c',
+            bg = '#282828',
         },
     };
 
