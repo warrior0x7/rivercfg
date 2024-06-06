@@ -19,6 +19,8 @@ vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
 require("lazy").setup({
     'sainnhe/gruvbox-material',
     'elkowar/yuck.vim',
+    'akinsho/bufferline.nvim',
+    'nvim-tree/nvim-web-devicons'
 })
 
 vim.api.nvim_set_option("clipboard","unnamedplus")
@@ -30,6 +32,37 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+
+require('bufferline').setup({
+    options = {
+        show_buffer_icons = false,
+        show_buffer_close_icons = false,
+        show_tab_indicators = false,
+        indicator = {
+            icon = "",
+            style = "none"
+        },
+    };
+
+    highlights = {
+        buffer_selected = {
+            fg = '#d4be98',
+            bg = '#5a524c',
+        },
+
+        modified = {
+            fg = '#d8a657',
+            bg = '#282828',
+        },
+
+        modified_selected = {
+            fg = '#d8a657',
+            bg = '#5a524c',
+        },
+    };
+
+})
+
 
 vim.g.gruvbox_material_better_performance = 1
 -- Fonts

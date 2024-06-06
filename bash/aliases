@@ -40,11 +40,38 @@ function mks () {
     if [ -n "$1" ]; then
         if ! [ -f $1 ]; then
             touch $1
-            printf "%s" "#!/bin/bash" > $1
+            cat <<-AEOF > $1
+#!/usr/bin/env bash
+
+source ~/.local/lib/xlotus/xlfns
+
+function printHelp () {
+    cat <<-EOF
+Description: 
+
+Usage:
+
+Option: One of the following:
+
+    -h , --help:
+        Prints this help page.
+
+Project:
+    This script is a part of xlotus utilities
+    https://github.com/warrior0x7/xlotus
+EOF
+}
+
+case \$1 in
+    -h|--help) printHelp ;;
+    *)
+        ;;
+esac
+AEOF
             chmod +x $1
             nvim $1
         else
-            printf "%s\n%s\n" "File already exists" "I will open it in your EDITOR ($EDITOR)"
+            echo -e "File already exists\nI will open it in your EDITOR ($EDITOR)"
             nvim $1
         fi
     else
