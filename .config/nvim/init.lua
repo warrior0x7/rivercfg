@@ -38,10 +38,7 @@ require('bufferline').setup({
         show_buffer_icons = false,
         show_buffer_close_icons = false,
         show_tab_indicators = false,
-        indicator = {
-            icon = "",
-            style = "none"
-        },
+        separator_style = { '' , '' },
         modified_icon=" 󰆓"
     };
 
@@ -58,6 +55,15 @@ require('bufferline').setup({
 
         modified_selected = {
             fg = '#d8a657',
+            bg = '#282828',
+        },
+
+        indicator_visible = {
+            fg = '#282828',
+            bg = '#282828',
+        },
+        indicator_selected = {
+            fg = '#282828',
             bg = '#282828',
         },
     };
