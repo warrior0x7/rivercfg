@@ -31,5 +31,5 @@ fi
 export PATH="$PATH:$HOME/.scripts:$HOME/go/bin:$HOME/.local/bin"
 export MANPAGER="nvim +Man!"
 export EDITOR="nvim"
-alias je="source xl-jump --edit"
+alias je="xl-jump --edit"
 alias j="source xl-jump --jump"

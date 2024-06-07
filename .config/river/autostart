@@ -14,7 +14,6 @@ dunst &
 lxpolkit &
 gammastep -O 3500 &
 kdeconnectd &
-eww open bar &
 wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
 wl-paste --primary --watch cliphist store &
@@ -23,4 +22,5 @@ konsole --background-mode &
 nm-applet &
 xhost + local: &
 ~/.scripts/headphoned &
+eww open bar &
 ~/.scripts/ytrss update

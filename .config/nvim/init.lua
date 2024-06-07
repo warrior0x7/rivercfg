@@ -45,7 +45,7 @@ require('bufferline').setup({
     highlights = {
         buffer_selected = {
             fg = '#282828',
-            bg = '#a9b665',
+            bg = '#d8a657',
         },
 
         modified = {
