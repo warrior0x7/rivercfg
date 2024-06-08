@@ -18,7 +18,7 @@
 ;Disable Touchpad;$RIVER_SCRIPTS/touchpad disable
 󰟸;Enable Touchpad;$RIVER_SCRIPTS/touchpad enable
 ;Lock;gtklock
-;Log out;kill -s SIGINT `pgrep river`
+;Log out;riverctl exit
 ⏻;Power off;systemctl poweroff
 ;Reboot;systemctl reboot
 ;Sleep;systemctl suspend

@@ -38,6 +38,7 @@
 (defvar pomo_break false)
 (defvar pomo_pause false)
 
+(defvar rev_caps false)
 (defvar rev_prayer false)
 (defvar rev_date false)
 (defvar rev_battery false)
@@ -202,6 +203,16 @@
             (label
                 :class "module mode left_side"
                 :text "R"
+            )
+        )
+
+        (revealer
+            :reveal {rev_caps}
+            :transition "slideright"
+            :duration "350ms"
+            (label
+                :class "module mode left_side"
+                :text "󰪛 CAPS"
             )
         )
     )

@@ -105,8 +105,8 @@ function git_options () {
         pull) $1 pull origin main --allow-unrelated-histories "${@:3}" ;;
         ds) $1 diff --staged "${@:3}" ;;
         d) $1 difftool "${@:3}" ;;
-        r) $1 rm "${@:3}" ;;
-        rc) $1 rm --cached "${@:3}" ;;
+        r) $1 rm --cached "${@:3}" ;;
+        rm) $1 rm "${@:3}" ;;
         ra) $1 remote add origin "${@:3}" ;;
         rs) $1 remote set-url origin "${@:3}" ;;
         stop) $1 update-index --skip-worktree "${@:3}" ;;

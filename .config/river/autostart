@@ -1,15 +1,16 @@
 #!/bin/bash
 
-wallpaper="`ls -l --color=never ~/Pictures/wallpapers/ | awk '{print $9}' | sed '/^$/d' | shuf -n 1`"
+wallpaper="`fd . ~/Pictures/wallpapers -t f | shuf -n 1`"
 
-cleaner=("konsole" "lxpolkit" "kdeconnect-indicator" "eww" "dunst" "gammastep" "kdeconnectd" "swww-daemon" "wl-paste" "nm-applet" "headphoned")
+cleaner=("konsole" "lxpolkit" "kdeconnect-indicator" "eww" "dunst" "gammastep" "kdeconnectd" "swww-daemon" "wl-paste" "nm-applet" "$HOME/.scripts/headphoned" "$HOME/.scripts/capsd")
 
-for str in "${cleaner[@]}"; do
-    kill -SIGTERM `pgrep $str`
+for str in "${cleaner[@]}"
+do
+    kill -SIGTERM `pgrep -f "$str"`
 done
 
 swww-daemon --format xrgb &
-swww img ~/Pictures/wallpapers/"$wallpaper" &
+swww img $wallpaper &
 dunst &
 lxpolkit &
 gammastep -O 3500 &
@@ -21,6 +22,8 @@ kdeconnect-indicator &
 konsole --background-mode &
 nm-applet &
 xhost + local: &
+~/.scripts/capsd &
 ~/.scripts/headphoned &
 eww open bar &
 ~/.scripts/ytrss update
+

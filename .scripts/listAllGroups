@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+all_users=("`cat /etc/passwd | awk -F ':' '{print $1}'`")
+
+for user in ${all_users[@]}
+do
+    id $user | sed "s/^.*groups=//; s/^[0-9]*(/$user: /; s/[0-9]*(//g; s/)//g"
+done
