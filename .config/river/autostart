@@ -11,6 +11,7 @@ done
 
 swww-daemon --format xrgb &
 swww img $wallpaper &
+konsole --background-mode &
 dunst &
 lxpolkit &
 gammastep -O 3500 &
@@ -19,7 +20,6 @@ wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
 wl-paste --primary --watch cliphist store &
 kdeconnect-indicator &
-konsole --background-mode &
 nm-applet &
 xhost + local: &
 ~/.scripts/capsd &

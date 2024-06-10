@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Rotate images from clipboard
+# wl-paste > tmp; magick tmp -rotate 90 tmp.jpg; cat tmp.jpg | wl-copy
+
 source ~/.scripts/extra/cmdfns
 
 function notify_full () { 

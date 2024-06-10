@@ -1,2 +1,4 @@
 /\.git
 /rivercfg/.*
+/pipx
+/Anki2

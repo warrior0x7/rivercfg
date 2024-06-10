@@ -4,9 +4,9 @@
 # PACKAGE MANAGER
 # ----------------------------
 alias q='pacman -Ss'                    # Search for package
-alias u='sudo pacman -Syu'              # Update all packages
-alias i='sudo pacman -Sy'               # Install package
-alias r='sudo pacman -R'                # Remove package
+alias u='sudo pacman -Syu --noconfirm'  # Update all packages
+alias i='sudo pacman -Sy --noconfirm'   # Install package
+alias r='sudo pacman -R --noconfirm'    # Remove package
 alias cc='sudo pacman -Scc'             # Clear cache
 alias o='pacman -Qdt'                   # List orphan packages
 alias info='pacman -Si'                 # Get info on package
@@ -103,7 +103,7 @@ function git_options () {
         l) $1 log "${@:3}" ;;
         lu) $1 ls-files --others "${@:3}" ;;
         pull) $1 pull origin main --allow-unrelated-histories "${@:3}" ;;
-        ds) $1 diff --staged "${@:3}" ;;
+        ds) $1 difftool --staged "${@:3}" ;;
         d) $1 difftool "${@:3}" ;;
         r) $1 rm --cached "${@:3}" ;;
         rm) $1 rm "${@:3}" ;;
