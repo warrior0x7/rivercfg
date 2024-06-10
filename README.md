@@ -4,7 +4,7 @@ _**Note**_: This repo is a continuation of my [old repo](https://github.com/cry0
 Dotfiles of river with my user-scripts + functions inside river `init` file to easily set rules.
 
 > [!Note]
->My shellscripts are being gradually refactored [in this repo](https://github.com/warrior0x7/xlotus)
+>My shell scripts are being gradually refactored in [this repo](https://github.com/warrior0x7/xlotus)
 
 ## Features
 * Keychords using a function inside [init](.config/river/init)
