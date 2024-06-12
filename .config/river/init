@@ -345,7 +345,7 @@ float 'org.kde.kdeconnect.daemon'    0
 tags 'sioyek'                                                          1
 tags 'mpv'                                                             3
 tags 'firefox'                  "Mozilla Firefox"                      4
-tags 'org.kde.konsole'          "fileManager — Konsole"                5
+tags 'firefox-code'                                                    5
 tags 'anki'                     "* - Anki"                             6
 tags 'Gimp'                                                            7
 tags 'org.inkscape.Inkscape'                                           7

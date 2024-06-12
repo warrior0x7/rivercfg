@@ -10,5 +10,5 @@ choice="`cat $BROWSERDATA |\
             sed 's/[^A-Za-z0-9]/ /g; s/ \{3,\}//g'`"
 
 if [ -n "$choice" ]; then
-    nohup bash -c "firefox -P $choice &" 2&>/dev/null
+    nohup bash -c "firefox --name \"firefox-$choice\" -P $choice &" 2&>/dev/null
 fi

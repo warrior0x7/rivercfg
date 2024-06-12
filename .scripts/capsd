@@ -1,16 +1,13 @@
 #!/usr/bin/env bash
 
-# --------------------------------------------
-# EDIT CONDITION BELOW
-# --------------------------------------------
 toggle=0
 keyd monitor | stdbuf -o0 grep --color=never "capslock down" | while IFS= read -r line;
 do
     if [[ "$line" =~ "capslock down"$ ]]; then
-        if [ $toggle -eq 0 ]; then
+        if [ "$toggle" -eq 0 ]; then
             eww update rev_caps=true
             toggle=1
-        elif [ $toggle -eq 1 ]; then
+        elif [ "$toggle" -eq 1 ]; then
             eww update rev_caps=false
             toggle=0
         fi

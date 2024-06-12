@@ -164,7 +164,7 @@
 )
 
 (defvar tags "[1, 2, 3, 4, 5, 6, 7, 8, 9]")
-(defvar tagSymbols `["", "", "", "", "", "󱟱", "", "󰭹", "󰂔"]`)
+(defvar tagSymbols `["", "", "", "", "", "󱟱", "", "󰭹", "󰂔"]`)
 
 (defwidget left []
     (box
