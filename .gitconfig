@@ -17,3 +17,5 @@
 [color "diff"]
     old = black red
     new = black green
+[push]
+	autoSetupRemote = true

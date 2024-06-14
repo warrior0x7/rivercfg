@@ -84,7 +84,6 @@ AEOF
 # ----------------------------
 
 function bare () { /usr/bin/git --git-dir=/home/user/git/rivercfg/ --work-tree=$HOME "$@";}
-function git_relay () { $1 ;}
 
 function git_purge () {
     $1 filter-branch --index-filter "git rm -rf --cached --ignore-unmatch $2" HEAD
@@ -97,8 +96,12 @@ function git_options () {
         # ----------------------------
         a) $1 add "${@:3}" ;;
         u) $1 add -u "${@:3}" ;;
+        b) $1 branch "${@:3}" ;;
+        rb) $1 branch -d "${@:3}" ;;
+        sb) $1 checkout "${@:3}" ;;
+        bsb) $1 checkout -b "${@:3}" ;;
         c) $1 commit "${@:3}" ;;
-        p) $1 push -u origin main "${@:3}" ;;
+        p) $1 push -u origin "${@:3}" ;;
         s) $1 status "${@:3}" ;;
         l) $1 log "${@:3}" ;;
         lu) $1 ls-files --others "${@:3}" ;;
