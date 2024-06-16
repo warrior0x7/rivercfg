@@ -7,7 +7,7 @@ BAR_SCRIPTS=~/.scripts/bar
 RIVER_SCRIPTS=~/.config/river/scripts
 CMDFNS=~/.scripts/extra/cmdfns
 
-function fzfcmd { 
+function fzfcmd () { 
     fzf --color=preview-bg:'#282829',pointer:1,prompt:4,hl:4,bg+:'#45403d',fg+:7,hl+:1 \
         --bind 'tab:toggle+up,shift-tab:toggle+down,change:first' \
         --tiebreak=begin \
@@ -15,7 +15,7 @@ function fzfcmd {
         "${@:2}"
 }
 
-function notifier { 
+function notifier () { 
     case $1 in
         normal) notify-send -i "$2" "$3" "\n<b><u>$4</u></b>\n\n${@:5}"  ;;
         invalid) notify-send -i "dialog-error" "$2" "\n<b><u>Invalid argument</u>: '$3'</b>\n\n${@:4}" ;;
@@ -23,7 +23,7 @@ function notifier {
     esac
 }
 
-function fzfprompt {
+function fzfprompt () {
     echo "" |\
         fzf --print-query -0 \
             --color=pointer:0,prompt:4,hl:4,bg+:0,fg+:7,hl+:1 \
@@ -33,7 +33,7 @@ function fzfprompt {
             "${@:2}" | sed '/^$/d'
 }
 
-function mpvcmd {
+function mpvcmd () {
     notifier normal \
         "im-youtube" \
         "Mpv (mpvcmd)" \

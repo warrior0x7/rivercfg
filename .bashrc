@@ -28,7 +28,7 @@ fi
 # ----------------------------
 # VARIABLES
 # ----------------------------
-export PATH="$PATH:$HOME/.scripts:$HOME/go/bin:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 export MANPAGER="nvim +Man!"
 export EDITOR="nvim"
 alias je="xl-jump --edit"

@@ -8,7 +8,7 @@ case $1 in
     "play")
         if [ -z $process ]; then
             eww update quran_active=true 
-            mpv https://stream.radiojar.com/8s5u5tpdtwzuv
+            mpv --speed=1 https://stream.radiojar.com/8s5u5tpdtwzuv
         else
             notifier err \
                 "CairoQuran" \

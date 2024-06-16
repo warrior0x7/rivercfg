@@ -8,7 +8,7 @@ CACHE=~/.cache/dotfiles/ytrss/
     
 [ ! -f $YTSUBS ] && touch $YTSUBS
 
-function updater {
+updater () {
     [ ! -f $CACHE/tmp ] && mkdir -p $CACHE/tmp
     # [ ! -f $CACHE/videotmp ] && mkdir -p $CACHE/videotmp
     rm $CACHE/tmp/*

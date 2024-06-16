@@ -1,11 +1,5 @@
-App.config({
-    windows: [
-        // this is where window definitions will go
-    ]
-})
-
 const myLabel = Widget.Label({
-    label: 'some example content',
+    label: 'Hello World!',
 })
 
 const myBar = Widget.Window({
@@ -14,4 +8,8 @@ const myBar = Widget.Window({
     child: myLabel,
 })
 
-App.config({ windows: [myBar] })
+App.config({
+    windows: [
+        myBar
+    ]
+})
