@@ -1,4 +1,4 @@
-#!/usr/bin/env dash
+#!/usr/bin/env bash
 
 # Using Konsole because both sixel and bidi are available
 fterm () { konsole --notransparency -p tabtitle="Floating" -e "$@"; }

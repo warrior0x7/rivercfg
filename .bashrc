@@ -4,10 +4,10 @@
 # ----------------------------
 # SOURCING EXTENSIONS
 # ----------------------------
-source ~/bash/prompt
-source ~/bash/aliases
-source ~/bash/variables
-source ~/.local/lib/xlotus/xlfns
+. "$HOME/bash/prompt"
+. "$HOME/bash/aliases"
+. "$HOME/bash/variables"
+. "$HOME/.local/lib/xlotus/xlfns"
 
 # ----------------------------
 # AUTOSTART TMUX UPON LAUNCH
@@ -32,4 +32,4 @@ export PATH="$PATH:$HOME/.local/bin"
 export MANPAGER="nvim +Man!"
 export EDITOR="nvim"
 alias je="xl-jump --edit"
-alias j="source xl-jump --jump"
+alias j=". xl-jump --jump"

@@ -3,10 +3,10 @@
 # ----------------------------
 # PACKAGE MANAGER
 # ----------------------------
-alias q='pacman -Ss'                    # Search for package
+alias q='yay -Ss'                       # Search for package
 alias u='sudo pacman -Syu --noconfirm'  # Update all packages
-alias i='sudo pacman -Sy --noconfirm'   # Install package
-alias r='sudo pacman -R --noconfirm'    # Remove package
+alias i='sudo pacman -Sy'               # Install package
+alias r='sudo pacman -R'                # Remove package
 alias cc='sudo pacman -Scc'             # Clear cache
 alias o='pacman -Qdt'                   # List orphan packages
 alias info='pacman -Si'                 # Get info on package
