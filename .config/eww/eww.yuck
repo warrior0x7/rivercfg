@@ -144,7 +144,7 @@
         (eventbox
             :onhover "eww update rev_date=true"
             :onhoverlost "eww update rev_date=false"
-            :onclick `${cal_open == false ? "eww update cal_open=true; eww open calendar" : "eww update cal_open=false; eww close calendar" }`
+            :onclick `${cal_open == false ? "eww update cal_open=true; eww open calendar &" : "eww update cal_open=false; eww close calendar &" }`
             (label
                 :class "module right_side clock"
                 :text "${substring(time, 0, 8)}"
