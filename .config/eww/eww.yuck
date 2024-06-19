@@ -117,9 +117,11 @@
           )
         )
 
-        (label
+        (button
           :class `module right_side ${volume["mute"] == "false" ? "module_active" : "module_inactive"}`
-          :text `${volume["mute"] == "false" ? "" : "" } ${volume["value"]}%`
+          :onclick "~/.scripts/volumectl toggle &"
+          :onrightclick "pavucontrol &"
+          `${volume["mute"] == "false" ? "" : "" } ${volume["value"]}%`
         )
 
         (revealer

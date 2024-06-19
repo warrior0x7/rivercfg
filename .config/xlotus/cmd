@@ -1,3 +1,4 @@
-;yt add;xl-yt -a clip
+;yt add;& xl-yt -a clip
 ;yt update;& xl-yt -u
-;Calculator;[i] python3
+󱓞;run program;xl-run
+;calculator;[i] python3

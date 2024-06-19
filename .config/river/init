@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ----------------------------
 # VARIABLES
@@ -9,6 +9,7 @@ RIVER_CONFIG=~/.config/river
 TERMAN=$SCRIPTS/extra/terman
 MODRIVER=$RIVER_CONFIG/scripts/modriver
 SUSPEND_CMD="systemctl suspend"
+XLTERM="$HOME/.config/xlotus/term"
 
 # I made these variables so I can center windows in rules.
 resolution=`wlr-randr | grep --color=never "current" | awk '{print $1}'`
@@ -207,7 +208,7 @@ spawn Super A       "$TERMAN ffprofile"
 # --------------------------------------------------------
 
 # My launcher with custom config
-spawn Super R "$TERMAN run"                 
+spawn Super R "$XLTERM run"                 
 
 # Script manager to launch other shell scripts
 spawn Super Q "$TERMAN sman"
@@ -216,7 +217,10 @@ spawn Super Q "$TERMAN sman"
 spawn Super S "$TERMAN search"
 
 # Youtube RSS
-spawn Super Y "$TERMAN ytrss"
+spawn Super Y "$XLTERM yt"
+
+# Youtube RSS
+spawn Super C "$XLTERM virt"
 
 # 
 # XProp-like functionality ... not sufficient but it does the bare minimum 
@@ -362,10 +366,10 @@ float 'org.keepassxc.KeePassXC'      0                                  900     
 float 'kvantummanager'               0                                  900     550    center   center
 float 'kvantumpreview'               0                                  900     550    center   center
 float 'mpv'                         "webcam"                            300     225    right    bottom
+float 'org.pulseaudio.pavucontrol'   0                                  800     500    center   center
 float 'Nsxiv'                        0
 float 'org.fcitx.fcitx5-config-qt'   0
 float 'nm-connection-editor'         0
-float 'pavucontrol'                  0
 float 'org.kde.kdeconnect.handler'   0
 float 'org.kde.kdeconnect.daemon'    0
 
@@ -381,4 +385,9 @@ tags 'org.inkscape.Inkscape'                                           7
 tags 'org.telegram.desktop'                                            8
 tags 'Godot'                                                           9
 tags 'Godot_Engine'                                                    9
+tags 'qemu'                                                            9
 tags 'mpv'                      "webcam"                               all
+
+# Decorations
+# Server side decorations
+ruleAdd "qemu" ssd

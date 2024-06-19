@@ -23,13 +23,3 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
   	exec tmux
 
 fi
-
-
-# ----------------------------
-# VARIABLES
-# ----------------------------
-export PATH="$PATH:$HOME/.local/bin"
-export MANPAGER="nvim +Man!"
-export EDITOR="nvim"
-alias je="xl-jump --edit"
-alias j=". xl-jump --jump"

@@ -31,35 +31,44 @@ alias rm="trash"
 alias tl="trash-list"
 alias tre="trash-restore"
 alias rgi="grep . --color=never -r /sys/firmware/acpi/interrupts"
+alias sck="shellcheck"
+alias je="xl-jump --edit"
+alias j=". xl-jump --jump"
 
 function rgc () {
     grep -r "$1" *
 }
 
-function mks () {
-    if [ -n "$1" ]; then
-        if ! [ -f $1 ]; then
-            touch $1
-            cat <<-AEOF > $1
-#!/usr/bin/env bash
-
-source ~/.local/lib/xlotus/xlfns
-
-function printHelp () {
-    cat <<-EOF
+function xlm () {
+    if [ -n "$2" ]; then
+    case $1 in
+        d) 
+            touch $2
+            cat <<-AEOF > $2
 Description: 
 
-Usage:
+Usage: $2 <Option>
 
 Option: One of the following:
 
     -h , --help:
-        Prints this help page.
+        Print this help page.
+AEOF
+            ;;
 
-Project:
-    This script is a part of xlotus utilities
-    https://github.com/warrior0x7/xlotus
-EOF
+        s)
+            if [ ! -f "$2" ]; then
+                touch $2
+                cat <<-AEOF > $2
+#!/usr/bin/env bash
+
+. "\$HOME/.local/lib/xlotus/xlfns"
+
+HELP="\$XLOTUS_HELP"
+
+printHelp () {
+    cat "\$HELP/$2"
+    cat "\$HELP/footer"
 }
 
 case \$1 in
@@ -68,14 +77,16 @@ case \$1 in
         ;;
 esac
 AEOF
-            chmod +x $1
-            nvim $1
-        else
-            echo -e "File already exists\nI will open it in your EDITOR ($EDITOR)"
-            nvim $1
-        fi
+                chmod +x $2
+                nvim $2
+            else
+                echo -e "File already exists\nI will open it in your EDITOR ($EDITOR)"
+                nvim $2
+            fi
+            ;;
+    esac
     else
-        echo "No file name provided"
+        ctxt r "[ERR] second argument (filename) not provided"
     fi
 }
 

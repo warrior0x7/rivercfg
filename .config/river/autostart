@@ -1,8 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-wallpaper="`fd . ~/Pictures/wallpapers -t f | shuf -n 1`"
+. "$HOME/.local/lib/xlotus/xlfns"
 
-cleaner=("konsole" "lxpolkit" "kdeconnect-indicator" "eww" "dunst" "gammastep" "kdeconnectd" "swww-daemon" "wl-paste" "nm-applet" "$HOME/.scripts/headphoned" "$HOME/.scripts/capsd")
+BIN="$XLOTUS_BIN"
+
+wallpaper="$(fd . ~/Pictures/wallpapers -t f | shuf -n 1)"
+
+cleaner=("konsole" "lxpolkit" "kdeconnect-indicator" "eww" "dunst" "gammastep" "kdeconnectd" "swww-daemon" "wl-paste" "nm-applet")
 
 for str in "${cleaner[@]}"
 do
@@ -10,7 +14,7 @@ do
 done
 
 swww-daemon --format xrgb &
-swww img $wallpaper &
+swww img "$wallpaper" &
 konsole --background-mode &
 dunst &
 lxpolkit &
@@ -22,8 +26,5 @@ wl-paste --primary --watch cliphist store &
 kdeconnect-indicator &
 nm-applet &
 xhost + local: &
-~/.scripts/capsd &
-~/.scripts/headphoned &
 eww open bar &
-~/.scripts/ytrss update
-
+"$BIN"/xl-yt -u
