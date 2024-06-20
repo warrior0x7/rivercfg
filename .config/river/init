@@ -199,7 +199,7 @@ riverctl spawn "$RIVER_CONFIG/autostart"
 spawn Super P       keepassxc
 spawn Super Return  konsole
 spawn Super D       firefox-developer-edition
-spawn Super A       "$XLTERM ffprofile"
+spawn Super A       "$XLTERM ff"
 
 
 
