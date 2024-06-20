@@ -1,0 +1,8 @@
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+PATH="$PATH:/home/user/.local/bin"
+MANPAGER="nvim +Man!"
+EDITOR="nvim"
