@@ -198,8 +198,8 @@ riverctl spawn "$RIVER_CONFIG/autostart"
 
 spawn Super P       keepassxc
 spawn Super Return  konsole
-spawn Super D       firefox
-spawn Super A       "$TERMAN ffprofile"
+spawn Super D       firefox-developer-edition
+spawn Super A       "$XLTERM ffprofile"
 
 
 
@@ -377,7 +377,7 @@ float 'org.kde.kdeconnect.daemon'    0
 #    APP-ID                                                           TAG
 tags 'sioyek'                                                          1
 tags 'mpv'                                                             3
-tags 'firefox'                  "Mozilla Firefox"                      4
+tags 'firefoxdeveloperedition'  "Firefox Developer Edition"            4
 tags 'firefox-code'                                                    5
 tags 'anki'                     "* - Anki"                             6
 tags 'Gimp'                                                            7
