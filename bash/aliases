@@ -74,6 +74,8 @@ printHelp () {
 case \$1 in
     -h|--help) printHelp ;;
     *)
+        [ -n "\$1" ] && ctxt r "Invalid argument '\$1'\n" || ctxt r "Empty argument\n"
+        printHelp
         ;;
 esac
 AEOF
