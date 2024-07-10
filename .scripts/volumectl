@@ -10,13 +10,13 @@ function update_eww () { eww update volume="`~/.scripts/bar/volume`"; }
 case $1 in
     "down")
         if [ $muted == "false" ]; then 
-		    pamixer -d $step
+		    pamixer --allow-boost -d $step
             update_eww
 	    fi
         ;;
     "up")
         if [ $muted == "false" ]; then
-		    pamixer -i $step
+		    pamixer --allow-boost -i $step
             update_eww
 	    fi
         ;;
