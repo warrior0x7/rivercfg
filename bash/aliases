@@ -121,6 +121,7 @@ function git_options () {
         sb) $1 checkout "${@:3}" ;;
         bsb) $1 checkout -b "${@:3}" ;;
         c) $1 commit "${@:3}" ;;
+        ca) $1 commit --amend "${@:3}" ;;
         p) $1 push -u origin "${@:3}" ;;
         s) $1 status "${@:3}" ;;
         us) $1 restore --staged "${@:3}" ;;
