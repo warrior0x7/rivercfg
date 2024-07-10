@@ -6,7 +6,7 @@ BIN="$XLOTUS_BIN"
 
 wallpaper="$(fd . ~/Pictures/wallpapers -t f | shuf -n 1)"
 
-cleaner=("konsole" "lxpolkit" "kdeconnect-indicator" "eww" "dunst" "gammastep" "kdeconnectd" "swww-daemon" "wl-paste" "nm-applet")
+cleaner=("easyeffects" "foot" "lxpolkit" "kdeconnect-indicator" "eww" "dunst" "gammastep" "kdeconnectd" "swww-daemon" "wl-paste" "nm-applet")
 
 for str in "${cleaner[@]}"
 do
@@ -15,11 +15,12 @@ done
 
 swww-daemon --format xrgb &
 swww img "$wallpaper" &
-konsole --background-mode &
+easyeffects --gapplication-service -l "Advanced Auto Gain" &
 dunst &
 lxpolkit &
 gammastep -O 3500 &
 kdeconnectd &
+foot --server &
 wl-paste --type text --watch cliphist store &
 wl-paste --type image --watch cliphist store &
 wl-paste --primary --watch cliphist store &
