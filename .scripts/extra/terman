@@ -2,18 +2,14 @@
 
 # Using Konsole because both sixel and bidi are available
 fterm () { konsole --notransparency -p tabtitle="Floating" -e "$@"; }
-term () { konsole --notransparency -p tabtitle="$1" -e "${@:2}"; }
+float_foot () { footclient --app-id="floating" -e "$@"; }
 
 
 case $1 in
-    sman) fterm ~/.scripts/sman;;
+    sman) float_foot ~/.scripts/sman;;
     clip) fterm ~/.scripts/clipboard view;;
-    run) fterm ~/.scripts/cmdrunner;;
-    bmark) fterm ~/.scripts/bookmark query;;
-    ffprofile) fterm ~/.scripts/browser;;
     search) fterm ~/.scripts/search;;
-    ytrss) fterm ~/.scripts/ytrss view;;
     rename) fterm ~/.scripts/extra/rename ${@:2};;
-    rprop) term "riverprop" ~/.config/river/scripts/riverprop;;
-    fman) term "fileManager" lf;;
+    rprop) float_foot "~/.config/river/scripts/riverprop";;
+    fman) fterm "fileManager" lf;;
 esac
