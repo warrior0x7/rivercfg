@@ -16,6 +16,6 @@ if [ -n "$choice" ]; then
     input=`fzfprompt "$prompt"`
 
     if [ -n "$input" ]; then
-        nohup bash -c "firefox \"${url}$input\" &" 2&>/dev/null
+        nohup bash -c "xdg-open \"${url}$input\" &" 2&>/dev/null
     fi
 fi
