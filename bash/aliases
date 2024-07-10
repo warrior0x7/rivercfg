@@ -1,5 +1,5 @@
 #!/bin/bash
-
+alias vk='NVIM_APPNAME="kickstart-nvim" nvim'
 # ----------------------------
 # PACKAGE MANAGER
 # ----------------------------
@@ -34,6 +34,7 @@ alias rgi="grep . --color=never -r /sys/firmware/acpi/interrupts"
 alias sck="shellcheck"
 alias je="xl-jump --edit"
 alias j=". xl-jump --jump"
+alias shred="shred -u"
 
 function rgc () {
     grep -r "$1" *
@@ -42,9 +43,10 @@ function rgc () {
 function xlm () {
     if [ -n "$2" ]; then
     case $1 in
-        d) 
-            touch $2
-            cat <<-AEOF > $2
+        h) 
+            if [ ! -f "$2" ]; then
+                touch $2
+                cat <<-AEOF > $2
 Description: 
 
 Usage: $2 <Option>
@@ -54,6 +56,11 @@ Option: One of the following:
     -h , --help:
         Print this help page.
 AEOF
+                nvim $2
+            else
+                echo -e "File already exists\nI will open it in your EDITOR ($EDITOR)"
+                nvim $2
+            fi
             ;;
 
         s)
@@ -74,7 +81,7 @@ printHelp () {
 case \$1 in
     -h|--help) printHelp ;;
     *)
-        [ -n "\$1" ] && ctxt r "Invalid argument '\$1'\n" || ctxt r "Empty argument\n"
+        invalidArg "\$1"
         printHelp
         ;;
 esac
@@ -116,6 +123,7 @@ function git_options () {
         c) $1 commit "${@:3}" ;;
         p) $1 push -u origin "${@:3}" ;;
         s) $1 status "${@:3}" ;;
+        us) $1 restore --staged "${@:3}" ;;
         l) $1 log "${@:3}" ;;
         lu) $1 ls-files --others "${@:3}" ;;
         pull) $1 pull origin main --allow-unrelated-histories "${@:3}" ;;
