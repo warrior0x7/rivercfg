@@ -197,7 +197,7 @@ riverctl spawn "$RIVER_CONFIG/autostart"
 # --------------------------------------------------------
 
 spawn Super P       keepassxc
-spawn Super Return  konsole
+spawn Super Return  footclient
 spawn Super D       firefox-developer-edition
 spawn Super A       "$XLTERM ff"
 
@@ -247,7 +247,7 @@ spawn Super E "$TERMAN fman"
 # 
 # Bookmark manager
 #
-spawn Super B "$TERMAN bmark"
+spawn Super B "$XLTERM bmark"
 
 # Autotype clipboard entry from history
 spawn Super V "$TERMAN clip"
@@ -355,6 +355,7 @@ tiler Super Tab "--layout-toggle"   # toggle layout
 #       APP-ID                       APP-TITLE                           W       H       X       Y 
 float 'org.kde.konsole'             "riverprop — Konsole"               400     250    center   center
 float 'org.kde.konsole'             "Floating — Konsole"                1100    500    center   center
+float 'floating'                    0                                   1100    500    center   center
 float 'anki'                        "Browse*"                           1000    650    center   center
 float 'anki'                        "Statistics"                        1000    650    center   center
 float 'anki'                        "Preferences"                       1000    650    center   center
